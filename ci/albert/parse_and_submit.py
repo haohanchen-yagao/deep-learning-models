@@ -153,7 +153,43 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
       MetricData=[
         {
           'MetricName': 'Training time',
-          'Value': parsed_results['sop'],
+          'Value': parsed_results['time'],
+          'Dimensions': [
+              {
+                  'Name': 'Model',
+                  'Value': 'ALBERT'
+              },
+              {
+                  'Name': 'Platform',
+                  'Value': str(platform)
+              },
+              {
+                  'Name': 'Instance Type',
+                  'Value': str(instance_type)
+              },
+              {
+                  'Name': 'Num of GPUs',
+                  'Value': 'GPUs:' + str(num_gpus)
+              },
+              {
+                  'Name': 'Batch Size',
+                  'Value': 'Batch Size:' + str(batch_size)
+              },
+              {
+                  'Name': 'Trigger',
+                  'Value': str(trigger)
+              }
+          ]
+        }
+      ]
+    )
+    print(parsed_results['throughput'])
+    client.put_metric_data(
+      Namespace='ModelOptimization',
+      MetricData=[
+        {
+          'MetricName': 'Throughput',
+          'Value': parsed_results['Throughput'],
           'Dimensions': [
               {
                   'Name': 'Model',
