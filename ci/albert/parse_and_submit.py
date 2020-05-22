@@ -1,6 +1,7 @@
 import os, sys
 import boto3
 import re
+import argparse
 
 def regex_extract(text, pattern):
     m = re.search(pattern, text)
@@ -22,18 +23,21 @@ def extract_result(log_abspath):
             if 'SOP_acc: ' in line:
                 temp_sop = float(regex_extract(line, 'SOP_acc: ([-+]?\d*\.\d+|\d+)'))
                 sop = max(sop, temp_sop)
-            if 'Loss: ' in line:
+            if 'Loss: ' in line and 'MLM: ' in line:
                 temp_loss = float(regex_extract(line, 'Loss: ([-+]?\d*\.\d+|\d+)'))
                 loss = min(loss, temp_loss)
             if 'Training seconds: ' in line:
                 time = float(regex_extract(line, 'Training seconds: ([-+]?\d*\.\d+|\d+)'))
                 result['time'] = time
+            if 'EM: ' in line and 'it/s' in line:
+                throughput = float(regex_extract(line, '([-+]?\d*\.\d+|\d+)it/s'))
+                result['throughput'] = throughput
     result['mlm'] = mlm
     result['sop'] = sop
     result['loss'] = loss
     return result
 
-def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform):
+def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform, trigger):
     client = boto3.client('cloudwatch')
     print(parsed_results['loss'])
     client.put_metric_data(
@@ -62,6 +66,10 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
               {
                   'Name': 'Batch Size',
                   'Value': 'Batch Size:' + str(batch_size)
+              },
+              {
+                  'Name': 'Trigger',
+                  'Value': str(trigger)
               }
           ]
         }
@@ -94,6 +102,10 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
               {
                   'Name': 'Batch Size',
                   'Value': 'Batch Size:' + str(batch_size)
+              },
+              {
+                  'Name': 'Trigger',
+                  'Value': str(trigger)
               }
           ]
         }
@@ -126,6 +138,10 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
               {
                   'Name': 'Batch Size',
                   'Value': 'Batch Size:' + str(batch_size)
+              },
+              {
+                  'Name': 'Trigger',
+                  'Value': str(trigger)
               }
           ]
         }
@@ -158,6 +174,10 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
               {
                   'Name': 'Batch Size',
                   'Value': 'Batch Size:' + str(batch_size)
+              },
+              {
+                  'Name': 'Trigger',
+                  'Value': str(trigger)
               }
           ]
         }
@@ -167,13 +187,20 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
 
 
 if __name__ == '__main__':
-    abspath = os.path.join(os.getcwd(), sys.argv[1])
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--log', type=str, default='log.txt')
+    parser.add_argument('--num_gpus', type=str, default='8')
+    parser.add_argument('--batchsize', type=str, default='32')
+    parser.add_argument('--instance_type', type=str, default='ml.p3dn.24xlarge')
+    parser.add_argument('--platform', type=str, default='Sagemaker')
+    parser.add_argument('--trigger', type=str, default='Weekly')
+    args = parser.parse_args()
+    abspath = os.path.join(os.getcwd(), args.log)
     parsed_results = extract_result(abspath)
+    print(parsed_results['throughput'])
     print(parsed_results['loss'])
-    print(sys.argv[2])
-    print(sys.argv[3])
-    print(sys.argv[4])
+   
     if parsed_results['loss'] < 100:
-        upload_metrics(parsed_results, sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
+        upload_metrics(parsed_results, args.num_gpus, args.batchsize, args.instance_type, args.platform, args.trigger)
     else:
         print('nothing being parsed')
