@@ -39,7 +39,7 @@ def main(args):
     }
     s3_path = os.path.join(args.s3_path, time_str)
     job_name = '{}-{}-{}'.format(args.user_id, args.instance_name, time_str)
-    output_path = os.path.join(s3_path, "output", job_name)
+    output_path = os.path.join(args.out_path, "output", job_name)
     configuration = {
         'configuration': 'ci/frcnn/sagemaker_default_model_config.py', 
         's3_path': s3_path,
@@ -96,7 +96,7 @@ def parse():
     parser.add_argument("--use_rcnn_bn", help="bool", default="False")
     parser.add_argument("--use_conv", help="bool", default="True")
     parser.add_argument("--ls", help="float", default=0.0, type=float)
-
+    parser.add_argument("--out_path", help="Output Path")
     args = parser.parse_args()
     return args
 

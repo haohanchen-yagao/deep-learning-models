@@ -12,6 +12,7 @@ parser.add_argument("--instance_id1")
 parser.add_argument("--instance_id2")
 parser.add_argument("--docker_user")
 parser.add_argument("--keypair")
+parser.add_argument("--epochs")
 
 args = parser.parse_args()
 
@@ -166,7 +167,7 @@ print('container set')'''
 ################################################################
 # Setup Containers
 ################################################################
-
+ssh_client.run_on_all("docker stop mpicont")
 launch_cont = """docker run --rm -it -d --gpus all \
                     --name mpicont \
                     --net=host --uts=host --ipc=host \
@@ -266,10 +267,10 @@ mpirun --allow-run-as-root \
              --use_rcnn_bn False \
              --use_conv True \
              --ls 0.0 \
-             --epochs 1 \
+             --epochs {} \
              --name demo
 
-"""
+""".format(args.epochs)
 
 ssh_client.run_on_master('mkdir -p ~/shared_workspace/logs')
 training_thread = ssh_client.run_on_master("""docker exec mpicont bash -c \"{}\" &> ~/shared_workspace/logs/out.log""".format(training_launch))
@@ -288,5 +289,5 @@ training_thread = ssh_client.run_on_master("""docker exec mpicont bash -c \"{}\"
 
 #ssh_client.run_on_all("docker stop mpicont")
 sleep(3000)
-ssh_client.run_on_master("python ~/shared_workspace/logs/parse_and_submit.py ~/shared_workspace/logs/out.log 16 64 p3dn.24xlarge EC2 > parselog")
-ec2_client.stop_instances(InstanceIds=instances)
+ssh_client.run_on_master("python ~/shared_workspace/logs/parse_and_submit.py --log='~/shared_workspace/logs/out.log' --num_gpus='16' --batchsize='64' --instance_type='p3dn.24xlarge' --platform='EC2' --trigger='Weekly' > parselog")
+#ec2_client.stop_instances(InstanceIds=instances)

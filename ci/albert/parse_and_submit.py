@@ -147,6 +147,42 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
         }
       ]
     )
+    print(parsed_results['throughput'])
+    client.put_metric_data(
+      Namespace='ModelOptimization',
+      MetricData=[
+        {
+          'MetricName': 'Throughput',
+          'Value': parsed_results['throughput'],
+          'Dimensions': [
+              {
+                  'Name': 'Model',
+                  'Value': 'ALBERT'
+              },
+              {
+                  'Name': 'Platform',
+                  'Value': str(platform)
+              },
+              {
+                  'Name': 'Instance Type',
+                  'Value': str(instance_type)
+              },
+              {
+                  'Name': 'Num of GPUs',
+                  'Value': 'GPUs:' + str(num_gpus)
+              },
+              {
+                  'Name': 'Batch Size',
+                  'Value': 'Batch Size:' + str(batch_size)
+              },
+              {
+                  'Name': 'Trigger',
+                  'Value': str(trigger)
+              }
+          ]
+        }
+      ]
+    )
     print(parsed_results['time'])
     client.put_metric_data(
       Namespace='ModelOptimization',
@@ -183,42 +219,7 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
         }
       ]
     )
-    print(parsed_results['throughput'])
-    client.put_metric_data(
-      Namespace='ModelOptimization',
-      MetricData=[
-        {
-          'MetricName': 'Throughput',
-          'Value': parsed_results['Throughput'],
-          'Dimensions': [
-              {
-                  'Name': 'Model',
-                  'Value': 'ALBERT'
-              },
-              {
-                  'Name': 'Platform',
-                  'Value': str(platform)
-              },
-              {
-                  'Name': 'Instance Type',
-                  'Value': str(instance_type)
-              },
-              {
-                  'Name': 'Num of GPUs',
-                  'Value': 'GPUs:' + str(num_gpus)
-              },
-              {
-                  'Name': 'Batch Size',
-                  'Value': 'Batch Size:' + str(batch_size)
-              },
-              {
-                  'Name': 'Trigger',
-                  'Value': str(trigger)
-              }
-          ]
-        }
-      ]
-    )
+    
 
 
 

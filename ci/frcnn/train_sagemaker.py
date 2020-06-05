@@ -172,7 +172,7 @@ def parse():
     parser.add_argument("--schedule", help="learning rate schedule type")
     parser.add_argument("--warmup_init_lr_scale", help="float")
     parser.add_argument("--warmup_steps", help="int")
-    parser.add_argument("--epochs", help="int", default=1, type=int)
+    parser.add_argument("--epochs", help="int", default=13, type=int)
     parser.add_argument("--use_rcnn_bn", help="bool")
     parser.add_argument("--use_conv", help="bool")
     parser.add_argument("--ls", help="float")
