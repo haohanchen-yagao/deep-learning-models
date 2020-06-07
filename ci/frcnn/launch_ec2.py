@@ -6,10 +6,11 @@ import boto3
 import yaml
 import argparse
 import os
+from datetime import datetime
+import time
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--instance_id1")
-parser.add_argument("--instance_id2")
+parser.add_argument("--instance_ids", nargs="*", type=str)
 parser.add_argument("--docker_user")
 parser.add_argument("--keypair")
 parser.add_argument("--epochs")
@@ -21,9 +22,11 @@ keypair = os.getcwd() + "/" + args.keypair
 ec2_session = boto3.Session(region_name="us-east-1")
 ec2_client = ec2_session.client("ec2")
 ec2_resource = ec2_session.resource("ec2")
-
+#instance_id=['i-0db336140bbcbba5f','i-007e4412c394f6205']
+instance_id=args.instance_ids
+print(instance_id)
 #response = ec2_client.run_instances(**config)
-response = ec2_client.start_instances(InstanceIds=[args.instance_id1, args.instance_id2])
+response = ec2_client.start_instances(InstanceIds=instance_id)
 print(response)
 ################################################################
 # Create SSH interface to all instances
@@ -272,8 +275,9 @@ mpirun --allow-run-as-root \
 
 """.format(args.epochs)
 
+print(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
 ssh_client.run_on_master('mkdir -p ~/shared_workspace/logs')
-training_thread = ssh_client.run_on_master("""docker exec mpicont bash -c \"{}\" &> ~/shared_workspace/logs/out.log""".format(training_launch))
+training_thread = ssh_client.run_on_master("""docker exec mpicont bash -c \"{}\" 2>&1 | tee ~/shared_workspace/logs/out.log""".format(training_launch))
 ################################################################
 # Cleanup and shutdown
 # disconnect from notebook
@@ -286,8 +290,8 @@ training_thread = ssh_client.run_on_master("""docker exec mpicont bash -c \"{}\"
 ################################################################
 
 #notebook.disconnect()
-
-#ssh_client.run_on_all("docker stop mpicont")
-sleep(3000)
-ssh_client.run_on_master("python ~/shared_workspace/logs/parse_and_submit.py --log='~/shared_workspace/logs/out.log' --num_gpus='16' --batchsize='64' --instance_type='p3dn.24xlarge' --platform='EC2' --trigger='Weekly' > parselog")
-#ec2_client.stop_instances(InstanceIds=instances)
+print(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
+ssh_client.run_on_all("docker stop mpicont")
+ssh_client.scp_master_to_local('~/shared_workspace/logs/out.log', 'out.log')
+#ssh_client.run_on_master("python ~/shared_workspace/logs/parse_and_submit.py --log='~/shared_workspace/logs/out.log' --num_gpus='16' --batchsize='64' --instance_type='p3dn.24xlarge' --platform='EC2' --trigger='Weekly' > parselog")
+ec2_client.stop_instances(InstanceIds=instances)

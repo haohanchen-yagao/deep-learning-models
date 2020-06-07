@@ -1,4 +1,4 @@
-################################################################
+###############################################################
 # Launch DLAMI with EFA
 ################################################################
 
@@ -109,7 +109,7 @@ ssh_client.run_on_master('mkdir -p ~/shared_workspace/logs')
 ssh_client.run_on_all('date > time1')
 print(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
 start = time.time()
-training_thread = ssh_client.run_on_master("""docker exec mpicont bash -c \"{}\" &> ~/shared_workspace/logs/out.log&""".format(training_launch))
+training_thread = ssh_client.run_on_master("""docker exec mpicont bash -c \"{}\" 2>&1 | tee ~/shared_workspace/logs/out.log""".format(training_launch))
 print(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
 end = time.time()
 ################################################################
@@ -125,6 +125,6 @@ end = time.time()
 
 #notebook.disconnect()
 #ssh_client.run_on_all("docker stop mpicont")
-sleep(3000)
-ssh_client.run_on_all("python ~/shared_workspace/logs/parse_and_submit.py --log='~/shared_workspace/logs/out.log' --num_gpus='8' --batchsize='32' --instance_type='p3dn.24xlarge' --platform='EC2' --trigger='Weekly' > parselog")
+
+ssh_client.run_on_master("python ~/parse_and_submit.py --log='~/shared_workspace/logs/out.log' --num_gpus='8' --batchsize='32' --instance_type='p3dn.24xlarge' --platform='EC2' --trigger='Weekly' > parselog")
 #ec2_client.stop_instances(InstanceIds=instances)
