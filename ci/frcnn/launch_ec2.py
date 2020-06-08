@@ -14,7 +14,7 @@ parser.add_argument("--instance_ids", nargs="*", type=str)
 parser.add_argument("--docker_user")
 parser.add_argument("--keypair")
 parser.add_argument("--epochs")
-
+parser.add_argument("--nodes")
 args = parser.parse_args()
 
 keypair = os.getcwd() + "/" + args.keypair
@@ -292,6 +292,10 @@ training_thread = ssh_client.run_on_master("""docker exec mpicont bash -c \"{}\"
 #notebook.disconnect()
 print(datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
 ssh_client.run_on_all("docker stop mpicont")
+timetag = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+nodes = args.nodes
+s3name = 'frcnn-{}-node-{}-epochs-{}'.format(nodes, args.epochs, timetag)
+upload_log = 'aws s3 cp ~/shared_workspace/logs/out.log s3://anubis-playground/FasterRCNN/ec2/{}'.format(s3name)
 ssh_client.scp_master_to_local('~/shared_workspace/logs/out.log', 'out.log')
 #ssh_client.run_on_master("python ~/shared_workspace/logs/parse_and_submit.py --log='~/shared_workspace/logs/out.log' --num_gpus='16' --batchsize='64' --instance_type='p3dn.24xlarge' --platform='EC2' --trigger='Weekly' > parselog")
-ec2_client.stop_instances(InstanceIds=instances)
+#ec2_client.stop_instances(InstanceIds=instances)
