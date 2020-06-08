@@ -12,6 +12,7 @@ def format_hyperparameters(args):
         'base_learning_rate': float(args.base_learning_rate),
         'warmup_steps': int(args.warmup_steps),
         'warmup_init_lr_scale': float(args.warmup_init_lr_scale),
+        'epochs': int(args.epochs),
         'instance_type': args.instance_type,
         'instance_count': args.instance_count,
         'batch_size_per_device': args.batch_size_per_device,
