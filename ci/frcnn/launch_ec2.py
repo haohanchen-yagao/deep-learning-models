@@ -106,7 +106,7 @@ ssh_client.run_on_all('sudo chmod -R 777 ~/shared_workspace')
 print('start downloading')
 download_coco = "aws s3 cp --recursive s3://jbsnyder-sagemaker/faster-rcnn/data/ ~/shared_workspace/data > ~/s3log"
 print('downloaded')
-coco_thread = ssh_client.run_on_all(download_coco, wait=True)
+coco_thread = ssh_client.run_on_all(download_coco, wait=False)
 
 ################################################################
 # Build Docker image Takes about 10 minutes
