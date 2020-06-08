@@ -93,20 +93,20 @@ print(version_check[0]['stdout'])'''
 # mount nvme drive
 ################################################################
 
-'''ssh_client.run_on_all('mkdir -p ~/shared_workspace')
+ssh_client.run_on_all('mkdir -p ~/shared_workspace')
 ssh_client.run_on_all('sudo mkfs -t xfs /dev/nvme0n1')
 ssh_client.run_on_all('sudo mount /dev/nvme0n1 ~/shared_workspace')
 ssh_client.run_on_all('mkdir -p ~/shared_workspace/data')
-ssh_client.run_on_all('sudo chmod -R 777 ~/shared_workspace')'''
+ssh_client.run_on_all('sudo chmod -R 777 ~/shared_workspace')
 
 ################################################################
 # download coco data
 # specific to vision models
 ################################################################
-'''print('start downloading')
+print('start downloading')
 download_coco = "aws s3 cp --recursive s3://jbsnyder-sagemaker/faster-rcnn/data/ ~/shared_workspace/data > ~/s3log"
 print('downloaded')
-coco_thread = ssh_client.run_on_all(download_coco, wait=True)'''
+coco_thread = ssh_client.run_on_all(download_coco, wait=True)
 
 ################################################################
 # Build Docker image Takes about 10 minutes
@@ -189,9 +189,9 @@ ssh_client.run_on_all("docker images > ~/imagelog")
 # setup nccl tests (optional)
 ################################################################
 
-'''ssh_client.run_on_all('docker exec mpicont /bin/bash -c "cd /workspace/shared_workspace && git clone https://github.com/NVIDIA/nccl-tests.git" > ~/execlog1')
+ssh_client.run_on_all('docker exec mpicont /bin/bash -c "cd /workspace/shared_workspace && git clone https://github.com/NVIDIA/nccl-tests.git" > ~/execlog1')
 
-ssh_client.run_on_all('docker exec mpicont /bin/bash -c "cd /workspace/shared_workspace/nccl-tests && make MPI=1 MPI_HOME=/usr/local/ NCCL_HOME=/nccl/build" > ~/execlog2')'''
+ssh_client.run_on_all('docker exec mpicont /bin/bash -c "cd /workspace/shared_workspace/nccl-tests && make MPI=1 MPI_HOME=/usr/local/ NCCL_HOME=/nccl/build" > ~/execlog2')
 
 ################################################################
 # Run NCCL Tests
@@ -224,12 +224,12 @@ efa_result = ssh_client.run_on_master('docker exec mpicont bash -c \"{}\" > > ~/
 # specific to vision models
 ################################################################
 
-'''while not all([i.done() for i in coco_thread]):
+while not all([i.done() for i in coco_thread]):
     sleep(1)
     continue
 ssh_client.run_on_all('cd ~/shared_workspace/data/coco && tar -xf coco.tar')
 
-ssh_client.run_on_all("cd shared_workspace && git clone -b staging https://github.com/aws-samples/deep-learning-models")'''
+ssh_client.run_on_all("cd shared_workspace && git clone -b staging https://github.com/aws-samples/deep-learning-models")
 
 ################################################################
 # Start Jupyterlab (optional)
