@@ -15,6 +15,7 @@ from awsdet.utils.misc import ProgressBar
 from awsdet.datasets import build_dataloader
 from awsdet.utils.fileio import load, dump
 from awsdet.core.bbox import transforms
+from awsdet.core.mask.transforms import mask2result
 import tensorflow as tf
 
 class DistEvalHook(Hook):
@@ -48,25 +49,27 @@ class DistEvalHook(Hook):
         tf_dataset, num_examples = build_dataloader(self.dataset, 1, 1, num_gpus=runner.local_size, dist=True)
         # num_examples=8
         results = [None for _ in range(num_examples*runner.local_size)] # REVISIT - may require a lot of memory
+        if runner.model.mask:
+            masks = [None for _ in range(num_examples*runner.local_size)]
         if runner.rank == 0:
             prog_bar = ProgressBar(num_examples)
         for i, data_batch in enumerate(tf_dataset):
             if i >= num_examples:
                 break
             _, img_meta = data_batch
-            outputs = runner.model(data_batch, training=False) # runner.batch_processor(runner.model, data_batch, train_mode=False)
-            # print(outputs)
+            outputs = runner.model(data_batch, training=False)
             assert isinstance(outputs, dict)
             bboxes = outputs['bboxes']
             # map boxes back to original scale
             bboxes = transforms.bbox_mapping_back(bboxes, img_meta)
-            # print('>>>>', bboxes)
             labels = outputs['labels']
             scores = outputs['scores']
-            # print(labels)
-            # print(scores)
             result = transforms.bbox2result(bboxes, labels, scores, num_classes=self.dataset.CLASSES+1) # add background class
-            results[i*runner.local_size+runner.local_rank] = result
+            if runner.model.mask:
+                mask = mask2result(outputs['masks'], labels, img_meta[0])
+                results[i*runner.local_size+runner.local_rank] = (result, mask)
+            else:
+                results[i*runner.local_size+runner.local_rank] = result
             if runner.rank == 0:
                 prog_bar.update()
         # write to a file
@@ -133,9 +136,7 @@ class CocoDistEvalmAPHook(DistEvalHook):
         tmp_file = osp.join(runner.work_dir, 'temp_0')
         result_files = results2json(self.dataset, results, tmp_file)
 
-        #res_types = ['bbox', 'segm'
-        #            ] if runner.model.module.with_mask else ['bbox']
-        res_types = ['bbox']
+        res_types = ['bbox', 'segm'] if runner.model.mask else ['bbox']
         cocoGt = self.dataset.coco
         imgIds = cocoGt.getImgIds()
         for res_type in res_types:
