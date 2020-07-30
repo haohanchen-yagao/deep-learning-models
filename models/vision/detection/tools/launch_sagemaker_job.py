@@ -5,6 +5,9 @@ import os
 import argparse
 import importlib
 
+now = datetime.now()
+time_str = now.strftime("%d-%m-%Y-%H-%M")
+date_str = now.strftime("%d-%m-%Y")
 
 def main(args):
     loader = importlib.machinery.SourceFileLoader('', args.configuration)
@@ -19,7 +22,8 @@ def main(args):
     hvd_instance_type = args.instance_type
     distributions = cfg.distributions
     output_path = cfg.sagemaker_job['output_path']
-    job_name = cfg.sagemaker_job['job_name']
+    #job_name = cfg.sagemaker_job['job_name']
+    job_name='chehaoha-mrcnn-{}-nodes-{}'.format(hvd_instance_count, time_str),
     channels = cfg.channels
 
     configuration = {
