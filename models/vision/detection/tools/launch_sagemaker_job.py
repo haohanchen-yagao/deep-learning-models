@@ -43,7 +43,7 @@ def main(args):
                     output_path=output_path,
                     train_volume_size=200,
                     hyperparameters=configuration)
-    #estimator.fit(channels, wait=True, job_name=job_name)
+    estimator.fit(channels, wait=True, job_name=job_name)
     print("Launched SageMaker job:", job_name)
 
 def parse():
