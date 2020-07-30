@@ -23,7 +23,7 @@ def main(args):
     distributions = cfg.distributions
     output_path = cfg.sagemaker_job['output_path']
     #job_name = cfg.sagemaker_job['job_name']
-    job_name='chehaoha-mrcnn-{}-nodes-{}'.format(hvd_instance_count, time_str)
+    job_name='chehaoha-{}-rcnn-{}-nodes-{}'.format(args.configuration[0], hvd_instance_count, time_str)
     channels = cfg.channels
 
     configuration = {
