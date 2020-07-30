@@ -4,6 +4,13 @@
 
 # date time settings to update paths for jobs
 from datetime import datetime
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--epochs", default=12)
+parser.add_argument("--instance_count", default=1)
+parser.add_argument("--instance_type", default='ml.p3dn.24xlarge')
+
 now = datetime.now()
 time_str = now.strftime("%d-%m-%Y-%H-%M")
 date_str = now.strftime("%d-%m-%Y")
@@ -13,10 +20,11 @@ date_str = now.strftime("%d-%m-%Y")
 sagemaker_user=dict(
     user_id='mzanur',
     s3_bucket='mzanur-sagemaker',
-    docker_image='578276202366.dkr.ecr.us-east-1.amazonaws.com/mzanur-awsdet-ecr:awsdet',
+    #docker_image='578276202366.dkr.ecr.us-east-1.amazonaws.com/mzanur-awsdet-ecr:awsdet',
+    docker_image='578276202366.dkr.ecr.us-east-1.amazonaws.com/jbsnyder:dlc22sagemaker',
     hvd_processes_per_host=8,
-    hvd_instance_type='ml.p3dn.24xlarge', # 'ml.p3.16xlarge',
-    hvd_instance_count=1,
+    hvd_instance_type=args.instance_type , #'ml.p3dn.24xlarge', # ,
+    hvd_instance_count=args.instance_count,
 )
 # settings for distributed training on sagemaker
 distributions=dict(
@@ -33,8 +41,9 @@ channels=dict(
 )
 
 sagemaker_job=dict(
-    s3_path='s3://{}/faster-rcnn/outputs/{}'.format(sagemaker_user['s3_bucket'], time_str),
-    job_name='{}-frcnn-{}'.format(sagemaker_user['user_id'], time_str),
+    s3_path='s3://anubis-playground/faster-rcnn/outputs/{}'.format(time_str),
+    #job_name='{}-frcnn-{}'.format(sagemaker_user['user_id'], time_str),
+    job_name='chehaoha-frcnn-{}-nodes-{}'.format(sagemaker_user['hvd_instance_count'], time_str),
     output_path='',
 )
 sagemaker_job['output_path']='{}/output/{}'.format(sagemaker_job['s3_path'], sagemaker_job['job_name'])
