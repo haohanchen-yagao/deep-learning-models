@@ -4,13 +4,6 @@
 
 # date time settings to update paths for jobs
 from datetime import datetime
-import argparse
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--epochs", default=12)
-parser.add_argument("--instance_count", default=1)
-parser.add_argument("--instance_type", default='ml.p3dn.24xlarge')
-
 now = datetime.now()
 time_str = now.strftime("%d-%m-%Y-%H-%M")
 date_str = now.strftime("%d-%m-%Y")
@@ -23,8 +16,8 @@ sagemaker_user=dict(
     #docker_image='578276202366.dkr.ecr.us-east-1.amazonaws.com/mzanur-awsdet-ecr:awsdet',
     docker_image='578276202366.dkr.ecr.us-east-1.amazonaws.com/jbsnyder:dlc22sagemaker',
     hvd_processes_per_host=8,
-    hvd_instance_type=args.instance_type , #'ml.p3dn.24xlarge', # ,
-    hvd_instance_count=args.instance_count,
+    hvd_instance_type='ml.p3.16xlarge', #'ml.p3dn.24xlarge', # ,
+    hvd_instance_count=2,
 )
 # settings for distributed training on sagemaker
 distributions=dict(

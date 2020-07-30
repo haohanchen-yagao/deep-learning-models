@@ -43,6 +43,7 @@ def main(args):
                     output_path=output_path,
                     train_volume_size=200,
                     hyperparameters=configuration)
+
     estimator.fit(channels, wait=True, job_name=job_name)
     print("Launched SageMaker job:", job_name)
 
@@ -52,7 +53,7 @@ def parse():
     """
     parser = argparse.ArgumentParser()
     parser.add_argument("--configuration", help="SM Job configuration file")
-    parser.add_argument("--instance_count", default=2)
+    parser.add_argument("--instance_count", type=int, default=2)
     parser.add_argument("--instance_type", default="ml.p3dn.24xlarge")
     args = parser.parse_args()
     return args
