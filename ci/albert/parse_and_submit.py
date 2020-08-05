@@ -31,10 +31,10 @@ def extract_result(log_abspath):
                 temp_loss = float(regex_extract(line, 'Loss: ([-+]?\d*\.\d+|\d+)'))
                 loss = min(loss, temp_loss)
             if 'Training image download completed. Training in progress' in line:
-                start_string = regex_extract(line, '(.+?(?= Training - Training))')
+                start_string = regex_extract(line, '(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(?= Training - Training))')
                 start = datetime.strptime(start_string, '%Y-%m-%d %H:%M:%S')
             if 'MPI process finished' in line:
-                end_string = regex_extract(line, '(.+?(?=,))')
+                end_string = regex_extract(line, '(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(?=,))')
                 end = datetime.strptime(end_string, '%Y-%m-%d %H:%M:%S')
             if 'EM: ' in line and 'it/s' in line:
                 throughput = float(regex_extract(line, '([-+]?\d*\.\d+|\d+)it/s'))

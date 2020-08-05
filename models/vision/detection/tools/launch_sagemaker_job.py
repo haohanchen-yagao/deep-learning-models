@@ -16,8 +16,6 @@ def main(args):
     role='arn:aws:iam::578276202366:role/service-role/AmazonSageMaker-ExecutionRole-20191213T102663'
     main_script = 'tools/train.py'
     docker_image = cfg.sagemaker_user['docker_image']
-    print(docker_image)
-    print(cfg.sagemaker_user['hvd_processes_per_host'])
     #hvd_instance_count = cfg.sagemaker_user['hvd_instance_count']
     hvd_instance_count = args.instance_count
     #hvd_instance_type = cfg.sagemaker_user['hvd_instance_type']

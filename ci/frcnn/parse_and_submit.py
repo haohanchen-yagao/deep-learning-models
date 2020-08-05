@@ -4,7 +4,7 @@ import re
 import argparse
 from datetime import datetime
 
-folder = "Models_CV"
+folder = "Models_CV-try"
 
 def regex_extract(text, pattern):
     m = re.search(pattern, text)
@@ -44,10 +44,10 @@ def extract_result(log_abspath):
                 temp_ap_95_large = float(regex_extract(line, '(?<=maxDets\=100\s\]\s\=\s)([-+]?\d*\.\d+|\d+)'))
                 ap_95_large = max(ap_95_large, temp_ap_95_large)
             if 'Training image download completed. Training in progress' in line:
-                start_string = regex_extract(line, '(.+?(?= Training - Training))')
+                start_string = regex_extract(line, '(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(?= Training - Training))')
                 start = datetime.strptime(start_string, '%Y-%m-%d %H:%M:%S')
             if 'MPI process finished' in line:
-                end_string = regex_extract(line, '(.+?(?=,))')
+                end_string = regex_extract(line, '(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(?=,))')
                 end = datetime.strptime(end_string, '%Y-%m-%d %H:%M:%S')
             if 'task/s' in line:
                 throughput = float(regex_extract(line, '([-+]?\d*\.\d+|\d+) task/s'))
