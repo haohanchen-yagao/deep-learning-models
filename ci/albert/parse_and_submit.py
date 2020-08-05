@@ -23,21 +23,21 @@ def extract_result(log_abspath):
         for line in log:
             if 'Validation' in line and 'MLM_acc: ' in line:
                 temp_mlm = float(regex_extract(line, 'MLM_acc: ([-+]?\d*\.\d+|\d+)'))
-                mlm = max(mlm, temp_mlm)
+                mlm = temp_mlm
             if 'Validation' in line and 'SOP_acc: ' in line:
                 temp_sop = float(regex_extract(line, 'SOP_acc: ([-+]?\d*\.\d+|\d+)'))
-                sop = max(sop, temp_sop)
+                sop = temp_sop
             if 'Validation' in line and 'Loss: ' in line and 'MLM: ' in line:
                 temp_loss = float(regex_extract(line, 'Loss: ([-+]?\d*\.\d+|\d+)'))
-                loss = min(loss, temp_loss)
+                loss = temp_loss
             if 'Training image download completed. Training in progress' in line:
                 start_string = regex_extract(line, '(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(?= Training - Training))')
                 start = datetime.strptime(start_string, '%Y-%m-%d %H:%M:%S')
             if 'Finished pretraining' in line:
                 end_string = regex_extract(line, '(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(?=,))')
                 end = datetime.strptime(end_string, '%Y-%m-%d %H:%M:%S')
-            if 'EM: ' in line and 'it/s' in line:
-                throughput = float(regex_extract(line, '([-+]?\d*\.\d+|\d+)it/s'))
+            if 'It/s: ' in line:
+                throughput = float(regex_extract(line, 'It/s: ([-+]?\d*\.\d+|\d+)'))
                 result['throughput'] = throughput
     result['mlm'] = mlm
     result['sop'] = sop
