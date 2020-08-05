@@ -1,0 +1,301 @@
+2020-07-30 17:42:11 Training - Training image download completed. Training in progress
+2020-07-30T19:20:14.268-07:00
+[1,5]<stdout>:Starting new loop for GPU: 5
+
+2020-07-30T19:20:14.268-07:00
+[1,1]<stdout>:Starting new loop for GPU: 1
+
+2020-07-30T19:20:14.268-07:00
+[1,15]<stdout>:Starting new loop for GPU: 15
+
+2020-07-30T19:20:14.268-07:00
+[1,12]<stdout>:Starting new loop for GPU: 12
+
+2020-07-30T19:20:14.268-07:00
+[1,2]<stdout>:Starting new loop for GPU: 2
+
+2020-07-30T19:20:14.268-07:00
+[1,8]<stdout>:Starting new loop for GPU: 8
+
+2020-07-30T19:20:14.268-07:00
+[1,4]<stdout>:Starting new loop for GPU: 4
+
+2020-07-30T19:20:14.268-07:00
+[1,3]<stdout>:Starting new loop for GPU: 3
+
+2020-07-30T19:20:14.268-07:00
+[1,9]<stdout>:Starting new loop for GPU: 9
+
+2020-07-30T19:20:16.269-07:00
+[1,0]<stderr>:2020-07-31 02:20:15,871 - INFO - Saved checkpoint at: /opt/ml/code/work_dirs/faster_rcnn_r50_fpn_1x_coco/011/faster_rcnn
+
+2020-07-30T19:20:16.269-07:00
+[1,0]<stdout>:terminal width is too small (0), please consider widen the terminal for better progressbar visualization
+
+2020-07-30T19:20:16.269-07:00
+[1,0]<stdout>:[          ] 0/619, elapsed: 0s, ETA:[1,0]<stdout>:Starting new loop for GPU: 0
+
+2020-07-30T19:24:50.388-07:00
+[1,0]<stdout>:#015[          ] 1/619, 0.7 task/s, elapsed: 1s, ETA:   834s[1,0]<stdout>:#015[          ] 2/619, 0.7 task/s, elapsed: 3s, ETA:   858s[1,0]<stdout>:#015[          ] 3/619, 0.7 task/s, elapsed: 4s, ETA:   861s[1,0]<stdout>:#015[          ] 4/619, 0.7 task/s, elapsed: 6s, ETA:   869s[1,0]<stdout>:#015[          ] 5/619, 0.7 task/s, elapsed: 7s, ETA:   854s[1,0]<stdout>:#015[          ] 6/619, 0.7 task/s, elapsed: 8s, ETA:   838s[1,0]<stdout>:#015[          ] 7/619, 0.7 task/s, elapsed: 10s, ETA:   832s[1,0]<stdout>:#015[          ] 8/619, 0.8 task/s, elapsed: 11s, ETA:   814s[1,0]<stdout>:#015[          ] 9/619, 0.8 task/s, elapsed: 12s, ETA:   799s[1,0]<stdout>:#015[          ] 10/619, 0.8 task/s, elapsed: 13s, ETA:   800s[1,0]<stdout>:#015[          ] 11/619, 0.8 task/s, elapsed: 15s, ETA:   805s[1,0]<stdout>:#015[          ] 12/619, 0.8 task/s, elapsed: 16s, ETA:   808s[1,0]<stdout>:#015[          ] 13/619, 0.8 task/s, elapsed: 17s, ETA:   804s[1,0]<stdout>:#015[          ] 14/619, 0.8 task/s, elapsed: 19s, ETA:   803s[1,0]<stdout>:#015[          ] 15/619, 0.8 task/s, elapsed: 20s, ETA:   799s[1,0]<stdout>:#015[          ] 16/619, 0.8 task/s, elapsed: 21s, ETA:   802s[1,0]<stdout>:#015[          ] 17/619, 0.7 task/s, elapsed: 23s, ETA:   804s[1,0]<stdout>:#015[          ] 18/619, 0.7 task/s, elapsed: 24s, ETA:   805s[1,0]<stdout>:#015[          ] 19/619, 0.7 task/s, elapsed: 26s, ETA:   810s[1,0]<stdout>:#015[          ] 20/619, 0.7 task/s, elapsed: 27s, ETA:   807s[1,0]<stdout>:#015[          ] 21/619, 0.7 task/s, elapsed: 28s, ETA:   809s[1,0]<stdout>:#015[          ] 22/619, 0.7 task/s, elapsed: 30s, ETA:   811s[1,0]<stdout>:#015[          ] 23/619, 0.7 task/s, elapsed: 31s, ETA:   805s[1,0]<stdout>:#015[          ] 24/619, 0.7 task/s, elapsed: 32s, ETA:   802s[1,0]<stdout>:#015[          ] 25/619, 0.7 task/s, elapsed: 34s, ETA:   799s[1,0]<stdout>:#015[          ] 26/619, 0.7 task/s, elapsed: 35s, ETA:   800s[1,0]<stdout>:#015[          ] 27/619, 0.7 task/s, elapsed: 36s, ETA:   799s[1,0]<stdout>:#015[          ] 28/619, 0.7 task/s, elapsed: 38s, ETA:   796s[1,0]<stdout>:#015[          ] 29/619, 0.7 task/s, elapsed: 39s, ETA:   795s[1,0]<stdout>:#015[          ] 30/619, 0.7 task/s, elapsed: 40s, ETA:   793s[1,0]<stdout>:#015[          ] 31/619, 0.7 task/s, elapsed: 42s, ETA:   793s[1,0]<stdout>:#015[          ] 32/619, 0.7 task/s, elapsed: 43s, ETA:   787s[1,0]<stdout>:#015[          ] 33/619, 0.7 task/s, elapsed: 44s, ETA:   784s[1,0]<stdout>:#015[          ] 34/619, 0.7 task/s, elapsed: 45s, ETA:   782s[1,0]<stdout>:#015[          ] 35/619, 0.7 task/s, elapsed: 47s, ETA:   779s[1,0]<stdout>:#015[          ] 36/619, 0.7 task/s, elapsed: 48s, ETA:   778s[1,0]<stdout>:#015[          ] 37/619, 0.8 task/s, elapsed: 49s, ETA:   775s[1,0]<stdout>:#015[          ] 38/619, 0.8 task/s, elapsed: 51s, ETA:   772s[1,0]<stdout>:#015[          ] 39/619, 0.8 task/s, elapsed: 52s, ETA:   770s[1,0]<stdout>:#015[          ] 40/619, 0.8 task/s, elapsed: 53s, ETA:   772s[1,0]<stdout>:#015[          ] 41/619, 0.7 task/s, elapsed: 55s, ETA:   774s[1,0]<stdout>:#015[          ] 42/619, 0.7 task/s, elapsed: 56s, ETA:   773s[1,0]<stdout>:#015[          ] 43/619, 0.7 task/s, elapsed: 58s, ETA:   771s[1,0]<stdout>:#015[          ] 44/619, 0.7 task/s, elapsed: 59s, ETA:   769s[1,0]<stdout>:#015[          ] 45/619, 0.7 task/s, elapsed: 60s, ETA:   767s[1,0]<stdout>:#015[          ] 46/619, 0.7 task/s, elapsed: 61s, ETA:   766s[1,0]<stdout>:#015[          ] 47/619, 0.7 task/s, elapsed: 63s, ETA:   764s[1,0]<stdout>:#015[          ] 48/619, 0.7 task/s, elapsed: 64s, ETA:   762s[1,0]<stdout>:#015[          ] 49/619, 0.8 task/s, elapsed: 65s, ETA:   760s[1,0]<stdout>:#015[          ] 50/619, 0.7 task/s, elapsed: 67s, ETA:   759s[1,0]<stdout>:#015[          ] 51/619, 0.8 task/s, elapsed: 68s, ETA:   757s[1,0]<stdout>:#015[          ] 52/619, 0.8 task/s, elapsed: 69s, ETA:   756s[1,0]<stdout>:#015[          ] 53/619, 0.8 task/s, elapsed: 71s, ETA:   754s[1,0]<stdout>:#015[          ] 54/619, 0.8 task/s, elapsed: 72s, ETA:   750s[1,0]<stdout>:#015[          ] 55/619, 0.8 task/s, elapsed: 73s, ETA:   747s[1,0]<stdout>:#015[          ] 56/619, 0.8 task/s, elapsed: 74s, ETA:   743s[1,0]<stdout>:#015[          ] 57/619, 0.8 task/s, elapsed: 75s, ETA:   738s[1,0]<stdout>:#015[          ] 58/619, 0.8 task/s, elapsed: 76s, ETA:   738s[1,0]<stdout>:#015[          ] 59/619, 0.8 task/s, elapsed: 78s, ETA:   736s[1,0]<stdout>:#015[          ] 60/619, 0.8 task/s, elapsed: 78s, ETA:   731s[1,0]<stdout>:#015[          ] 61/619, 0.8 task/s, elapsed: 80s, ETA:   730s[1,0]<stdout>:#015[>         ] 62/619, 0.8 task/s, elapsed: 81s, ETA:   727s[1,0]<stdout>:#015[>         ] 63/619, 0.8 task/s, elapsed: 82s, ETA:   724s[1,0]<stdout>:#015[>         ] 64/619, 0.8 task/s, elapsed: 83s, ETA:   723s[1,0]<stdout>:#015[>         ] 65/619, 0.8 task/s, elapsed: 85s, ETA:   721s[1,0]<stdout>:#015[>         ] 66/619, 0.8 task/s, elapsed: 86s, ETA:   720s[1,0]<stdout>:#015[>         ] 67/619, 0.8 task/s, elapsed: 87s, ETA:   718s[1,0]<stdout>:#015[>         ] 68/619, 0.8 task/s, elapsed: 88s, ETA:   715s[1,0]<stdout>:#015[>         ] 69/619, 0.8 task/s, elapsed: 89s, ETA:   713s[1,0]<stdout>:#015[>         ] 70/619, 0.8 task/s, elapsed: 91s, ETA:   713s[1,0]<stdout>:#015[>         ] 71/619, 0.8 task/s, elapsed: 92s, ETA:   712s[1,0]<stdout>:#015[>         ] 72/619, 0.8 task/s, elapsed: 94s, ETA:   711s[1,0]<stdout>:#015[>         ] 73/619, 0.8 task/s, elapsed: 95s, ETA:   707s[1,0]<stdout>:#015[>         ] 74/619, 0.8 task/s, elapsed: 96s, ETA:   706s[1,0]<stdout>:#015[>         ] 75/619, 0.8 task/s, elapsed: 97s, ETA:   703s[1,0]<stdout>:#015[>         ] 76/619, 0.8 task/s, elapsed: 98s, ETA:   701s[1,0]<stdout>:#015[>         ] 77/619, 0.8 task/s, elapsed: 99s, ETA:   699s[1,0]<stdout>:#015[>         ] 78/619, 0.8 task/s, elapsed: 101s, ETA:   698s[1,0]<stdout>:#015[>         ] 79/619, 0.8 task/s, elapsed: 102s, ETA:   697s[1,0]<stdout>:#015[>         ] 80/619, 0.8 task/s, elapsed: 103s, ETA:   694s[1,0]<stdout>:#015[>         ] 81/619, 0.8 task/s, elapsed: 104s, ETA:   693s[1,0]<stdout>:#015[>         ] 82/619, 0.8 task/s, elapsed: 106s, ETA:   691s[1,0]<stdout>:#015[>         ] 83/619, 0.8 task/s, elapsed: 107s, ETA:   690s[1,0]<stdout>:#015[>         ] 84/619, 0.8 task/s, elapsed: 108s, ETA:   686s[1,0]<stdout>:#015[>         ] 85/619, 0.8 task/s, elapsed: 109s, ETA:   684s[1,0]<stdout>:#015[>         ] 86/619, 0.8 task/s, elapsed: 110s, ETA:   683s[1,0]<stdout>:#015[>         ] 87/619, 0.8 task/s, elapsed: 111s, ETA:   681s[1,0]<stdout>:#015[>         ] 88/619, 0.8 task/s, elapsed: 113s, ETA:   679s[1,0]<stdout>:#015[>         ] 89/619, 0.8 task/s, elapsed: 114s, ETA:   678s[1,0]<stdout>:#015[>         ] 90/619, 0.8 task/s, elapsed: 115s, ETA:   676s[1,0]<stdout>:#015[>         ] 91/619, 0.8 task/s, elapsed: 116s, ETA:   674s[1,0]<stdout>:#015[>         ] 92/619, 0.8 task/s, elapsed: 118s, ETA:   674s[1,0]<stdout>:#015[>         ] 93/619, 0.8 task/s, elapsed: 119s, ETA:   672s[1,0]<stdout>:#015[>         ] 94/619, 0.8 task/s, elapsed: 120s, ETA:   670s[1,0]<stdout>:#015[>         ] 95/619, 0.8 task/s, elapsed: 121s, ETA:   667s[1,0]<stdout>:#015[>         ] 96/619, 0.8 task/s, elapsed: 122s, ETA:   665s[1,0]<stdout>:#015[>         ] 97/619, 0.8 task/s, elapsed: 123s, ETA:   663s[1,0]<stdout>:#015[>         ] 98/619, 0.8 task/s, elapsed: 125s, ETA:   662s[1,0]<stdout>:#015[>         ] 99/619, 0.8 task/s, elapsed: 126s, ETA:   661s[1,0]<stdout>:#015[>         ] 100/619, 0.8 task/s, elapsed: 127s, ETA:   659s[1,0]<stdout>:#015[>         ] 101/619, 0.8 task/s, elapsed: 128s, ETA:   659s[1,0]<stdout>:#015[>         ] 102/619, 0.8 task/s, elapsed: 130s, ETA:   657s[1,0]<stdout>:#015[>         ] 103/619, 0.8 task/s, elapsed: 131s, ETA:   655s[1,0]<stdout>:#015[>         ] 104/619, 0.8 task/s, elapsed: 132s, ETA:   652s[1,0]<stdout>:#015[>         ] 105/619, 0.8 task/s, elapsed: 133s, ETA:   651s[1,0]<stdout>:#015[>         ] 106/619, 0.8 task/s, elapsed: 134s, ETA:   648s[1,0]<stdout>:#015[>         ] 107/619, 0.8 task/s, elapsed: 135s, ETA:   646s[1,0]<stdout>:#015[>         ] 108/619, 0.8 task/s, elapsed: 136s, ETA:   645s[1,0]<stdout>:#015[>         ] 109/619, 0.8 task/s, elapsed: 137s, ETA:   642s[1,0]<stdout>:#015[>         ] 110/619, 0.8 task/s, elapsed: 138s, ETA:   640s[1,0]<stdout>:#015[>         ] 111/619, 0.8 task/s, elapsed: 139s, ETA:   638s[1,0]<stdout>:#015[>         ] 112/619, 0.8 task/s, elapsed: 141s, ETA:   637s[1,0]<stdout>:#015[>         ] 113/619, 0.8 task/s, elapsed: 142s, ETA:   635s[1,0]<stdout>:#015[>         ] 114/619, 0.8 task/s, elapsed: 143s, ETA:   634s[1,0]<stdout>:#015[>         ] 115/619, 0.8 task/s, elapsed: 144s, ETA:   633s[1,0]<stdout>:#015[>         ] 116/619, 0.8 task/s, elapsed: 146s, ETA:   631s[1,0]<stdout>:#015[>         ] 117/619, 0.8 task/s, elapsed: 147s, ETA:   631s[1,0]<stdout>:#015[>         ] 118/619, 0.8 task/s, elapsed: 148s, ETA:   630s[1,0]<stdout>:#015[>         ] 119/619, 0.8 task/s, elapsed: 149s, ETA:   628s[1,0]<stdout>:#015[>         ] 120/619, 0.8 task/s, elapsed: 150s, ETA:   625s[1,0]<stdout>:#015[>         ] 121/619, 0.8 task/s, elapsed: 152s, ETA:   624s[1,0]<stdout>:#015[>         ] 122/619, 0.8 task/s, elapsed: 153s, ETA:   623s[1,0]<stdout>:#015[>         ] 123/619, 0.8 task/s, elapsed: 154s, ETA:   622s[1,0]<stdout>:#015[>>        ] 124/619, 0.8 task/s, elapsed: 155s, ETA:   619s[1,0]<stdout>:#015[>>        ] 125/619, 0.8 task/s, elapsed: 156s, ETA:   618s[1,0]<stdout>:#015[>>        ] 126/619, 0.8 task/s, elapsed: 158s, ETA:   617s[1,0]<stdout>:#015[>>        ] 127/619, 0.8 task/s, elapsed: 159s, ETA:   615s[1,0]<stdout>:#015[>>        ] 128/619, 0.8 task/s, elapsed: 160s, ETA:   615s[1,0]<stdout>:#015[>>        ] 129/619, 0.8 task/s, elapsed: 161s, ETA:   613s[1,0]<stdout>:#015[>>        ] 130/619, 0.8 task/s, elapsed: 163s, ETA:   612s[1,0]<stdout>:#015[>>        ] 131/619, 0.8 task/s, elapsed: 164s, ETA:   611s[1,0]<stdout>:#015[>>        ] 132/619, 0.8 task/s, elapsed: 165s, ETA:   609s[1,0]<stdout>:#015[>>        ] 133/619, 0.8 task/s, elapsed: 166s, ETA:   608s[1,0]<stdout>:#015[>>        ] 134/619, 0.8 task/s, elapsed: 168s, ETA:   607s[1,0]<stdout>:#015[>>        ] 135/619, 0.8 task/s, elapsed: 169s, ETA:   605s[1,0]<stdout>:#015[>>        ] 136/619, 0.8 task/s, elapsed: 170s, ETA:   604s[1,0]<stdout>:#015[>>        ] 137/619, 0.8 task/s, elapsed: 171s, ETA:   602s[1,0]<stdout>:#015[>>        ] 138/619, 0.8 task/s, elapsed: 172s, ETA:   601s[1,0]<stdout>:#015[>>        ] 139/619, 0.8 task/s, elapsed: 174s, ETA:   599s[1,0]<stdout>:#015[>>        ] 140/619, 0.8 task/s, elapsed: 175s, ETA:   598s[1,0]<stdout>:#015[>>        ] 141/619, 0.8 task/s, elapsed: 176s, ETA:   596s[1,0]<stdout>:#015[>>        ] 142/619, 0.8 task/s, elapsed: 177s, ETA:   594s[1,0]<stdout>:#015[>>        ] 143/619, 0.8 task/s, elapsed: 178s, ETA:   593s[1,0]<stdout>:#015[>>        ] 144/619, 0.8 task/s, elapsed: 180s, ETA:   592s[1,0]<stdout>:#015[>>        ] 145/619, 0.8 task/s, elapsed: 181s, ETA:   591s[1,0]<stdout>:#015[>>        ] 146/619, 0.8 task/s, elapsed: 182s, ETA:   590s[1,0]<stdout>:#015[>>        ] 147/619, 0.8 task/s, elapsed: 183s, ETA:   589s[1,0]<stdout>:#015[>>        ] 148/619, 0.8 task/s, elapsed: 184s, ETA:   587s[1,0]<stdout>:#015[>>        ] 149/619, 0.8 task/s, elapsed: 186s, ETA:   585s[1,0]<stdout>:#015[>>        ] 150/619, 0.8 task/s, elapsed: 187s, ETA:   584s[1,0]<stdout>:#015[>>        ] 151/619, 0.8 task/s, elapsed: 188s, ETA:   583s[1,0]<stdout>:#015[>>        ] 152/619, 0.8 task/s, elapsed: 189s, ETA:   582s[1,0]<stdout>:#015[>>        ] 153/619, 0.8 task/s, elapsed: 191s, ETA:   581s[1,0]<stdout>:#015[>>        ] 154/619, 0.8 task/s, elapsed: 192s, ETA:   579s[1,0]<stdout>:#015[>>        ] 155/619, 0.8 task/s, elapsed: 193s, ETA:   577s[1,0]<stdout>:#015[>>        ] 156/619, 0.8 task/s, elapsed: 194s, ETA:   575s[1,0]<stdout>:#015[>>        ] 157/619, 0.8 task/s, elapsed: 195s, ETA:   574s[1,0]<stdout>:#015[>>        ] 158/619, 0.8 task/s, elapsed: 196s, ETA:   573s[1,0]<stdout>:#015[>>        ] 159/619, 0.8 task/s, elapsed: 197s, ETA:   571s[1,0]<stdout>:#015[>>        ] 160/619, 0.8 task/s, elapsed: 199s, ETA:   570s[1,0]<stdout>:#015[>>        ] 161/619, 0.8 task/s, elapsed: 200s, ETA:   569s[1,0]<stdout>:#015[>>        ] 162/619, 0.8 task/s, elapsed: 201s, ETA:   568s[1,0]<stdout>:#015[>>        ] 163/619, 0.8 task/s, elapsed: 203s, ETA:   567s[1,0]<stdout>:#015[>>        ] 164/619, 0.8 task/s, elapsed: 204s, ETA:   566s[1,0]<stdout>:#015[>>        ] 165/619, 0.8 task/s, elapsed: 205s, ETA:   565s[1,0]<stdout>:#015[>>        ] 166/619, 0.8 task/s, elapsed: 206s, ETA:   563s[1,0]<stdout>:#015[>>        ] 167/619, 0.8 task/s, elapsed: 208s, ETA:   562s[1,0]<stdout>:#015[>>        ] 168/619, 0.8 task/s, elapsed: 209s, ETA:   560s[1,0]<stdout>:#015[>>        ] 169/619, 0.8 task/s, elapsed: 210s, ETA:   558s[1,0]<stdout>:#015[>>        ] 170/619, 0.8 task/s, elapsed: 211s, ETA:   557s[1,0]<stdout>:#015[>>        ] 171/619, 0.8 task/s, elapsed: 212s, ETA:   556s[1,0]<stdout>:#015[>>        ] 172/619, 0.8 task/s, elapsed: 213s, ETA:   554s[1,0]<stdout>:#015[>>        ] 173/619, 0.8 task/s, elapsed: 215s, ETA:   553s[1,0]<stdout>:#015[>>        ] 174/619, 0.8 task/s, elapsed: 216s, ETA:   552s[1,0]<stdout>:#015[>>        ] 175/619, 0.8 task/s, elapsed: 217s, ETA:   551s[1,0]<stdout>:#015[>>        ] 176/619, 0.8 task/s, elapsed: 218s, ETA:   549s[1,0]<stdout>:#015[>>        ] 177/619, 0.8 task/s, elapsed: 219s, ETA:   548s[1,0]<stdout>:#015[>>        ] 178/619, 0.8 task/s, elapsed: 221s, ETA:   546s[1,0]<stdout>:#015[>>        ] 179/619, 0.8 task/s, elapsed: 222s, ETA:   545s[1,0]<stdout>:#015[>>        ] 180/619, 0.8 task/s, elapsed: 223s, ETA:   543s[1,0]<stdout>:#015[>>        ] 181/619, 0.8 task/s, elapsed: 224s, ETA:   542s[1,0]<stdout>:#015[>>        ] 182/619, 0.8 task/s, elapsed: 225s, ETA:   540s[1,0]<stdout>:#015[>>        ] 183/619, 0.8 task/s, elapsed: 226s, ETA:   539s[1,0]<stdout>:#015[>>        ] 184/619, 0.8 task/s, elapsed: 228s, ETA:   538s[1,0]<stdout>:#015[>>        ] 185/619, 0.8 task/s, elapsed: 229s, ETA:   537s[1,0]<stdout>:#015[>>>       ] 186/619, 0.8 task/s, elapsed: 230s, ETA:   536s[1,0]<stdout>:#015[>>>       ] 187/619, 0.8 task/s, elapsed: 231s, ETA:   535s[1,0]<stdout>:#015[>>>       ] 188/619, 0.8 task/s, elapsed: 233s, ETA:   534s[1,0]<stdout>:#015[>>>       ] 189/619, 0.8 task/s, elapsed: 234s, ETA:   533s[1,0]<stdout>:#015[>>>       ] 190/619, 0.8 task/s, elapsed: 235s, ETA:   532s[1,0]<stdout>:#015[>>>       ] 191/619, 0.8 task/s, elapsed: 237s, ETA:   530s[1,0]<stdout>:#015[>>>       ] 192/619, 0.8 task/s, elapsed: 238s, ETA:   530s[1,0]<stdout>:#015[>>>       ] 193/619, 0.8 task/s, elapsed: 239s, ETA:   528s[1,0]<stdout>:#015[>>>       ] 194/619, 0.8 task/s, elapsed: 241s, ETA:   527s[1,0]<stdout>:#015[>>>       ] 195/619, 0.8 task/s, elapsed: 242s, ETA:   526s[1,0]<stdout>:#015[>>>       ] 196/619, 0.8 task/s, elapsed: 243s, ETA:   524s[1,0]<stdout>:#015[>>>       ] 197/619, 0.8 task/s, elapsed: 244s, ETA:   523s[1,0]<stdout>:#015[>>>       ] 198/619, 0.8 task/s, elapsed: 245s, ETA:   522s[1,0]<stdout>:#015[>>>       ] 199/619, 0.8 task/s, elapsed: 247s, ETA:   521s[1,0]<stdout>:#015[>>>       ] 200/619, 0.8 task/s, elapsed: 248s, ETA:   520s[1,0]<stdout>:#015[>>>       ] 201/619, 0.8 task/s, elapsed: 249s, ETA:   518s[1,0]<stdout>:#015[>>>       ] 202/619, 0.8 task/s, elapsed: 251s, ETA:   517s[1,0]<stdout>:#015[>>>       ] 203/619, 0.8 task/s, elapsed: 252s, ETA:   516s[1,0]<stdout>:#015[>>>       ] 204/619, 0.8 task/s, elapsed: 253s, ETA:   515s[1,0]<stdout>:#015[>>>       ] 205/619, 0.8 task/s, elapsed: 254s, ETA:   514s[1,0]<stdout>:#015[>>>       ] 206/619, 0.8 task/s, elapsed: 256s, ETA:   513s[1,0]<stdout>:#015[>>>       ] 207/619, 0.8 task/s, elapsed: 257s, ETA:   512s[1,0]<stdout>:#015[>>>       ] 208/619, 0.8 task/s, elapsed: 258s, ETA:   510s[1,0]<stdout>:#015[>>>       ] 209/619, 0.8 task/s, elapsed: 259s, ETA:   509s[1,0]<stdout>:#015[>>>       ] 210/619, 0.8 task/s, elapsed: 261s, ETA:   508s[1,0]<stdout>:#015[>>>       ] 211/619, 0.8 task/s, elapsed: 262s, ETA:   506s[1,0]<stdout>:#015[>>>       ] 212/619, 0.8 task/s, elapsed: 263s, ETA:   505s[1,0]<stdout>:#015[>>>       ] 213/619, 0.8 task/s, elapsed: 264s, ETA:   503s[1,0]<stdout>:#015[>>>       ] 214/619, 0.8 task/s, elapsed: 265s, ETA:   502s[1,0]<stdout>:#015[>>>       ] 215/619, 0.8 task/s, elapsed: 267s, ETA:   501s[1,0]<stdout>:#015[>>>       ] 216/619, 0.8 task/s, elapsed: 268s, ETA:   499s[1,0]<stdout>:#015[>>>       ] 217/619, 0.8 task/s, elapsed: 269s, ETA:   498s[1,0]<stdout>:#015[>>>       ] 218/619, 0.8 task/s, elapsed: 270s, ETA:   497s[1,0]<stdout>:#015[>>>       ] 219/619, 0.8 task/s, elapsed: 271s, ETA:   495s[1,0]<stdout>:#015[>>>       ] 220/619, 0.8 task/s, elapsed: 272s, ETA:   494s[1,0]<stdout>:#015[>>>       ] 221/619, 0.8 task/s, elapsed: 274s, ETA:   493s
+
+2020-07-30T19:29:18.499-07:00
+[1,0]<stdout>:#015[>>>       ] 222/619, 0.8 task/s, elapsed: 275s, ETA:   491s[1,0]<stdout>:#015[>>>       ] 223/619, 0.8 task/s, elapsed: 276s, ETA:   490s[1,0]<stdout>:#015[>>>       ] 224/619, 0.8 task/s, elapsed: 277s, ETA:   488s[1,0]<stdout>:#015[>>>       ] 225/619, 0.8 task/s, elapsed: 278s, ETA:   487s[1,0]<stdout>:#015[>>>       ] 226/619, 0.8 task/s, elapsed: 279s, ETA:   486s[1,0]<stdout>:#015[>>>       ] 227/619, 0.8 task/s, elapsed: 281s, ETA:   485s[1,0]<stdout>:#015[>>>       ] 228/619, 0.8 task/s, elapsed: 282s, ETA:   483s[1,0]<stdout>:#015[>>>       ] 229/619, 0.8 task/s, elapsed: 283s, ETA:   482s[1,0]<stdout>:#015[>>>       ] 230/619, 0.8 task/s, elapsed: 284s, ETA:   480s[1,0]<stdout>:#015[>>>       ] 231/619, 0.8 task/s, elapsed: 285s, ETA:   479s[1,0]<stdout>:#015[>>>       ] 232/619, 0.8 task/s, elapsed: 286s, ETA:   478s[1,0]<stdout>:#015[>>>       ] 233/619, 0.8 task/s, elapsed: 288s, ETA:   477s[1,0]<stdout>:#015[>>>       ] 234/619, 0.8 task/s, elapsed: 289s, ETA:   475s[1,0]<stdout>:#015[>>>       ] 235/619, 0.8 task/s, elapsed: 290s, ETA:   474s[1,0]<stdout>:#015[>>>       ] 236/619, 0.8 task/s, elapsed: 291s, ETA:   473s[1,0]<stdout>:#015[>>>       ] 237/619, 0.8 task/s, elapsed: 293s, ETA:   472s[1,0]<stdout>:#015[>>>       ] 238/619, 0.8 task/s, elapsed: 294s, ETA:   470s[1,0]<stdout>:#015[>>>       ] 239/619, 0.8 task/s, elapsed: 295s, ETA:   469s[1,0]<stdout>:#015[>>>       ] 240/619, 0.8 task/s, elapsed: 296s, ETA:   468s[1,0]<stdout>:#015[>>>       ] 241/619, 0.8 task/s, elapsed: 298s, ETA:   467s[1,0]<stdout>:#015[>>>       ] 242/619, 0.8 task/s, elapsed: 299s, ETA:   466s[1,0]<stdout>:#015[>>>       ] 243/619, 0.8 task/s, elapsed: 300s, ETA:   464s[1,0]<stdout>:#015[>>>       ] 244/619, 0.8 task/s, elapsed: 301s, ETA:   463s[1,0]<stdout>:#015[>>>       ] 245/619, 0.8 task/s, elapsed: 302s, ETA:   462s[1,0]<stdout>:#015[>>>       ] 246/619, 0.8 task/s, elapsed: 304s, ETA:   460s[1,0]<stdout>:#015[>>>       ] 247/619, 0.8 task/s, elapsed: 305s, ETA:   459s[1,0]<stdout>:#015[>>>>      ] 248/619, 0.8 task/s, elapsed: 306s, ETA:   458s[1,0]<stdout>:#015[>>>>      ] 249/619, 0.8 task/s, elapsed: 307s, ETA:   457s[1,0]<stdout>:#015[>>>>      ] 250/619, 0.8 task/s, elapsed: 309s, ETA:   456s[1,0]<stdout>:#015[>>>>      ] 251/619, 0.8 task/s, elapsed: 310s, ETA:   454s[1,0]<stdout>:#015[>>>>      ] 252/619, 0.8 task/s, elapsed: 311s, ETA:   453s[1,0]<stdout>:#015[>>>>      ] 253/619, 0.8 task/s, elapsed: 313s, ETA:   452s[1,0]<stdout>:#015[>>>>      ] 254/619, 0.8 task/s, elapsed: 314s, ETA:   451s[1,0]<stdout>:#015[>>>>      ] 255/619, 0.8 task/s, elapsed: 315s, ETA:   450s[1,0]<stdout>:#015[>>>>      ] 256/619, 0.8 task/s, elapsed: 316s, ETA:   448s[1,0]<stdout>:#015[>>>>      ] 257/619, 0.8 task/s, elapsed: 317s, ETA:   447s[1,0]<stdout>:#015[>>>>      ] 258/619, 0.8 task/s, elapsed: 319s, ETA:   446s[1,0]<stdout>:#015[>>>>      ] 259/619, 0.8 task/s, elapsed: 320s, ETA:   444s[1,0]<stdout>:#015[>>>>      ] 260/619, 0.8 task/s, elapsed: 321s, ETA:   443s[1,0]<stdout>:#015[>>>>      ] 261/619, 0.8 task/s, elapsed: 322s, ETA:   442s[1,0]<stdout>:#015[>>>>      ] 262/619, 0.8 task/s, elapsed: 323s, ETA:   441s[1,0]<stdout>:#015[>>>>      ] 263/619, 0.8 task/s, elapsed: 325s, ETA:   439s[1,0]<stdout>:#015[>>>>      ] 264/619, 0.8 task/s, elapsed: 326s, ETA:   438s[1,0]<stdout>:#015[>>>>      ] 265/619, 0.8 task/s, elapsed: 327s, ETA:   437s[1,0]<stdout>:#015[>>>>      ] 266/619, 0.8 task/s, elapsed: 328s, ETA:   435s[1,0]<stdout>:#015[>>>>      ] 267/619, 0.8 task/s, elapsed: 329s, ETA:   434s[1,0]<stdout>:#015[>>>>      ] 268/619, 0.8 task/s, elapsed: 331s, ETA:   433s[1,0]<stdout>:#015[>>>>      ] 269/619, 0.8 task/s, elapsed: 332s, ETA:   432s[1,0]<stdout>:#015[>>>>      ] 270/619, 0.8 task/s, elapsed: 333s, ETA:   430s[1,0]<stdout>:#015[>>>>      ] 271/619, 0.8 task/s, elapsed: 334s, ETA:   429s[1,0]<stdout>:#015[>>>>      ] 272/619, 0.8 task/s, elapsed: 335s, ETA:   428s[1,0]<stdout>:#015[>>>>      ] 273/619, 0.8 task/s, elapsed: 336s, ETA:   426s[1,0]<stdout>:#015[>>>>      ] 274/619, 0.8 task/s, elapsed: 338s, ETA:   425s[1,0]<stdout>:#015[>>>>      ] 275/619, 0.8 task/s, elapsed: 339s, ETA:   424s[1,0]<stdout>:#015[>>>>      ] 276/619, 0.8 task/s, elapsed: 340s, ETA:   422s[1,0]<stdout>:#015[>>>>      ] 277/619, 0.8 task/s, elapsed: 341s, ETA:   421s[1,0]<stdout>:#015[>>>>      ] 278/619, 0.8 task/s, elapsed: 342s, ETA:   420s[1,0]<stdout>:#015[>>>>      ] 279/619, 0.8 task/s, elapsed: 344s, ETA:   419s[1,0]<stdout>:#015[>>>>      ] 280/619, 0.8 task/s, elapsed: 345s, ETA:   418s[1,0]<stdout>:#015[>>>>      ] 281/619, 0.8 task/s, elapsed: 346s, ETA:   417s[1,0]<stdout>:#015[>>>>      ] 282/619, 0.8 task/s, elapsed: 348s, ETA:   415s[1,0]<stdout>:#015[>>>>      ] 283/619, 0.8 task/s, elapsed: 349s, ETA:   414s[1,0]<stdout>:#015[>>>>      ] 284/619, 0.8 task/s, elapsed: 350s, ETA:   413s[1,0]<stdout>:#015[>>>>      ] 285/619, 0.8 task/s, elapsed: 351s, ETA:   411s[1,0]<stdout>:#015[>>>>      ] 286/619, 0.8 task/s, elapsed: 352s, ETA:   410s[1,0]<stdout>:#015[>>>>      ] 287/619, 0.8 task/s, elapsed: 353s, ETA:   409s[1,0]<stdout>:#015[>>>>      ] 288/619, 0.8 task/s, elapsed: 355s, ETA:   408s[1,0]<stdout>:#015[>>>>      ] 289/619, 0.8 task/s, elapsed: 356s, ETA:   406s[1,0]<stdout>:#015[>>>>      ] 290/619, 0.8 task/s, elapsed: 357s, ETA:   405s[1,0]<stdout>:#015[>>>>      ] 291/619, 0.8 task/s, elapsed: 359s, ETA:   404s[1,0]<stdout>:#015[>>>>      ] 292/619, 0.8 task/s, elapsed: 360s, ETA:   403s[1,0]<stdout>:#015[>>>>      ] 293/619, 0.8 task/s, elapsed: 361s, ETA:   402s[1,0]<stdout>:#015[>>>>      ] 294/619, 0.8 task/s, elapsed: 362s, ETA:   400s[1,0]<stdout>:#015[>>>>      ] 295/619, 0.8 task/s, elapsed: 363s, ETA:   399s[1,0]<stdout>:#015[>>>>      ] 296/619, 0.8 task/s, elapsed: 365s, ETA:   398s[1,0]<stdout>:#015[>>>>      ] 297/619, 0.8 task/s, elapsed: 366s, ETA:   397s[1,0]<stdout>:#015[>>>>      ] 298/619, 0.8 task/s, elapsed: 367s, ETA:   396s[1,0]<stdout>:#015[>>>>      ] 299/619, 0.8 task/s, elapsed: 369s, ETA:   395s[1,0]<stdout>:#015[>>>>      ] 300/619, 0.8 task/s, elapsed: 370s, ETA:   393s[1,0]<stdout>:#015[>>>>      ] 301/619, 0.8 task/s, elapsed: 371s, ETA:   392s[1,0]<stdout>:#015[>>>>      ] 302/619, 0.8 task/s, elapsed: 373s, ETA:   391s[1,0]<stdout>:#015[>>>>      ] 303/619, 0.8 task/s, elapsed: 374s, ETA:   390s[1,0]<stdout>:#015[>>>>      ] 304/619, 0.8 task/s, elapsed: 375s, ETA:   388s[1,0]<stdout>:#015[>>>>      ] 305/619, 0.8 task/s, elapsed: 376s, ETA:   387s[1,0]<stdout>:#015[>>>>      ] 306/619, 0.8 task/s, elapsed: 377s, ETA:   386s[1,0]<stdout>:#015[>>>>      ] 307/619, 0.8 task/s, elapsed: 378s, ETA:   385s[1,0]<stdout>:#015[>>>>      ] 308/619, 0.8 task/s, elapsed: 380s, ETA:   383s[1,0]<stdout>:#015[>>>>      ] 309/619, 0.8 task/s, elapsed: 381s, ETA:   382s[1,0]<stdout>:#015[>>>>>     ] 310/619, 0.8 task/s, elapsed: 382s, ETA:   381s[1,0]<stdout>:#015[>>>>>     ] 311/619, 0.8 task/s, elapsed: 384s, ETA:   380s[1,0]<stdout>:#015[>>>>>     ] 312/619, 0.8 task/s, elapsed: 385s, ETA:   379s[1,0]<stdout>:#015[>>>>>     ] 313/619, 0.8 task/s, elapsed: 386s, ETA:   377s[1,0]<stdout>:#015[>>>>>     ] 314/619, 0.8 task/s, elapsed: 387s, ETA:   376s[1,0]<stdout>:#015[>>>>>     ] 315/619, 0.8 task/s, elapsed: 388s, ETA:   375s[1,0]<stdout>:#015[>>>>>     ] 316/619, 0.8 task/s, elapsed: 390s, ETA:   374s[1,0]<stdout>:#015[>>>>>     ] 317/619, 0.8 task/s, elapsed: 391s, ETA:   372s[1,0]<stdout>:#015[>>>>>     ] 318/619, 0.8 task/s, elapsed: 392s, ETA:   371s[1,0]<stdout>:#015[>>>>>     ] 319/619, 0.8 task/s, elapsed: 393s, ETA:   370s[1,0]<stdout>:#015[>>>>>     ] 320/619, 0.8 task/s, elapsed: 395s, ETA:   369s[1,0]<stdout>:#015[>>>>>     ] 321/619, 0.8 task/s, elapsed: 396s, ETA:   367s[1,0]<stdout>:#015[>>>>>     ] 322/619, 0.8 task/s, elapsed: 397s, ETA:   366s[1,0]<stdout>:#015[>>>>>     ] 323/619, 0.8 task/s, elapsed: 398s, ETA:   365s[1,0]<stdout>:#015[>>>>>     ] 324/619, 0.8 task/s, elapsed: 399s, ETA:   364s[1,0]<stdout>:#015[>>>>>     ] 325/619, 0.8 task/s, elapsed: 401s, ETA:   362s[1,0]<stdout>:#015[>>>>>     ] 326/619, 0.8 task/s, elapsed: 402s, ETA:   361s[1,0]<stdout>:#015[>>>>>     ] 327/619, 0.8 task/s, elapsed: 403s, ETA:   360s[1,0]<stdout>:#015[>>>>>     ] 328/619, 0.8 task/s, elapsed: 405s, ETA:   359s[1,0]<stdout>:#015[>>>>>     ] 329/619, 0.8 task/s, elapsed: 406s, ETA:   358s[1,0]<stdout>:#015[>>>>>     ] 330/619, 0.8 task/s, elapsed: 407s, ETA:   357s[1,0]<stdout>:#015[>>>>>     ] 331/619, 0.8 task/s, elapsed: 408s, ETA:   355s[1,0]<stdout>:#015[>>>>>     ] 332/619, 0.8 task/s, elapsed: 410s, ETA:   354s[1,0]<stdout>:#015[>>>>>     ] 333/619, 0.8 task/s, elapsed: 411s, ETA:   353s[1,0]<stdout>:#015[>>>>>     ] 334/619, 0.8 task/s, elapsed: 412s, ETA:   351s[1,0]<stdout>:#015[>>>>>     ] 335/619, 0.8 task/s, elapsed: 413s, ETA:   350s[1,0]<stdout>:#015[>>>>>     ] 336/619, 0.8 task/s, elapsed: 414s, ETA:   349s[1,0]<stdout>:#015[>>>>>     ] 337/619, 0.8 task/s, elapsed: 416s, ETA:   348s[1,0]<stdout>:#015[>>>>>     ] 338/619, 0.8 task/s, elapsed: 416s, ETA:   346s[1,0]<stdout>:#015[>>>>>     ] 339/619, 0.8 task/s, elapsed: 417s, ETA:   345s[1,0]<stdout>:#015[>>>>>     ] 340/619, 0.8 task/s, elapsed: 419s, ETA:   344s[1,0]<stdout>:#015[>>>>>     ] 341/619, 0.8 task/s, elapsed: 420s, ETA:   342s[1,0]<stdout>:#015[>>>>>     ] 342/619, 0.8 task/s, elapsed: 421s, ETA:   341s[1,0]<stdout>:#015[>>>>>     ] 343/619, 0.8 task/s, elapsed: 422s, ETA:   340s[1,0]<stdout>:#015[>>>>>     ] 344/619, 0.8 task/s, elapsed: 424s, ETA:   339s[1,0]<stdout>:#015[>>>>>     ] 345/619, 0.8 task/s, elapsed: 425s, ETA:   337s[1,0]<stdout>:#015[>>>>>     ] 346/619, 0.8 task/s, elapsed: 426s, ETA:   336s[1,0]<stdout>:#015[>>>>>     ] 347/619, 0.8 task/s, elapsed: 427s, ETA:   335s[1,0]<stdout>:#015[>>>>>     ] 348/619, 0.8 task/s, elapsed: 428s, ETA:   334s[1,0]<stdout>:#015[>>>>>     ] 349/619, 0.8 task/s, elapsed: 430s, ETA:   332s[1,0]<stdout>:#015[>>>>>     ] 350/619, 0.8 task/s, elapsed: 431s, ETA:   331s[1,0]<stdout>:#015[>>>>>     ] 351/619, 0.8 task/s, elapsed: 432s, ETA:   330s[1,0]<stdout>:#015[>>>>>     ] 352/619, 0.8 task/s, elapsed: 433s, ETA:   329s[1,0]<stdout>:#015[>>>>>     ] 353/619, 0.8 task/s, elapsed: 435s, ETA:   328s[1,0]<stdout>:#015[>>>>>     ] 354/619, 0.8 task/s, elapsed: 436s, ETA:   327s[1,0]<stdout>:#015[>>>>>     ] 355/619, 0.8 task/s, elapsed: 438s, ETA:   325s[1,0]<stdout>:#015[>>>>>     ] 356/619, 0.8 task/s, elapsed: 439s, ETA:   324s[1,0]<stdout>:#015[>>>>>     ] 357/619, 0.8 task/s, elapsed: 440s, ETA:   323s[1,0]<stdout>:#015[>>>>>     ] 358/619, 0.8 task/s, elapsed: 441s, ETA:   322s[1,0]<stdout>:#015[>>>>>     ] 359/619, 0.8 task/s, elapsed: 443s, ETA:   321s[1,0]<stdout>:#015[>>>>>     ] 360/619, 0.8 task/s, elapsed: 444s, ETA:   319s[1,0]<stdout>:#015[>>>>>     ] 361/619, 0.8 task/s, elapsed: 445s, ETA:   318s[1,0]<stdout>:#015[>>>>>     ] 362/619, 0.8 task/s, elapsed: 446s, ETA:   317s[1,0]<stdout>:#015[>>>>>     ] 363/619, 0.8 task/s, elapsed: 447s, ETA:   316s[1,0]<stdout>:#015[>>>>>     ] 364/619, 0.8 task/s, elapsed: 449s, ETA:   314s[1,0]<stdout>:#015[>>>>>     ] 365/619, 0.8 task/s, elapsed: 450s, ETA:   313s[1,0]<stdout>:#015[>>>>>     ] 366/619, 0.8 task/s, elapsed: 451s, ETA:   312s[1,0]<stdout>:#015[>>>>>     ] 367/619, 0.8 task/s, elapsed: 452s, ETA:   310s[1,0]<stdout>:#015[>>>>>     ] 368/619, 0.8 task/s, elapsed: 453s, ETA:   309s[1,0]<stdout>:#015[>>>>>     ] 369/619, 0.8 task/s, elapsed: 454s, ETA:   308s[1,0]<stdout>:#015[>>>>>     ] 370/619, 0.8 task/s, elapsed: 456s, ETA:   307s[1,0]<stdout>:#015[>>>>>     ] 371/619, 0.8 task/s, elapsed: 457s, ETA:   305s[1,0]<stdout>:#015[>>>>>>    ] 372/619, 0.8 task/s, elapsed: 458s, ETA:   304s[1,0]<stdout>:#015[>>>>>>    ] 373/619, 0.8 task/s, elapsed: 459s, ETA:   303s[1,0]<stdout>:#015[>>>>>>    ] 374/619, 0.8 task/s, elapsed: 461s, ETA:   302s[1,0]<stdout>:#015[>>>>>>    ] 375/619, 0.8 task/s, elapsed: 462s, ETA:   300s[1,0]<stdout>:#015[>>>>>>    ] 376/619, 0.8 task/s, elapsed: 463s, ETA:   299s[1,0]<stdout>:#015[>>>>>>    ] 377/619, 0.8 task/s, elapsed: 464s, ETA:   298s[1,0]<stdout>:#015[>>>>>>    ] 378/619, 0.8 task/s, elapsed: 465s, ETA:   297s[1,0]<stdout>:#015[>>>>>>    ] 379/619, 0.8 task/s, elapsed: 466s, ETA:   295s[1,0]<stdout>:#015[>>>>>>    ] 380/619, 0.8 task/s, elapsed: 468s, ETA:   294s[1,0]<stdout>:#015[>>>>>>    ] 381/619, 0.8 task/s, elapsed: 469s, ETA:   293s[1,0]<stdout>:#015[>>>>>>    ] 382/619, 0.8 task/s, elapsed: 470s, ETA:   292s[1,0]<stdout>:#015[>>>>>>    ] 383/619, 0.8 task/s, elapsed: 472s, ETA:   291s[1,0]<stdout>:#015[>>>>>>    ] 384/619, 0.8 task/s, elapsed: 473s, ETA:   289s[1,0]<stdout>:#015[>>>>>>    ] 385/619, 0.8 task/s, elapsed: 474s, ETA:   288s[1,0]<stdout>:#015[>>>>>>    ] 386/619, 0.8 task/s, elapsed: 476s, ETA:   287s[1,0]<stdout>:#015[>>>>>>    ] 387/619, 0.8 task/s, elapsed: 477s, ETA:   286s[1,0]<stdout>:#015[>>>>>>    ] 388/619, 0.8 task/s, elapsed: 478s, ETA:   284s[1,0]<stdout>:#015[>>>>>>    ] 389/619, 0.8 task/s, elapsed: 479s, ETA:   283s[1,0]<stdout>:#015[>>>>>>    ] 390/619, 0.8 task/s, elapsed: 480s, ETA:   282s[1,0]<stdout>:#015[>>>>>>    ] 391/619, 0.8 task/s, elapsed: 482s, ETA:   281s[1,0]<stdout>:#015[>>>>>>    ] 392/619, 0.8 task/s, elapsed: 483s, ETA:   280s[1,0]<stdout>:#015[>>>>>>    ] 393/619, 0.8 task/s, elapsed: 484s, ETA:   278s[1,0]<stdout>:#015[>>>>>>    ] 394/619, 0.8 task/s, elapsed: 485s, ETA:   277s[1,0]<stdout>:#015[>>>>>>    ] 395/619, 0.8 task/s, elapsed: 487s, ETA:   276s[1,0]<stdout>:#015[>>>>>>    ] 396/619, 0.8 task/s, elapsed: 488s, ETA:   275s[1,0]<stdout>:#015[>>>>>>    ] 397/619, 0.8 task/s, elapsed: 489s, ETA:   274s[1,0]<stdout>:#015[>>>>>>    ] 398/619, 0.8 task/s, elapsed: 491s, ETA:   272s[1,0]<stdout>:#015[>>>>>>    ] 399/619, 0.8 task/s, elapsed: 492s, ETA:   271s[1,0]<stdout>:#015[>>>>>>    ] 400/619, 0.8 task/s, elapsed: 493s, ETA:   270s[1,0]<stdout>:#015[>>>>>>    ] 401/619, 0.8 task/s, elapsed: 494s, ETA:   269s[1,0]<stdout>:#015[>>>>>>    ] 402/619, 0.8 task/s, elapsed: 496s, ETA:   268s[1,0]<stdout>:#015[>>>>>>    ] 403/619, 0.8 task/s, elapsed: 497s, ETA:   266s[1,0]<stdout>:#015[>>>>>>    ] 404/619, 0.8 task/s, elapsed: 498s, ETA:   265s[1,0]<stdout>:#015[>>>>>>    ] 405/619, 0.8 task/s, elapsed: 499s, ETA:   264s[1,0]<stdout>:#015[>>>>>>    ] 406/619, 0.8 task/s, elapsed: 501s, ETA:   263s[1,0]<stdout>:#015[>>>>>>    ] 407/619, 0.8 task/s, elapsed: 502s, ETA:   261s[1,0]<stdout>:#015[>>>>>>    ] 408/619, 0.8 task/s, elapsed: 503s, ETA:   260s[1,0]<stdout>:#015[>>>>>>    ] 409/619, 0.8 task/s, elapsed: 504s, ETA:   259s[1,0]<stdout>:#015[>>>>>>    ] 410/619, 0.8 task/s, elapsed: 506s, ETA:   258s[1,0]<stdout>:#015[>>>>>>    ] 411/619, 0.8 task/s, elapsed: 507s, ETA:   256s[1,0]<stdout>:#015[>>>>>>    ] 412/619, 0.8 task/s, elapsed: 508s, ETA:   255s[1,0]<stdout>:#015[>>>>>>    ] 413/619, 0.8 task/s, elapsed: 509s, ETA:   254s[1,0]<stdout>:#015[>>>>>>    ] 414/619, 0.8 task/s, elapsed: 510s, ETA:   253s[1,0]<stdout>:#015[>>>>>>    ] 415/619, 0.8 task/s, elapsed: 512s, ETA:   251s[1,0]<stdout>:#015[>>>>>>    ] 416/619, 0.8 task/s, elapsed: 513s, ETA:   250s[1,0]<stdout>:#015[>>>>>>    ] 417/619, 0.8 task/s, elapsed: 514s, ETA:   249s[1,0]<stdout>:#015[>>>>>>    ] 418/619, 0.8 task/s, elapsed: 516s, ETA:   248s[1,0]<stdout>:#015[>>>>>>    ] 419/619, 0.8 task/s, elapsed: 517s, ETA:   247s[1,0]<stdout>:#015[>>>>>>    ] 420/619, 0.8 task/s, elapsed: 518s, ETA:   245s[1,0]<stdout>:#015[>>>>>>    ] 421/619, 0.8 task/s, elapsed: 519s, ETA:   244s[1,0]<stdout>:#015[>>>>>>    ] 422/619, 0.8 task/s, elapsed: 520s, ETA:   243s[1,0]<stdout>:#015[>>>>>>    ] 423/619, 0.8 task/s, elapsed: 521s, ETA:   242s[1,0]<stdout>:#015[>>>>>>    ] 424/619, 0.8 task/s, elapsed: 523s, ETA:   240s[1,0]<stdout>:#015[>>>>>>    ] 425/619, 0.8 task/s, elapsed: 524s, ETA:   239s[1,0]<stdout>:#015[>>>>>>    ] 426/619, 0.8 task/s, elapsed: 525s, ETA:   238s[1,0]<stdout>:#015[>>>>>>    ] 427/619, 0.8 task/s, elapsed: 527s, ETA:   237s[1,0]<stdout>:#015[>>>>>>    ] 428/619, 0.8 task/s, elapsed: 528s, ETA:   236s[1,0]<stdout>:#015[>>>>>>    ] 429/619, 0.8 task/s, elapsed: 529s, ETA:   234s[1,0]<stdout>:#015[>>>>>>    ] 430/619, 0.8 task/s, elapsed: 530s, ETA:   233s[1,0]<stdout>:#015[>>>>>>    ] 431/619, 0.8 task/s, elapsed: 531s, ETA:   232s[1,0]<stdout>:#015[>>>>>>    ] 432/619, 0.8 task/s, elapsed: 533s, ETA:   231s[1,0]<stdout>:#015[>>>>>>    ] 433/619, 0.8 task/s, elapsed: 534s, ETA:   229s[1,0]<stdout>:#015[>>>>>>>   ] 434/619, 0.8 task/s, elapsed: 535s, ETA:   228s[1,0]<stdout>:#015[>>>>>>>   ] 435/619, 0.8 task/s, elapsed: 536s, ETA:   227s[1,0]<stdout>:#015[>>>>>>>   ] 436/619, 0.8 task/s, elapsed: 537s, ETA:   225s[1,0]<stdout>:#015[>>>>>>>   ] 437/619, 0.8 task/s, elapsed: 538s, ETA:   224s[1,0]<stdout>:#015[>>>>>>>   ] 438/619, 0.8 task/s, elapsed: 539s, ETA:   223s[1,0]<stdout>:#015[>>>>>>>   ] 439/619, 0.8 task/s, elapsed: 540s, ETA:   222s[1,0]<stdout>:#015[>>>>>>>   ] 440/61
+
+2020-07-30T19:31:49.562-07:00
+9, 0.8 task/s, elapsed: 542s, ETA:   220s[1,0]<stdout>:#015[>>>>>>>   ] 441/619, 0.8 task/s, elapsed: 543s, ETA:   219s[1,0]<stdout>:#015[>>>>>>>   ] 442/619, 0.8 task/s, elapsed: 544s, ETA:   218s[1,0]<stdout>:#015[>>>>>>>   ] 443/619, 0.8 task/s, elapsed: 545s, ETA:   217s[1,0]<stdout>:#015[>>>>>>>   ] 444/619, 0.8 task/s, elapsed: 546s, ETA:   215s[1,0]<stdout>:#015[>>>>>>>   ] 445/619, 0.8 task/s, elapsed: 547s, ETA:   214s[1,0]<stdout>:#015[>>>>>>>   ] 446/619, 0.8 task/s, elapsed: 548s, ETA:   213s[1,0]<stdout>:#015[>>>>>>>   ] 447/619, 0.8 task/s, elapsed: 549s, ETA:   211s[1,0]<stdout>:#015[>>>>>>>   ] 448/619, 0.8 task/s, elapsed: 551s, ETA:   210s[1,0]<stdout>:#015[>>>>>>>   ] 449/619, 0.8 task/s, elapsed: 552s, ETA:   209s[1,0]<stdout>:#015[>>>>>>>   ] 450/619, 0.8 task/s, elapsed: 553s, ETA:   208s[1,0]<stdout>:#015[>>>>>>>   ] 451/619, 0.8 task/s, elapsed: 554s, ETA:   207s[1,0]<stdout>:#015[>>>>>>>   ] 452/619, 0.8 task/s, elapsed: 556s, ETA:   205s[1,0]<stdout>:#015[>>>>>>>   ] 453/619, 0.8 task/s, elapsed: 557s, ETA:   204s[1,0]<stdout>:#015[>>>>>>>   ] 454/619, 0.8 task/s, elapsed: 558s, ETA:   203s[1,0]<stdout>:#015[>>>>>>>   ] 455/619, 0.8 task/s, elapsed: 559s, ETA:   201s[1,0]<stdout>:#015[>>>>>>>   ] 456/619, 0.8 task/s, elapsed: 560s, ETA:   200s[1,0]<stdout>:#015[>>>>>>>   ] 457/619, 0.8 task/s, elapsed: 561s, ETA:   199s[1,0]<stdout>:#015[>>>>>>>   ] 458/619, 0.8 task/s, elapsed: 563s, ETA:   198s[1,0]<stdout>:#015[>>>>>>>   ] 459/619, 0.8 task/s, elapsed: 564s, ETA:   196s[1,0]<stdout>:#015[>>>>>>>   ] 460/619, 0.8 task/s, elapsed: 565s, ETA:   195s[1,0]<stdout>:#015[>>>>>>>   ] 461/619, 0.8 task/s, elapsed: 566s, ETA:   194s[1,0]<stdout>:#015[>>>>>>>   ] 462/619, 0.8 task/s, elapsed: 567s, ETA:   193s[1,0]<stdout>:#015[>>>>>>>   ] 463/619, 0.8 task/s, elapsed: 569s, ETA:   192s[1,0]<stdout>:#015[>>>>>>>   ] 464/619, 0.8 task/s, elapsed: 570s, ETA:   190s[1,0]<stdout>:#015[>>>>>>>   ] 465/619, 0.8 task/s, elapsed: 571s, ETA:   189s[1,0]<stdout>:#015[>>>>>>>   ] 466/619, 0.8 task/s, elapsed: 572s, ETA:   188s[1,0]<stdout>:#015[>>>>>>>   ] 467/619, 0.8 task/s, elapsed: 573s, ETA:   187s[1,0]<stdout>:#015[>>>>>>>   ] 468/619, 0.8 task/s, elapsed: 575s, ETA:   185s[1,0]<stdout>:#015[>>>>>>>   ] 469/619, 0.8 task/s, elapsed: 575s, ETA:   184s[1,0]<stdout>:#015[>>>>>>>   ] 470/619, 0.8 task/s, elapsed: 577s, ETA:   183s[1,0]<stdout>:#015[>>>>>>>   ] 471/619, 0.8 task/s, elapsed: 578s, ETA:   182s[1,0]<stdout>:#015[>>>>>>>   ] 472/619, 0.8 task/s, elapsed: 579s, ETA:   180s[1,0]<stdout>:#015[>>>>>>>   ] 473/619, 0.8 task/s, elapsed: 580s, ETA:   179s[1,0]<stdout>:#015[>>>>>>>   ] 474/619, 0.8 task/s, elapsed: 581s, ETA:   178s[1,0]<stdout>:#015[>>>>>>>   ] 475/619, 0.8 task/s, elapsed: 582s, ETA:   176s[1,0]<stdout>:#015[>>>>>>>   ] 476/619, 0.8 task/s, elapsed: 583s, ETA:   175s[1,0]<stdout>:#015[>>>>>>>   ] 477/619, 0.8 task/s, elapsed: 585s, ETA:   174s[1,0]<stdout>:#015[>>>>>>>   ] 478/619, 0.8 task/s, elapsed: 586s, ETA:   173s[1,0]<stdout>:#015[>>>>>>>   ] 479/619, 0.8 task/s, elapsed: 587s, ETA:   172s[1,0]<stdout>:#015[>>>>>>>   ] 480/619, 0.8 task/s, elapsed: 588s, ETA:   170s[1,0]<stdout>:#015[>>>>>>>   ] 481/619, 0.8 task/s, elapsed: 589s, ETA:   169s[1,0]<stdout>:#015[>>>>>>>   ] 482/619, 0.8 task/s, elapsed: 590s, ETA:   168s[1,0]<stdout>:#015[>>>>>>>   ] 483/619, 0.8 task/s, elapsed: 592s, ETA:   167s[1,0]<stdout>:#015[>>>>>>>   ] 484/619, 0.8 task/s, elapsed: 593s, ETA:   165s[1,0]<stdout>:#015[>>>>>>>   ] 485/619, 0.8 task/s, elapsed: 594s, ETA:   164s[1,0]<stdout>:#015[>>>>>>>   ] 486/619, 0.8 task/s, elapsed: 595s, ETA:   163s[1,0]<stdout>:#015[>>>>>>>   ] 487/619, 0.8 task/s, elapsed: 597s, ETA:   162s[1,0]<stdout>:#015[>>>>>>>   ] 488/619, 0.8 task/s, elapsed: 598s, ETA:   160s[1,0]<stdout>:#015[>>>>>>>   ] 489/619, 0.8 task/s, elapsed: 599s, ETA:   159s[1,0]<stdout>:#015[>>>>>>>   ] 490/619, 0.8 task/s, elapsed: 600s, ETA:   158s[1,0]<stdout>:#015[>>>>>>>   ] 491/619, 0.8 task/s, elapsed: 601s, ETA:   157s[1,0]<stdout>:#015[>>>>>>>   ] 492/619, 0.8 task/s, elapsed: 603s, ETA:   156s[1,0]<stdout>:#015[>>>>>>>   ] 493/619, 0.8 task/s, elapsed: 604s, ETA:   154s[1,0]<stdout>:#015[>>>>>>>   ] 494/619, 0.8 task/s, elapsed: 605s, ETA:   153s[1,0]<stdout>:#015[>>>>>>>   ] 495/619, 0.8 task/s, elapsed: 606s, ETA:   152s[1,0]<stdout>:#015[>>>>>>>>  ] 496/619, 0.8 task/s, elapsed: 607s, ETA:   151s[1,0]<stdout>:#015[>>>>>>>>  ] 497/619, 0.8 task/s, elapsed: 608s, ETA:   149s[1,0]<stdout>:#015[>>>>>>>>  ] 498/619, 0.8 task/s, elapsed: 609s, ETA:   148s[1,0]<stdout>:#015[>>>>>>>>  ] 499/619, 0.8 task/s, elapsed: 610s, ETA:   147s[1,0]<stdout>:#015[>>>>>>>>  ] 500/619, 0.8 task/s, elapsed: 612s, ETA:   146s[1,0]<stdout>:#015[>>>>>>>>  ] 501/619, 0.8 task/s, elapsed: 613s, ETA:   144s[1,0]<stdout>:#015[>>>>>>>>  ] 502/619, 0.8 task/s, elapsed: 614s, ETA:   143s[1,0]<stdout>:#015[>>>>>>>>  ] 503/619, 0.8 task/s, elapsed: 616s, ETA:   142s[1,0]<stdout>:#015[>>>>>>>>  ] 504/619, 0.8 task/s, elapsed: 617s, ETA:   141s[1,0]<stdout>:#015[>>>>>>>>  ] 505/619, 0.8 task/s, elapsed: 618s, ETA:   139s[1,0]<stdout>:#015[>>>>>>>>  ] 506/619, 0.8 task/s, elapsed: 619s, ETA:   138s[1,0]<stdout>:#015[>>>>>>>>  ] 507/619, 0.8 task/s, elapsed: 620s, ETA:   137s[1,0]<stdout>:#015[>>>>>>>>  ] 508/619, 0.8 task/s, elapsed: 622s, ETA:   136s[1,0]<stdout>:#015[>>>>>>>>  ] 509/619, 0.8 task/s, elapsed: 623s, ETA:   135s[1,0]<stdout>:#015[>>>>>>>>  ] 510/619, 0.8 task/s, elapsed: 624s, ETA:   133s[1,0]<stdout>:#015[>>>>>>>>  ] 511/619, 0.8 task/s, elapsed: 625s, ETA:   132s[1,0]<stdout>:#015[>>>>>>>>  ] 512/619, 0.8 task/s, elapsed: 627s, ETA:   131s[1,0]<stdout>:#015[>>>>>>>>  ] 513/619, 0.8 task/s, elapsed: 628s, ETA:   130s[1,0]<stdout>:#015[>>>>>>>>  ] 514/619, 0.8 task/s, elapsed: 629s, ETA:   129s[1,0]<stdout>:#015[>>>>>>>>  ] 515/619, 0.8 task/s, elapsed: 630s, ETA:   127s[1,0]<stdout>:#015[>>>>>>>>  ] 516/619, 0.8 task/s, elapsed: 632s, ETA:   126s[1,0]<stdout>:#015[>>>>>>>>  ] 517/619, 0.8 task/s, elapsed: 633s, ETA:   125s[1,0]<stdout>:#015[>>>>>>>>  ] 518/619, 0.8 task/s, elapsed: 634s, ETA:   124s[1,0]<stdout>:#015[>>>>>>>>  ] 519/619, 0.8 task/s, elapsed: 635s, ETA:   122s[1,0]<stdout>:#015[>>>>>>>>  ] 520/619, 0.8 task/s, elapsed: 636s, ETA:   121s[1,0]<stdout>:#015[>>>>>>>>  ] 521/619, 0.8 task/s, elapsed: 638s, ETA:   120s[1,0]<stdout>:#015[>>>>>>>>  ] 522/619, 0.8 task/s, elapsed: 639s, ETA:   119s[1,0]<stdout>:#015[>>>>>>>>  ] 523/619, 0.8 task/s, elapsed: 640s, ETA:   117s[1,0]<stdout>:#015[>>>>>>>>  ] 524/619, 0.8 task/s, elapsed: 641s, ETA:   116s[1,0]<stdout>:#015[>>>>>>>>  ] 525/619, 0.8 task/s, elapsed: 642s, ETA:   115s[1,0]<stdout>:#015[>>>>>>>>  ] 526/619, 0.8 task/s, elapsed: 643s, ETA:   114s[1,0]<stdout>:#015[>>>>>>>>  ] 527/619, 0.8 task/s, elapsed: 644s, ETA:   113s[1,0]<stdout>:#015[>>>>>>>>  ] 528/619, 0.8 task/s, elapsed: 646s, ETA:   111s[1,0]<stdout>:#015[>>>>>>>>  ] 529/619, 0.8 task/s, elapsed: 647s, ETA:   110s[1,0]<stdout>:#015[>>>>>>>>  ] 530/619, 0.8 task/s, elapsed: 648s, ETA:   109s[1,0]<stdout>:#015[>>>>>>>>  ] 531/619, 0.8 task/s, elapsed: 649s, ETA:   108s[1,0]<stdout>:#015[>>>>>>>>  ] 532/619, 0.8 task/s, elapsed: 650s, ETA:   106s[1,0]<stdout>:#015[>>>>>>>>  ] 533/619, 0.8 task/s, elapsed: 652s, ETA:   105s[1,0]<stdout>:#015[>>>>>>>>  ] 534/619, 0.8 task/s, elapsed: 653s, ETA:   104s[1,0]<stdout>:#015[>>>>>>>>  ] 535/619, 0.8 task/s, elapsed: 654s, ETA:   103s[1,0]<stdout>:#015[>>>>>>>>  ] 536/619, 0.8 task/s, elapsed: 655s, ETA:   101s[1,0]<stdout>:#015[>>>>>>>>  ] 537/619, 0.8 task/s, elapsed: 656s, ETA:   100s[1,0]<stdout>:#015[>>>>>>>>  ] 538/619, 0.8 task/s, elapsed: 657s, ETA:    99s[1,0]<stdout>:#015[>>>>>>>>  ] 539/619, 0.8 task/s, elapsed: 659s, ETA:    98s[1,0]<stdout>:#015[>>>>>>>>  ] 540/619, 0.8 task/s, elapsed: 660s, ETA:    97s[1,0]<stdout>:#015[>>>>>>>>  ] 541/619, 0.8 task/s, elapsed: 661s, ETA:    95s[1,0]<stdout>:#015[>>>>>>>>  ] 542/619, 0.8 task/s, elapsed: 663s, ETA:    94s[1,0]<stdout>:#015[>>>>>>>>  ] 543/619, 0.8 task/s, elapsed: 664s, ETA:    93s[1,0]<stdout>:#015[>>>>>>>>  ] 544/619, 0.8 task/s, elapsed: 665s, ETA:    92s[1,0]<stdout>:#015[>>>>>>>>  ] 545/619, 0.8 task/s, elapsed: 666s, ETA:    90s[1,0]<stdout>:#015[>>>>>>>>  ] 546/619, 0.8 task/s, elapsed: 668s, ETA:    89s[1,0]<stdout>:#015[>>>>>>>>  ] 547/619, 0.8 task/s, elapsed: 669s, ETA:    88s[1,0]<stdout>:#015[>>>>>>>>  ] 548/619, 0.8 task/s, elapsed: 670s, ETA:    87s[1,0]<stdout>:#015[>>>>>>>>  ] 549/619, 0.8 task/s, elapsed: 671s, ETA:    86s[1,0]<stdout>:#015[>>>>>>>>  ] 550/619, 0.8 task/s, elapsed: 673s, ETA:    84s[1,0]<stdout>:#015[>>>>>>>>  ] 551/619, 0.8 task/s, elapsed: 673s, ETA:    83s[1,0]<stdout>:#015[>>>>>>>>  ] 552/619, 0.8 task/s, elapsed: 674s, ETA:    82s[1,0]<stdout>:#015[>>>>>>>>  ] 553/619, 0.8 task/s, elapsed: 676s, ETA:    81s[1,0]<stdout>:#015[>>>>>>>>  ] 554/619, 0.8 task/s, elapsed: 677s, ETA:    79s[1,0]<stdout>:#015[>>>>>>>>  ] 555/619, 0.8 task/s, elapsed: 678s, ETA:    78s[1,0]<stdout>:#015[>>>>>>>>  ] 556/619, 0.8 task/s, elapsed: 679s, ETA:    77s[1,0]<stdout>:#015[>>>>>>>>  ] 557/619, 0.8 task/s, elapsed: 680s, ETA:    76s[1,0]<stdout>:#015[>>>>>>>>> ] 558/619, 0.8 task/s, elapsed: 682s, ETA:    75s[1,0]<stdout>:#015[>>>>>>>>> ] 559/619, 0.8 task/s, elapsed: 683s, ETA:    73s[1,0]<stdout>:#015[>>>>>>>>> ] 560/619, 0.8 task/s, elapsed: 684s, ETA:    72s[1,0]<stdout>:#015[>>>>>>>>> ] 561/619, 0.8 task/s, elapsed: 685s, ETA:    71s[1,0]<stdout>:#015[>>>>>>>>> ] 562/619, 0.8 task/s, elapsed: 686s, ETA:    70s[1,0]<stdout>:#015[>>>>>>>>> ] 563/619, 0.8 task/s, elapsed: 687s, ETA:    68s[1,0]<stdout>:#015[>>>>>>>>> ] 564/619, 0.8 task/s, elapsed: 688s, ETA:    67s[1,0]<stdout>:#015[>>>>>>>>> ] 565/619, 0.8 task/s, elapsed: 689s, ETA:    66s[1,0]<stdout>:#015[>>>>>>>>> ] 566/619, 0.8 task/s, elapsed: 691s, ETA:    65s[1,0]<stdout>:#015[>>>>>>>>> ] 567/619, 0.8 task/s, elapsed: 692s, ETA:    63s[1,2]<stdout>:Starting new loop for GPU: 2
+
+2020-07-30T19:31:49.562-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 568/619, 0.8 task/s, elapsed: 693s, ETA:    62s[1,3]<stdout>:Starting new loop for GPU: 3
+
+2020-07-30T19:31:51.563-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 569/619, 0.8 task/s, elapsed: 694s, ETA:    61s[1,14]<stdout>:Starting new loop for GPU: 14
+
+2020-07-30T19:31:53.564-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 570/619, 0.8 task/s, elapsed: 695s, ETA:    60s[1,0]<stdout>:#015[>>>>>>>>> ] 571/619, 0.8 task/s, elapsed: 696s, ETA:    59s[1,0]<stdout>:#015[>>>>>>>>> ] 572/619, 0.8 task/s, elapsed: 697s, ETA:    57s[1,10]<stdout>:Starting new loop for GPU: 10
+
+2020-07-30T19:32:00.567-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 573/619, 0.8 task/s, elapsed: 698s, ETA:    56s[1,0]<stdout>:#015[>>>>>>>>> ] 574/619, 0.8 task/s, elapsed: 699s, ETA:    55s[1,0]<stdout>:#015[>>>>>>>>> ] 575/619, 0.8 task/s, elapsed: 700s, ETA:    54s[1,0]<stdout>:#015[>>>>>>>>> ] 576/619, 0.8 task/s, elapsed: 701s, ETA:    52s[1,0]<stdout>:#015[>>>>>>>>> ] 577/619, 0.8 task/s, elapsed: 702s, ETA:    51s[1,0]<stdout>:#015[>>>>>>>>> ] 578/619, 0.8 task/s, elapsed: 703s, ETA:    50s[1,0]<stdout>:#015[>>>>>>>>> ] 579/619, 0.8 task/s, elapsed: 704s, ETA:    49s[1,7]<stdout>:Starting new loop for GPU: 7
+
+2020-07-30T19:32:03.568-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 580/619, 0.8 task/s, elapsed: 705s, ETA:    47s[1,0]<stdout>:#015[>>>>>>>>> ] 581/619, 0.8 task/s, elapsed: 706s, ETA:    46s[1,0]<stdout>:#015[>>>>>>>>> ] 582/619, 0.8 task/s, elapsed: 707s, ETA:    45s[1,4]<stdout>:Starting new loop for GPU: 4
+
+2020-07-30T19:32:04.569-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 583/619, 0.8 task/s, elapsed: 708s, ETA:    44s[1,6]<stdout>:Starting new loop for GPU: 6
+
+2020-07-30T19:32:05.569-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 584/619, 0.8 task/s, elapsed: 709s, ETA:    42s[1,15]<stdout>:Starting new loop for GPU: 15
+
+2020-07-30T19:32:06.570-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 585/619, 0.8 task/s, elapsed: 710s, ETA:    41s[1,8]<stdout>:Starting new loop for GPU: 8
+
+2020-07-30T19:32:07.571-07:00
+[1,11]<stdout>:Starting new loop for GPU: 11
+
+2020-07-30T19:32:07.571-07:00
+[1,1]<stdout>:Starting new loop for GPU: 1
+
+2020-07-30T19:32:09.571-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 586/619, 0.8 task/s, elapsed: 711s, ETA:    40s[1,0]<stdout>:#015[>>>>>>>>> ] 587/619, 0.8 task/s, elapsed: 712s, ETA:    39s[1,0]<stdout>:#015[>>>>>>>>> ] 588/619, 0.8 task/s, elapsed: 713s, ETA:    38s[1,13]<stdout>:Starting new loop for GPU: 13
+
+2020-07-30T19:32:13.573-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 589/619, 0.8 task/s, elapsed: 714s, ETA:    36s[1,0]<stdout>:#015[>>>>>>>>> ] 590/619, 0.8 task/s, elapsed: 715s, ETA:    35s[1,0]<stdout>:#015[>>>>>>>>> ] 591/619, 0.8 task/s, elapsed: 716s, ETA:    34s[1,0]<stdout>:#015[>>>>>>>>> ] 592/619, 0.8 task/s, elapsed: 716s, ETA:    33s[1,0]<stdout>:#015[>>>>>>>>> ] 593/619, 0.8 task/s, elapsed: 717s, ETA:    31s[1,12]<stdout>:Starting new loop for GPU: 12
+
+2020-07-30T19:32:19.575-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 594/619, 0.8 task/s, elapsed: 718s, ETA:    30s[1,0]<stdout>:#015[>>>>>>>>> ] 595/619, 0.8 task/s, elapsed: 719s, ETA:    29s[1,0]<stdout>:#015[>>>>>>>>> ] 596/619, 0.8 task/s, elapsed: 720s, ETA:    28s[1,0]<stdout>:#015[>>>>>>>>> ] 597/619, 0.8 task/s, elapsed: 721s, ETA:    27s[1,0]<stdout>:#015[>>>>>>>>> ] 598/619, 0.8 task/s, elapsed: 722s, ETA:    25s[1,0]<stdout>:#015[>>>>>>>>> ] 599/619, 0.8 task/s, elapsed: 723s, ETA:    24s[1,9]<stdout>:Starting new loop for GPU: 9
+
+2020-07-30T19:32:28.579-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 600/619, 0.8 task/s, elapsed: 724s, ETA:    23s[1,0]<stdout>:#015[>>>>>>>>> ] 601/619, 0.8 task/s, elapsed: 725s, ETA:    22s[1,0]<stdout>:#015[>>>>>>>>> ] 602/619, 0.8 task/s, elapsed: 726s, ETA:    20s[1,0]<stdout>:#015[>>>>>>>>> ] 603/619, 0.8 task/s, elapsed: 727s, ETA:    19s[1,0]<stdout>:#015[>>>>>>>>> ] 604/619, 0.8 task/s, elapsed: 728s, ETA:    18s[1,0]<stdout>:#015[>>>>>>>>> ] 605/619, 0.8 task/s, elapsed: 728s, ETA:    17s[1,0]<stdout>:#015[>>>>>>>>> ] 606/619, 0.8 task/s, elapsed: 729s, ETA:    16s[1,0]<stdout>:#015[>>>>>>>>> ] 607/619, 0.8 task/s, elapsed: 730s, ETA:    14s[1,0]<stdout>:#015[>>>>>>>>> ] 608/619, 0.8 task/s, elapsed: 731s, ETA:    13s[1,5]<stdout>:Starting new loop for GPU: 5
+
+2020-07-30T19:32:37.582-07:00
+[1,0]<stdout>:#015[>>>>>>>>> ] 609/619, 0.8 task/s, elapsed: 732s, ETA:    12s[1,0]<stdout>:#015[>>>>>>>>> ] 610/619, 0.8 task/s, elapsed: 733s, ETA:    11s[1,0]<stdout>:#015[>>>>>>>>> ] 611/619, 0.8 task/s, elapsed: 734s, ETA:    10s[1,0]<stdout>:#015[>>>>>>>>> ] 612/619, 0.8 task/s, elapsed: 735s, ETA:     8s[1,0]<stdout>:#015[>>>>>>>>> ] 613/619, 0.8 task/s, elapsed: 736s, ETA:     7s[1,0]<stdout>:#015[>>>>>>>>> ] 614/619, 0.8 task/s, elapsed: 737s, ETA:     6s[1,0]<stdout>:#015[>>>>>>>>> ] 615/619, 0.8 task/s, elapsed: 737s, ETA:     5s[1,0]<stdout>:#015[>>>>>>>>> ] 616/619, 0.8 task/s, elapsed: 738s, ETA:     4s[1,0]<stdout>:#015[>>>>>>>>> ] 617/619, 0.8 task/s, elapsed: 739s, ETA:     2s[1,0]<stdout>:#015[>>>>>>>>> ] 618/619, 0.8 task/s, elapsed: 740s, ETA:     1s[1,0]<stdout>:#015[>>>>>>>>>>] 619/619, 0.8 task/s, elapsed: 741s, ETA:     0s[1,0]<stdout>:Starting new loop for GPU: 0
+
+2020-07-30T19:32:37.582-07:00
+[1,0]<stdout>:cleaning up /opt/ml/code/work_dirs/faster_rcnn_r50_fpn_1x_coco/temp_1.pkl
+
+2020-07-30T19:32:38.582-07:00
+[1,0]<stdout>:cleaning up /opt/ml/code/work_dirs/faster_rcnn_r50_fpn_1x_coco/temp_2.pkl
+
+2020-07-30T19:32:38.582-07:00
+[1,0]<stdout>:cleaning up /opt/ml/code/work_dirs/faster_rcnn_r50_fpn_1x_coco/temp_3.pkl
+
+2020-07-30T19:32:39.583-07:00
+[1,13]<stdout>:[2020-07-31 02:32:39.307 algo-2:119 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:39.583-07:00
+[1,5]<stdout>:[2020-07-31 02:32:39.322 algo-1:107 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:39.583-07:00
+[1,7]<stdout>:[2020-07-31 02:32:39.387 algo-1:109 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:39.583-07:00
+[1,8]<stdout>:[2020-07-31 02:32:39.526 algo-2:114 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:39.583-07:00
+[1,9]<stdout>:[2020-07-31 02:32:39.541 algo-2:115 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:39.583-07:00
+[1,12]<stdout>:[2020-07-31 02:32:39.566 algo-2:118 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:40.584-07:00
+[1,14]<stdout>:[2020-07-31 02:32:39.581 algo-2:120 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:40.584-07:00
+[1,4]<stdout>:[2020-07-31 02:32:39.599 algo-1:106 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:40.584-07:00
+[1,2]<stdout>:[2020-07-31 02:32:39.680 algo-1:104 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:40.584-07:00
+[1,6]<stdout>:[2020-07-31 02:32:39.697 algo-1:108 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:40.584-07:00
+[1,1]<stdout>:[2020-07-31 02:32:39.729 algo-1:103 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:40.584-07:00
+[1,11]<stdout>:[2020-07-31 02:32:39.729 algo-2:117 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:40.584-07:00
+[1,3]<stdout>:[2020-07-31 02:32:39.754 algo-1:105 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:40.584-07:00
+[1,15]<stdout>:[2020-07-31 02:32:39.869 algo-2:121 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:40.584-07:00
+[1,10]<stdout>:[2020-07-31 02:32:39.974 algo-2:116 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:32:42.585-07:00
+[1,0]<stdout>:cleaning up /opt/ml/code/work_dirs/faster_rcnn_r50_fpn_1x_coco/temp_4.pkl
+
+2020-07-30T19:32:42.585-07:00
+[1,0]<stdout>:cleaning up /opt/ml/code/work_dirs/faster_rcnn_r50_fpn_1x_coco/temp_5.pkl
+
+2020-07-30T19:32:42.585-07:00
+[1,0]<stdout>:cleaning up /opt/ml/code/work_dirs/faster_rcnn_r50_fpn_1x_coco/temp_6.pkl
+
+2020-07-30T19:32:43.585-07:00
+[1,0]<stdout>:cleaning up /opt/ml/code/work_dirs/faster_rcnn_r50_fpn_1x_coco/temp_7.pkl
+
+2020-07-30T19:33:15.597-07:00
+[1,0]<stdout>:Loading and preparing results...
+
+2020-07-30T19:33:21.599-07:00
+[1,0]<stdout>:DONE (t=5.58s)
+
+2020-07-30T19:33:21.599-07:00
+[1,0]<stdout>:creating index...
+
+2020-07-30T19:33:21.599-07:00
+[1,0]<stdout>:index created!
+
+2020-07-30T19:33:21.599-07:00
+[1,0]<stdout>:Running per image evaluation...
+
+2020-07-30T19:33:21.599-07:00
+[1,0]<stdout>:Evaluate annotation type *bbox*
+
+2020-07-30T19:34:36.623-07:00
+[1,0]<stdout>:DONE (t=74.99s).
+
+2020-07-30T19:34:36.623-07:00
+[1,0]<stdout>:Accumulating evaluation results...
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>:DONE (t=12.95s).
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.366
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.576
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.399
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.201
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.390
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.486
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.306
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.494
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.521
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.337
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.555
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.661
+
+2020-07-30T19:34:49.627-07:00
+[1,0]<stdout>:Loading and preparing results...
+
+2020-07-30T19:34:52.628-07:00
+[1,0]<stdout>:DONE (t=3.57s)
+
+2020-07-30T19:34:52.628-07:00
+[1,0]<stdout>:creating index...
+
+2020-07-30T19:34:53.629-07:00
+[1,0]<stdout>:index created!
+
+2020-07-30T19:34:54.629-07:00
+[1,0]<stdout>:Running per image evaluation...
+
+2020-07-30T19:34:54.629-07:00
+[1,0]<stdout>:Evaluate annotation type *segm*
+
+2020-07-30T19:36:11.654-07:00
+[1,0]<stdout>:DONE (t=76.62s).
+
+2020-07-30T19:36:11.654-07:00
+[1,0]<stdout>:Accumulating evaluation results...
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>:DONE (t=12.91s).
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.316
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.540
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.334
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.161
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.340
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.432
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.272
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.430
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.451
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.280
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.484
+
+2020-07-30T19:36:24.658-07:00
+[1,0]<stdout>: Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.587
+
+2020-07-30T19:36:26.659-07:00
+[1,0]<stderr>:2020-07-31 02:36:26,097 - INFO - Epoch [12][1/1832]#011lr: 0.00080, bbox_mAP: 0.3660, bbox_mAP_50: 0.5760, bbox_mAP_75: 0.3990, bbox_mAP_s: 0.2010, bbox_mAP_m: 0.3900, bbox_mAP_l: 0.4860, bbox_mAP_copypaste: 0.366 0.576 0.399 0.201 0.390 0.486, segm_mAP: 0.3160, segm_mAP_50: 0.5400, segm_mAP_75: 0.3340, segm_mAP_s: 0.1610, segm_mAP_m: 0.3400, segm_mAP_l: 0.4320, segm_mAP_copypaste: 0.316 0.540 0.334 0.161 0.340 0.432
+
+2020-07-30T19:36:28.660-07:00
+[1,0]<stdout>:[2020-07-31 02:36:28.228 algo-1:102 INFO utils.py:25] The end of training job file will not be written for jobs running under SageMaker.
+
+2020-07-30T19:36:43.665-07:00
+2020-07-31 02:36:42,705 sagemaker_tensorflow_container.training WARNING  No model artifact is saved under path /opt/ml/model. Your training job will not save any model files to S3.
+
+2020-07-30T19:36:43.665-07:00
+For details of how to construct your training script see:
+
+2020-07-30T19:36:43.665-07:00
+https://sagemaker.readthedocs.io/en/stable/using_tf.html#adapting-your-local-tensorflow-script
+
+2020-07-30T19:36:43.665-07:00
+2020-07-31 02:36:42,705 sagemaker-training-toolkit INFO     Reporting training SUCCESS
+2020-07-31 02:37:01, MPI process finished

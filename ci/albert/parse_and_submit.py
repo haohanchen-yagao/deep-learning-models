@@ -2,6 +2,9 @@ import os, sys
 import boto3
 import re
 import argparse
+from datetime import datetime
+
+folder = "Models_NLP"
 
 def regex_extract(text, pattern):
     m = re.search(pattern, text)
@@ -15,33 +18,39 @@ def extract_result(log_abspath):
     loss = 100
     mlm = 0
     sop = 0
+    throughput = 0
     with open(log_abspath, 'r') as log:
         for line in log:
-            if 'MLM_acc: ' in line:
+            if 'Validation' in line and 'MLM_acc: ' in line:
                 temp_mlm = float(regex_extract(line, 'MLM_acc: ([-+]?\d*\.\d+|\d+)'))
                 mlm = max(mlm, temp_mlm)
-            if 'SOP_acc: ' in line:
+            if 'Validation' in line and 'SOP_acc: ' in line:
                 temp_sop = float(regex_extract(line, 'SOP_acc: ([-+]?\d*\.\d+|\d+)'))
                 sop = max(sop, temp_sop)
-            if 'Loss: ' in line and 'MLM: ' in line:
+            if 'Validation' in line and 'Loss: ' in line and 'MLM: ' in line:
                 temp_loss = float(regex_extract(line, 'Loss: ([-+]?\d*\.\d+|\d+)'))
                 loss = min(loss, temp_loss)
-            if 'Training seconds: ' in line:
-                time = float(regex_extract(line, 'Training seconds: ([-+]?\d*\.\d+|\d+)'))
-                result['time'] = time
+            if 'Training image download completed. Training in progress' in line:
+                start_string = regex_extract(line, '(.+?(?= Training - Training))')
+                start = datetime.strptime(start_string, '%Y-%m-%d %H:%M:%S')
+            if 'MPI process finished' in line:
+                end_string = regex_extract(line, '(.+?(?=,))')
+                end = datetime.strptime(end_string, '%Y-%m-%d %H:%M:%S')
             if 'EM: ' in line and 'it/s' in line:
                 throughput = float(regex_extract(line, '([-+]?\d*\.\d+|\d+)it/s'))
                 result['throughput'] = throughput
     result['mlm'] = mlm
     result['sop'] = sop
     result['loss'] = loss
+    diff = end - start
+    result['time'] = diff.seconds
     return result
 
-def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform, trigger):
+def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform, trigger, model):
     client = boto3.client('cloudwatch')
     print(parsed_results['loss'])
     client.put_metric_data(
-      Namespace='ModelOptimization',
+      Namespace=folder,
       MetricData=[
         {
           'MetricName': 'Loss',
@@ -49,7 +58,7 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
           'Dimensions': [
               {
                   'Name': 'Model',
-                  'Value': 'ALBERT'
+                  'Value': model
               },
               {
                   'Name': 'Platform',
@@ -77,7 +86,7 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
     )
     print(parsed_results['mlm'])
     client.put_metric_data(
-      Namespace='ModelOptimization',
+      Namespace=folder,
       MetricData=[
         {
           'MetricName': 'MLM Accuracy',
@@ -85,7 +94,7 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
           'Dimensions': [
               {
                   'Name': 'Model',
-                  'Value': 'ALBERT'
+                  'Value': model
               },
               {
                   'Name': 'Platform',
@@ -113,7 +122,7 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
     )
     print(parsed_results['sop'])
     client.put_metric_data(
-      Namespace='ModelOptimization',
+      Namespace=folder,
       MetricData=[
         {
           'MetricName': 'SOP Accuracy',
@@ -121,7 +130,7 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
           'Dimensions': [
               {
                   'Name': 'Model',
-                  'Value': 'ALBERT'
+                  'Value': model
               },
               {
                   'Name': 'Platform',
@@ -149,7 +158,7 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
     )
     print(parsed_results['throughput'])
     client.put_metric_data(
-      Namespace='ModelOptimization',
+      Namespace=folder,
       MetricData=[
         {
           'MetricName': 'Throughput',
@@ -157,7 +166,7 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
           'Dimensions': [
               {
                   'Name': 'Model',
-                  'Value': 'ALBERT'
+                  'Value': model
               },
               {
                   'Name': 'Platform',
@@ -185,7 +194,7 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
     )
     print(parsed_results['time'])
     client.put_metric_data(
-      Namespace='ModelOptimization',
+      Namespace=folder,
       MetricData=[
         {
           'MetricName': 'Training time',
@@ -193,7 +202,7 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
           'Dimensions': [
               {
                   'Name': 'Model',
-                  'Value': 'ALBERT'
+                  'Value': model
               },
               {
                   'Name': 'Platform',
@@ -231,6 +240,7 @@ if __name__ == '__main__':
     parser.add_argument('--instance_type', type=str, default='ml.p3dn.24xlarge')
     parser.add_argument('--platform', type=str, default='Sagemaker')
     parser.add_argument('--trigger', type=str, default='Weekly')
+    parser.add_argument('--model', type=str, default='ALBERT')
     args = parser.parse_args()
     abspath = os.path.join(os.getcwd(), args.log)
     parsed_results = extract_result(abspath)
@@ -238,6 +248,6 @@ if __name__ == '__main__':
     print(parsed_results['loss'])
    
     if parsed_results['loss'] < 100:
-        upload_metrics(parsed_results, args.num_gpus, args.batchsize, args.instance_type, args.platform, args.trigger)
+        upload_metrics(parsed_results, args.num_gpus, args.batchsize, args.instance_type, args.platform, args.trigger, args.model)
     else:
         print('nothing being parsed')
