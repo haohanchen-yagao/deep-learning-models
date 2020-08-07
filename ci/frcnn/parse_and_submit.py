@@ -4,7 +4,7 @@ import re
 import argparse
 from datetime import datetime
 
-folder = "Models_CV-try"
+folder = "Models_CV"
 
 def regex_extract(text, pattern):
     m = re.search(pattern, text)
@@ -16,33 +16,19 @@ def regex_extract(text, pattern):
 def extract_result(log_abspath):
     result = {}
     ap_95_all = 0
-    ap_50_all = 0
-    ap_75_all = 0
-    ap_95_small = 0
-    ap_95_medium = 0
-    ap_95_large = 0
+    segm = 0
+    first = 0
     start = datetime.now()
     end = datetime.now()
     with open(log_abspath, 'r') as log:
         for line in log:
             if 'Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100' in line:
                 temp_ap_95_all = float(regex_extract(line, '(?<=maxDets\=100\s\]\s\=\s)([-+]?\d*\.\d+|\d+)'))
-                ap_95_all = max(ap_95_all, temp_ap_95_all)
-            if 'Average Precision  (AP) @[ IoU=0.50 ' in line:
-                temp_ap_50_all = float(regex_extract(line, '(?<=maxDets\=100\s\]\s\=\s)([-+]?\d*\.\d+|\d+)'))
-                ap_50_all = max(ap_50_all, temp_ap_50_all)
-            if 'Average Precision  (AP) @[ IoU=0.75 ' in line:
-                temp_ap_75_all = float(regex_extract(line, '(?<=maxDets\=100\s\]\s\=\s)([-+]?\d*\.\d+|\d+)'))
-                ap_75_all = max(ap_75_all, temp_ap_75_all)
-            if 'Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100' in line:
-                temp_ap_95_small = float(regex_extract(line, '(?<=maxDets\=100\s\]\s\=\s)([-+]?\d*\.\d+|\d+)'))
-                ap_95_small = max(ap_95_small, temp_ap_95_small)
-            if 'Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100' in line:
-                temp_ap_95_medium = float(regex_extract(line, '(?<=maxDets\=100\s\]\s\=\s)([-+]?\d*\.\d+|\d+)'))
-                ap_95_medium = max(ap_95_medium, temp_ap_95_medium)
-            if 'Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100' in line:
-                temp_ap_95_large = float(regex_extract(line, '(?<=maxDets\=100\s\]\s\=\s)([-+]?\d*\.\d+|\d+)'))
-                ap_95_large = max(ap_95_large, temp_ap_95_large)
+                if first == 0:
+                    ap_95_all = max(ap_95_all, temp_ap_95_all)
+                    first += 1
+                else:
+                    segm = temp_ap_95_all
             if 'Training image download completed. Training in progress' in line:
                 start_string = regex_extract(line, '(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}(?= Training - Training))')
                 start = datetime.strptime(start_string, '%Y-%m-%d %H:%M:%S')
@@ -53,11 +39,7 @@ def extract_result(log_abspath):
                 throughput = float(regex_extract(line, '([-+]?\d*\.\d+|\d+) task/s'))
                 result['throughput'] = throughput
     result['ap_0.95_all'] = ap_95_all
-    result['ap_0.50_all'] = ap_50_all
-    result['ap_0.75_all'] = ap_75_all
-    result['ap_0.95_small'] = ap_95_small
-    result['ap_0.95_medium'] = ap_95_medium
-    result['ap_0.95_large'] = ap_95_large
+    result['segm'] = segm
     diff = end - start
     result['time'] = diff.seconds
     return result
@@ -100,13 +82,13 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
         }
       ]
     )
-    print(parsed_results['ap_0.50_all'])
+    print(parsed_results['segm'])
     client.put_metric_data(
       Namespace=folder,
       MetricData=[
         {
-          'MetricName': 'Precision-0.50-all',
-          'Value': parsed_results['ap_0.50_all'],
+          'MetricName': 'segm',
+          'Value': parsed_results['segm'],
           'Dimensions': [
               {
                   'Name': 'Model',
@@ -126,151 +108,7 @@ def upload_metrics(parsed_results, num_gpus, batch_size, instance_type, platform
               },
               {
                   'Name': 'Batch Size',
-                  'Value': 'Batch Size:' + str(batch_size)
-              },
-              {
-                  'Name': 'Trigger',
-                  'Value': str(trigger)
-              }
-          ]
-        }
-      ]
-    )
-    print(parsed_results['ap_0.75_all'])
-    client.put_metric_data(
-      Namespace=folder,
-      MetricData=[
-        {
-          'MetricName': 'Precision-0.75-all',
-          'Value': parsed_results['ap_0.75_all'],
-          'Dimensions': [
-              {
-                  'Name': 'Model',
-                  'Value': model
-              },
-              {
-                  'Name': 'Platform',
-                  'Value': str(platform)
-              },
-              {
-                  'Name': 'Instance Type',
-                  'Value': str(instance_type)
-              },
-              {
-                  'Name': 'Num of GPUs',
-                  'Value': 'GPUs:' + str(num_gpus)
-              },
-              {
-                  'Name': 'Batch Size',
-                  'Value': 'Batch Size:' + str(batch_size)
-              },
-              {
-                  'Name': 'Trigger',
-                  'Value': str(trigger)
-              }
-          ]
-        }
-      ]
-    )
-    print(parsed_results['ap_0.95_small'])
-    client.put_metric_data(
-      Namespace=folder,
-      MetricData=[
-        {
-          'MetricName': 'Precision-0.50:0.95-small',
-          'Value': parsed_results['ap_0.95_small'],
-          'Dimensions': [
-              {
-                  'Name': 'Model',
-                  'Value': model
-              },
-              {
-                  'Name': 'Platform',
-                  'Value': str(platform)
-              },
-              {
-                  'Name': 'Instance Type',
-                  'Value': str(instance_type)
-              },
-              {
-                  'Name': 'Num of GPUs',
-                  'Value': 'GPUs:' + str(num_gpus)
-              },
-              {
-                  'Name': 'Batch Size',
-                  'Value': 'Batch Size:' + str(batch_size)
-              },
-              {
-                  'Name': 'Trigger',
-                  'Value': str(trigger)
-              }
-          ]
-        }
-      ]
-    )
-    print(parsed_results['ap_0.95_medium'])
-    client.put_metric_data(
-      Namespace=folder,
-      MetricData=[
-        {
-          'MetricName': 'Precision-0.50:0.95-medium',
-          'Value': parsed_results['ap_0.95_medium'],
-          'Dimensions': [
-              {
-                  'Name': 'Model',
-                  'Value': model
-              },
-              {
-                  'Name': 'Platform',
-                  'Value': str(platform)
-              },
-              {
-                  'Name': 'Instance Type',
-                  'Value': str(instance_type)
-              },
-              {
-                  'Name': 'Num of GPUs',
-                  'Value': 'GPUs:' + str(num_gpus)
-              },
-              {
-                  'Name': 'Batch Size',
-                  'Value': 'Batch Size:' + str(batch_size)
-              },
-              {
-                  'Name': 'Trigger',
-                  'Value': str(trigger)
-              }
-          ]
-        }
-      ]
-    )
-    print(parsed_results['ap_0.95_large'])
-    client.put_metric_data(
-      Namespace=folder,
-      MetricData=[
-        {
-          'MetricName': 'Precision-0.50:0.95-large',
-          'Value': parsed_results['ap_0.95_large'],
-          'Dimensions': [
-              {
-                  'Name': 'Model',
-                  'Value': model
-              },
-              {
-                  'Name': 'Platform',
-                  'Value': str(platform)
-              },
-              {
-                  'Name': 'Instance Type',
-                  'Value': str(instance_type)
-              },
-              {
-                  'Name': 'Num of GPUs',
-                  'Value': 'GPUs:' + str(num_gpus)
-              },
-              {
-                  'Name': 'Batch Size',
-                  'Value': 'Batch Size:' + str(batch_size)
+                  'Value': 'Batche Size:' + str(batch_size)
               },
               {
                   'Name': 'Trigger',
