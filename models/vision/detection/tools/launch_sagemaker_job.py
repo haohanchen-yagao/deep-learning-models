@@ -12,8 +12,8 @@ date_str = now.strftime("%d-%m-%Y")
 def main(args):
     loader = importlib.machinery.SourceFileLoader('', args.configuration)
     cfg = loader.load_module()
-    role = get_execution_role()
-    #role='arn:aws:iam::578276202366:role/service-role/AmazonSageMaker-ExecutionRole-20191213T102663'
+    #role = get_execution_role()
+    role='arn:aws:iam::578276202366:role/service-role/AmazonSageMaker-ExecutionRole-20191213T102663'
     main_script = 'tools/train.py'
     docker_image = cfg.sagemaker_user['docker_image']
     #hvd_instance_count = cfg.sagemaker_user['hvd_instance_count']
