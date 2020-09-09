@@ -1,6 +1,6 @@
 # dataset settings
 dataset_type = 'CocoDataset'
-data_root = '/data/COCO/'
+data_root = '/shared/awsdet/data/coco/coco/s'
 preproc_mode = 'rgb'
 image_mean = (123.68, 116.78, 103.94)
 image_std = (58.393, 57.12, 57.375)
