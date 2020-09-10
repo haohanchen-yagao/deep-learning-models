@@ -15,12 +15,10 @@ def init_dist():
     for gpu in gpus:
         tf.config.experimental.set_memory_growth(gpu, True)
     if gpus:
-        #tf.config.experimental.set_visible_devices(gpus[hvd.local_rank()], 'GPU')
         tf.config.experimental.set_visible_devices(gpus[herring.local_rank()], 'GPU')
 
 def get_dist_info():
-    #return hvd.rank(), hvd.local_rank(), hvd.size(), hvd.local_size() #TODO return a dict instead
-    return herring.rank(), herring.local_rank(), herring.size(), herring.local_size() #TODO return a dict instead
+    return herring.rank(), hvd.local_rank(), hvd.size(), hvd.local_size() #TODO return a dict instead
 
 def master_only(func):
     @functools.wraps(func)
@@ -33,18 +31,11 @@ def master_only(func):
 
 def broadcast_weights(runner):
     print('Rank {} broadcasting'.format(runner.rank))
-    #hvd.broadcast_variables(runner.model.variables, root_rank=0)
+    herring.broadcast_variables(runner.model.variables, root_rank=0)
     #hvd.broadcast_variables(runner.optimizer.variables(), root_rank=0)
-    herring.broadcast_variables(runner.model.variables + runner.optimizer.variables(), root_rank=0)
     print('Variable broadcast done.')
 
 def get_distributed_tape(tape):
-'''    return hvd.DistributedGradientTape(tape,
-                device_dense='/gpu:0',
-                device_sparse='',
-                # compression=hvd.Compression.fp16, # hurts convergence in 8x8 case
-                compression=hvd.Compression.none,
-                sparse_as_dense=False)'''
     return herring.DistributedGradientTape(tape,
                 device_dense='/gpu:0',
                 device_sparse='',
@@ -53,5 +44,4 @@ def get_distributed_tape(tape):
                 sparse_as_dense=False)
 
 def get_barrier():
-    #return hvd.allreduce(tf.constant(0, dtype=tf.float32))
-    return herring.oob_allreduce(tf.constant(0, dtype=tf.float32))
+    return herring.allreduce(tf.constant(0, dtype=tf.float32))
