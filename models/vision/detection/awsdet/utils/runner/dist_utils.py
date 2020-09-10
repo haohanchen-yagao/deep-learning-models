@@ -36,12 +36,13 @@ def broadcast_weights(runner):
     print('Variable broadcast done.')
 
 def get_distributed_tape(tape):
-    return herring.DistributedGradientTape(tape,
+    return herring.DistributedGradientTape(tape)
+    '''return herring.DistributedGradientTape(tape,
                 device_dense='/gpu:0',
                 device_sparse='',
                 # compression=hvd.Compression.fp16, # hurts convergence in 8x8 case
                 compression=herring.Compression.none,
-                sparse_as_dense=False)
+                sparse_as_dense=False)'''
 
 def get_barrier():
     return herring.allreduce(tf.constant(0, dtype=tf.float32))
