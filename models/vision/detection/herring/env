@@ -79,7 +79,7 @@ pip install tensorflow-gpu==2.2 # Installs TF 2.2
 export PATH=/opt/amazon/openmpi/bin:$PATH
 export LD_LIBRARY_PATH=/opt/amazon/openmpi/lib:$LD_LIBRARY_PATH
 
-HOROVOD_CUDA_HOME=/shared/tf22envs HOROVOD_NCCL_HOME=/shared/tf22envs HOROVOD_GPU_ALLREDUCE=NCCL  HOROVOD_WITH_TENSORFLOW=1 pip install --no-cache-dir horovod
+HOROVOD_CUDA_HOME=/shared/conda HOROVOD_NCCL_HOME=/shared/conda HOROVOD_GPU_ALLREDUCE=NCCL  HOROVOD_WITH_TENSORFLOW=1 pip install --no-cache-dir horovod
 
 # Install MPI4PY
 pip install mpi4py
