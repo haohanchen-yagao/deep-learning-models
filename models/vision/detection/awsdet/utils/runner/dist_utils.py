@@ -18,7 +18,7 @@ def init_dist():
         tf.config.experimental.set_visible_devices(gpus[herring.local_rank()], 'GPU')
 
 def get_dist_info():
-    return herring.rank(), hvd.local_rank(), hvd.size(), hvd.local_size() #TODO return a dict instead
+    return herring.rank(), herring.local_rank(), herring.size(), herring.local_size() #TODO return a dict instead
 
 def master_only(func):
     @functools.wraps(func)
