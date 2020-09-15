@@ -91,4 +91,4 @@ optimizer_config = dict(
 
 
 work_dir = './work_dirs/faster_rcnn_r50v1_d_fpn_1x_coco'
-
+total_epochs = 1
