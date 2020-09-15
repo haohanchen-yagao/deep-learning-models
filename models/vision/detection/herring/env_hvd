@@ -74,7 +74,7 @@ pip install tensorflow_addons \
                 numba && \
                 pip install numpy==1.17.5 pycocotools
     
-pip install tensorflow-gpu==2.2 # Installs TF 2.2
+pip install tensorflow-gpu # Installs TF 2.2
 
 export PATH=/opt/amazon/openmpi/bin:$PATH
 export LD_LIBRARY_PATH=/opt/amazon/openmpi/lib:$LD_LIBRARY_PATH
