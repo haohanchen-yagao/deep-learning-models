@@ -9,7 +9,7 @@ import tensorflow as tf
 import herring.tensorflow as herring
 
 def init_dist():
-    #hvd.init()
+    herring.init()
     # tf.debugging.set_log_device_placement(True)
     gpus = tf.config.experimental.list_physical_devices('GPU')
     for gpu in gpus:
@@ -46,3 +46,4 @@ def get_distributed_tape(tape):
 
 def get_barrier():
     return herring.allreduce(tf.constant(0, dtype=tf.float32))
+fa
