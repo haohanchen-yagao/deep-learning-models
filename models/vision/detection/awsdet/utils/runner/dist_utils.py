@@ -46,4 +46,3 @@ def get_distributed_tape(tape):
 
 def get_barrier():
     return herring.allreduce(tf.constant(0, dtype=tf.float32))
-fa
