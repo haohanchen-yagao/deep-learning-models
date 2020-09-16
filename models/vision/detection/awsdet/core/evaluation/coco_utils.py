@@ -212,7 +212,7 @@ def segm2json(dataset, results):
 
 def results2json(dataset, results, out_file):
     print("let's go results2json")
-    print(results)
+    print(len(results))
     result_files = dict()
     if isinstance(results[0], list):
         json_results = det2json(dataset, results)
