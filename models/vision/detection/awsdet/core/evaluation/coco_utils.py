@@ -163,16 +163,16 @@ def det2json(dataset, results):
         result = results[idx]
         print("let's go inside {}".format(idx))
         print(result)
-        print(len(result))
-        for label in range(len(result)):
-            bboxes = result[label]
-            for i in range(bboxes.shape[0]):
-                data = dict()
-                data['image_id'] = img_id
-                data['bbox'] = yxyx2xywh(bboxes[i])
-                data['score'] = float(bboxes[i][4])
-                data['category_id'] = dataset.cat_ids[label-1]
-                json_results.append(data)
+        if result is not None:
+            for label in range(len(result)):
+                bboxes = result[label]
+                for i in range(bboxes.shape[0]):
+                    data = dict()
+                    data['image_id'] = img_id
+                    data['bbox'] = yxyx2xywh(bboxes[i])
+                    data['score'] = float(bboxes[i][4])
+                    data['category_id'] = dataset.cat_ids[label-1]
+                    json_results.append(data)
     return json_results
 
 
