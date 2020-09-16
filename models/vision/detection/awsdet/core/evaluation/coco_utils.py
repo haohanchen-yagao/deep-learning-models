@@ -156,7 +156,7 @@ def proposal2json(dataset, results):
 
 def det2json(dataset, results):
     print("let's go det2json")
-    print(results)
+    print(len(results))
     json_results = []
     for idx in range(len(results)):
         img_id = dataset.img_ids[idx]
