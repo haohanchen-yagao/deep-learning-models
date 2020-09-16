@@ -161,7 +161,9 @@ def det2json(dataset, results):
     for idx in range(len(results)):
         img_id = dataset.img_ids[idx]
         result = results[idx]
+        print("let's go inside {}".format(idx))
         print(result)
+        print(len(result))
         for label in range(len(result)):
             bboxes = result[label]
             for i in range(bboxes.shape[0]):
