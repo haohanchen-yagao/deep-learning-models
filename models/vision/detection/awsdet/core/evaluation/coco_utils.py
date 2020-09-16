@@ -155,6 +155,8 @@ def proposal2json(dataset, results):
 
 
 def det2json(dataset, results):
+    print("let's go det2json")
+    print(results)
     json_results = []
     for idx in range(len(results)):
         img_id = dataset.img_ids[idx]
@@ -209,6 +211,8 @@ def segm2json(dataset, results):
 
 
 def results2json(dataset, results, out_file):
+    print("let's go results2json")
+    print(results)
     result_files = dict()
     if isinstance(results[0], list):
         json_results = det2json(dataset, results)
