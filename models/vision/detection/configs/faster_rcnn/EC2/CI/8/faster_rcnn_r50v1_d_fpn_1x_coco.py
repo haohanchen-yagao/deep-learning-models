@@ -66,7 +66,7 @@ model = dict(
 optimizer = dict(
     _overwrite_=True,
     type='MomentumOptimizer',
-    learning_rate=5e-3,
+    learning_rate=3e-3,
     momentum=0.9,
     nesterov=False,
 )
