@@ -33,6 +33,7 @@ class DistEvalHook(Hook):
     @master_only
     def _accumulate_results(self, runner, results, num_examples):
         # accumulate on the master
+        print("let's start accu")
         for worker_idx in range(1, runner.local_size):
             worker_file = osp.join(runner.work_dir, 'temp_{}.pkl'.format(worker_idx))
             tmp_results = load(worker_file)
@@ -41,6 +42,7 @@ class DistEvalHook(Hook):
                 results[adjusted_idx] = tmp_results[adjusted_idx]
             print('cleaning up', worker_file)
             os.remove(worker_file) # cleanup
+        print("let's go eval")
         self.evaluate(runner, results)
         runner.log_buffer.output['eval_time'] = '{:.3f}'.format(time.time() - self.start_time)
 
@@ -142,6 +144,7 @@ class CocoDistEvalmAPHook(DistEvalHook):
 
     def evaluate(self, runner, results):
         tmp_file = osp.join(runner.work_dir, 'temp_0')
+        print("come to r2j")
         result_files = results2json(self.dataset, results, tmp_file)
 
         res_types = ['bbox', 'segm'] if self.dataset.mask else ['bbox']
