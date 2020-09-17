@@ -71,7 +71,7 @@ model = dict(
 
 # dataset settings
 dataset_type = 'CocoDataset'
-data_root = '/shared/awsdet/data/coco/coco/'
+data_root = '/data/COCO/'
 preproc_mode = 'rgb'
 image_mean = (123.68, 116.78, 103.94)
 image_std = (58.393, 57.12, 57.375)
@@ -144,5 +144,7 @@ lr_config = dict(
     warmup_ratio=0.001,
     step=[8, 11]
 )
+
+
 
 work_dir = './work_dirs/mask_rcnn_r50v1_d_fpn_1x_coco'
