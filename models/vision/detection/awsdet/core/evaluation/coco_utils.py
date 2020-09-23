@@ -164,7 +164,6 @@ def det2json(dataset, results):
         result = results[idx]
         if result is not None:
             avai += 1
-            print(len(result))
             for label in range(len(result)):
                 bboxes = result[label]
                 for i in range(bboxes.shape[0]):
