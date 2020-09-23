@@ -1,6 +1,7 @@
 import tensorflow as tf
 from preprocessing.augmentation_utils import mixup
-import horovod.tensorflow as hvd
+#import horovod.tensorflow as hvd
+import herring.tensorflow as herring
 
 layers = tf.keras.layers
 
@@ -14,7 +15,9 @@ def train_step(model, opt, loss_func, images, labels, first_batch, batch_size, m
         if not fp32:
             scaled_loss_value = opt.get_scaled_loss(loss_value)
 
-    tape = hvd.DistributedGradientTape(tape, compression=hvd.Compression.fp16)
+    #tape = hvd.DistributedGradientTape(tape, compression=hvd.Compression.fp16)
+    tape = herring.DistributedGradientTape(tape, compression=hr.Compression.fp16)
+
     if not fp32:
         grads = tape.gradient(scaled_loss_value, model.trainable_variables)
         grads = opt.get_unscaled_gradients(grads)
@@ -22,8 +25,10 @@ def train_step(model, opt, loss_func, images, labels, first_batch, batch_size, m
         grads = tape.gradient(loss_value, model.trainable_variables)
     opt.apply_gradients(zip(grads, model.trainable_variables))
     if first_batch:
-        hvd.broadcast_variables(model.variables, root_rank=0)
-        hvd.broadcast_variables(opt.variables(), root_rank=0)
+        #hvd.broadcast_variables(model.variables, root_rank=0)
+        #hvd.broadcast_variables(opt.variables(), root_rank=0)
+        herring.broadcast_variables(model.variables, root_rank=0)
+        herring.broadcast_variables(opt.variables(), root_rank=0)
     
     probs = layers.Activation('softmax', dtype='float32')(logits)
     top_1_pred = tf.squeeze(tf.math.top_k(probs, k=1)[1])
