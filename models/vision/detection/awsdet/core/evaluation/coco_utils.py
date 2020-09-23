@@ -156,10 +156,14 @@ def proposal2json(dataset, results):
 
 def det2json(dataset, results):
     json_results = []
+    print("let's go det2json")
+    print(len(results))
     for idx in range(len(results)):
         img_id = dataset.img_ids[idx]
         result = results[idx]
+        print("let's go inside {}".format(idx))
         for label in range(len(result)):
+            print(len(result))
             bboxes = result[label]
             for i in range(bboxes.shape[0]):
                 data = dict()

@@ -83,6 +83,8 @@ class DistEvalHook(Hook):
             dump(results, tmp_file)
             # open(tmp_file+'.done', 'w').close()
         # MPI barrier through horovod
+        print("let's go hook")
+        print(len(results))
         _ = get_barrier()
         self._accumulate_results(runner, results, num_examples)
         del tf_dataset
