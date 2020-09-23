@@ -158,11 +158,12 @@ def det2json(dataset, results):
     print("let's go det2json")
     print(len(results))
     json_results = []
+    avai = 0
     for idx in range(len(results)):
         img_id = dataset.img_ids[idx]
         result = results[idx]
-        print("let's go inside {}".format(idx))
         if result is not None:
+            avai += 1
             print(len(result))
             for label in range(len(result)):
                 bboxes = result[label]
@@ -173,6 +174,8 @@ def det2json(dataset, results):
                     data['score'] = float(bboxes[i][4])
                     data['category_id'] = dataset.cat_ids[label-1]
                     json_results.append(data)
+    print("num of results {}".format(len(results)))
+    print("num of non-blank results {}, rate is {}".format(avai, avai/len(results)))
     return json_results
 
 
