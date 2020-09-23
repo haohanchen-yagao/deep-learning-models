@@ -77,7 +77,7 @@ lr_config = dict(
     _overwrite_=True,
     policy='step',
     warmup='linear',
-    warmup_iters=1500,
+    warmup_iters=3000,
     warmup_ratio=0.001,
     step=[8, 11]
 )
