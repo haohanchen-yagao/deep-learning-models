@@ -7,7 +7,7 @@ test_cfg = dict(
 )
 
 # run eval on validation with interval specified below
-evaluation = dict(interval=12)
+evaluation = dict(interval=1)
 
 
 checkpoint_config = dict(interval=1, outdir='checkpoints')
