@@ -188,8 +188,6 @@ def allreduce(model, optimizer, gradient_accumulator, loss, mlm_loss, mlm_acc, s
     )
 
     grads = [
-        '''hvd.allreduce(grad, compression=hvd.Compression.fp16) if grad is not None else None
-        for grad in grads'''
         herring.allreduce(grad, param_index=idx, num_params=len(grads), use_fp16=True) if grad is not None else None
         for idx, grad in enumerate(grads)
     ]
