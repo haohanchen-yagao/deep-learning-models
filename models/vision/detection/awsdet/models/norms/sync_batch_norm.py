@@ -14,12 +14,12 @@
 # ==============================================================================
 
 import tensorflow as tf
-'''from horovod.tensorflow.mpi_ops import _allreduce
+from horovod.tensorflow.mpi_ops import _allreduce
 from horovod.tensorflow.mpi_ops import size, rank
-from horovod.tensorflow.mpi_ops import Sum'''
-from herring.tensorflow.mpi_ops import _allreduce
+from horovod.tensorflow.mpi_ops import Sum
+'''from herring.tensorflow.mpi_ops import _allreduce
 from herring.tensorflow.mpi_ops import size, rank
-from herring.tensorflow.mpi_ops import Sum
+from herring.tensorflow.mpi_ops import Sum'''
 
 layers = tf.keras.layers
 
