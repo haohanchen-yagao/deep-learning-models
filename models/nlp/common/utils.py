@@ -25,7 +25,8 @@ from transformers.data.processors.squad import (
 from common.arguments import ModelArguments
 
 # See https://github.com/huggingface/transformers/issues/3782; this import must come last
-import horovod.tensorflow as hvd  # isort:skip
+#import horovod.tensorflow as hvd  # isort:skip
+import herring.tensorflow as herring 
 
 try:
     import wandb
@@ -145,7 +146,8 @@ def get_dataset(
         return dataset
     else:
         if shard:
-            dataset = dataset.shard(hvd.size(), hvd.rank())
+            #dataset = dataset.shard(hvd.size(), hvd.rank())
+            dataset = dataset.shard(herring.size(), herring.rank())
         if shuffle:
             dataset = dataset.shuffle(buffer_size=1000, reshuffle_each_iteration=True)
         if repeat:

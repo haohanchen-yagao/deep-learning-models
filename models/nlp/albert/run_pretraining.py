@@ -63,7 +63,8 @@ from common.utils import (
 )
 
 # See https://github.com/huggingface/transformers/issues/3782; this import must come last
-import horovod.tensorflow as hvd  # isort:skip
+#import horovod.tensorflow as hvd  # isort:skip
+import herring.tensorflow as herring
 
 if is_wandb_available():
     import wandb
@@ -187,8 +188,10 @@ def allreduce(model, optimizer, gradient_accumulator, loss, mlm_loss, mlm_acc, s
     )
 
     grads = [
-        hvd.allreduce(grad, compression=hvd.Compression.fp16) if grad is not None else None
-        for grad in grads
+        '''hvd.allreduce(grad, compression=hvd.Compression.fp16) if grad is not None else None
+        for grad in grads'''
+        herring.allreduce(grad, param_index=idx, num_params=len(grads), use_fp16=True) if grad is not None else None
+        for idx, grad in enumerate(grads)
     ]
 
     optimizer.apply_gradients(
@@ -202,11 +205,16 @@ def allreduce(model, optimizer, gradient_accumulator, loss, mlm_loss, mlm_acc, s
     # Clear the gradient accumulator
     gradient_accumulator.reset()
 
-    loss = hvd.allreduce(loss)
-    mlm_loss = hvd.allreduce(mlm_loss)
-    mlm_acc = hvd.allreduce(mlm_acc)
-    sop_loss = hvd.allreduce(sop_loss)
-    sop_acc = hvd.allreduce(sop_acc)
+    #oss = hvd.allreduce(loss)
+    #mlm_loss = hvd.allreduce(mlm_loss)
+    #mlm_acc = hvd.allreduce(mlm_acc)
+    #sop_loss = hvd.allreduce(sop_loss)
+    #sop_acc = hvd.allreduce(sop_acc)
+    loss = herring.oob_allreduce(loss)
+    mlm_loss = herring.oob_allreduce(mlm_loss)
+    mlm_acc = herring.oob_allreduce(mlm_acc)
+    sop_loss = herring.oob_allreduce(sop_loss)
+    sop_acc = herring.oob_allreduce(sop_acc)
 
     return loss, mlm_loss, mlm_acc, sop_loss, sop_acc, grad_norm, weight_norm
 
@@ -384,17 +392,19 @@ def main():
     max_grad_norm = train_args.max_grad_norm
 
     # Horovod init
-    hvd.init()
+    #hvd.init()
     gpus = tf.config.list_physical_devices("GPU")
-    for gpu in gpus:
-        tf.config.experimental.set_memory_growth(gpu, True)
+    '''for gpu in gpus:
+        tf.config.experimental.set_memory_growth(gpu, True)'''
     if gpus:
-        tf.config.set_visible_devices(gpus[hvd.local_rank()], "GPU")
+        #tf.config.set_visible_devices(gpus[hvd.local_rank()], "GPU")
+        tf.config.set_visible_devices(gpus[herring.local_rank()], "GPU")
     # XLA, AutoGraph
     tf.config.optimizer.set_jit(do_xla)
     tf.config.experimental_run_functions_eagerly(do_eager)
 
-    if hvd.rank() == 0:
+    #if hvd.rank() == 0:
+    if herring.rank() == 0:
         # Run name should only be used on one process to avoid race conditions
         current_time = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
         platform = "sm" if is_sagemaker else "eks"
@@ -410,8 +420,10 @@ def main():
                 f"{model_args.model_type}"
                 f"-{model_args.model_size}"
                 f"-{model_args.load_from}"
-                f"-{hvd.size()}gpus"
-                f"-{train_args.per_gpu_batch_size * hvd.size() * train_args.gradient_accumulation_steps}globalbatch"
+                #f"-{hvd.size()}gpus"
+                #f"-{train_args.per_gpu_batch_size * hvd.size() * train_args.gradient_accumulation_steps}globalbatch"
+                f"-{herring.size()}gpus"
+                f"-{train_args.per_gpu_batch_size * herring.size() * train_args.gradient_accumulation_steps}globalbatch"
                 f"-{train_args.learning_rate}maxlr"
                 f"-{train_args.learning_rate_decay_power}power"
                 f"-{train_args.optimizer}opt"
@@ -459,7 +471,8 @@ def main():
     if model_args.load_from == "checkpoint":
         checkpoint_path = os.path.join(path_args.filesystem_prefix, model_args.checkpoint_path)
         model_ckpt, optimizer_ckpt = get_checkpoint_paths_from_prefix(checkpoint_path)
-        if hvd.rank() == 0:
+        #if hvd.rank() == 0:
+        if herring.rank() == 0:
             model.load_weights(model_ckpt)
             if model_args.load_optimizer_state == "true":
                 loaded_optimizer_weights = np.load(optimizer_ckpt, allow_pickle=True)
@@ -486,7 +499,8 @@ def main():
     train_dataset = train_dataset.prefetch(buffer_size=8)
 
     # Validation should only be done on one node, since Horovod doesn't allow allreduce on a subset of ranks
-    if hvd.rank() == 0:
+    #if hvd.rank() == 0:
+    if herring.rank() == 0:
         validation_dataset = get_dataset_from_tfrecords(
             model_type=model_args.model_type,
             filenames=validation_filenames,
@@ -519,10 +533,15 @@ def main():
 
         # Don't want to wrap broadcast_variables() in a tf.function, can lead to asynchronous errors
         if i == 1:
-            if hvd.rank() == 0 and loaded_optimizer_weights is not None:
+            #if hvd.rank() == 0 and loaded_optimizer_weights is not None:
+            if herring.rank() == 0 and loaded_optimizer_weights is not None:
                 optimizer.set_weights(loaded_optimizer_weights)
-            hvd.broadcast_variables(model.variables, root_rank=0)
-            hvd.broadcast_variables(optimizer.variables(), root_rank=0)
+            #hvd.broadcast_variables(model.variables, root_rank=0)
+            #hvd.broadcast_variables(optimizer.variables(), root_rank=0)
+            print (" RANK {} is broadcasting".format(herring.rank()))
+            herring.broadcast_variables(model.variables + optimizer.variables(), root_rank=0)
+            print(" RANK {} is done broadcasting".format(herring.rank()))
+            # herring.broadcast_variables(optimizer.variables(), root_rank=0)
             i = optimizer.get_weights()[0]
 
         is_final_step = i >= train_args.total_steps
@@ -541,14 +560,16 @@ def main():
                 fast=log_args.fast_squad,
                 dummy_eval=log_args.dummy_eval,
             )
-            if hvd.rank() == 0:
+            #if hvd.rank() == 0:
+            if herring.rank() == 0:
                 squad_exact, squad_f1 = squad_results["exact"], squad_results["f1"]
                 logger.info(f"SQuAD step {i} -- F1: {squad_f1:.3f}, Exact: {squad_exact:.3f}")
             # Re-wrap autograph so it doesn't get arg mismatches
             wrap_global_functions(do_gradient_accumulation)
             gc.collect()
 
-        if hvd.rank() == 0:
+        #if hvd.rank() == 0:
+        if herring.rank() == 0:
             do_log = i % log_args.log_frequency == 0
             do_checkpoint = (log_args.checkpoint_frequency != 0) and (
                 (i % log_args.checkpoint_frequency == 0) or is_final_step
@@ -603,7 +624,8 @@ def main():
                     **asdict(data_args),
                     **asdict(train_args),
                     **asdict(log_args),
-                    "global_batch_size": train_args.per_gpu_batch_size * hvd.size(),
+                    #"global_batch_size": train_args.per_gpu_batch_size * hvd.size(),
+                    "global_batch_size": train_args.per_gpu_batch_size * herring.size(),
                 }
                 if is_wandb_available():
                     wandb.init(config=config, project=model_args.model_type)
@@ -650,7 +672,8 @@ def main():
         if is_final_step:
             break
 
-    if hvd.rank() == 0:
+    #if hvd.rank() == 0:
+    if herring.rank() == 0:
         pbar.close()
         logger.info(f"Finished pretraining, job name {run_name}")
 

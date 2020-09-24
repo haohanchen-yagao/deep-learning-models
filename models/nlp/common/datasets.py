@@ -64,9 +64,11 @@ def get_dataset_from_tfrecords(
     # Shard and shuffle the filenames
     dataset = tf.data.Dataset.from_tensor_slices(filenames)
     if shard:
-        import horovod.tensorflow as hvd
+        #import horovod.tensorflow as hvd
+        import herring.tensorflow as herring
 
-        dataset = dataset.shard(hvd.size(), hvd.rank())
+        #dataset = dataset.shard(hvd.size(), hvd.rank())
+        dataset = dataset.shard(herring.size(), herring.rank())
     dataset = dataset.shuffle(buffer_size=len(filenames), reshuffle_each_iteration=True)
     dataset = dataset.repeat()
 
