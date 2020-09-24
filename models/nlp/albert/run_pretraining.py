@@ -192,7 +192,7 @@ def allreduce(model, optimizer, gradient_accumulator, loss, mlm_loss, mlm_acc, s
     #    for idx, grad in enumerate(grads)
     #]
     grads = [
-        herring.allreduce(grad, param_index=idx, num_params=len(grads)) if grad is not None else None
+        herring.allreduce(grad, param_index=idx, num_params=len(grads), compression=herring.Compression.fp16) if grad is not None else None
         for idx, grad in enumerate(grads)
     ]
     optimizer.apply_gradients(
