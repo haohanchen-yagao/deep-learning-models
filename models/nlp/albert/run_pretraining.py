@@ -479,12 +479,14 @@ def main():
 
     # Train filenames are [1, 2047], Val filenames are [0]. Note the different subdirectories
     # Move to same folder structure and remove if/else
+    print('lets see fsx {}'.format(path_args.filesystem_prefix))
+    print('lets see dir {}'.format(path_args.train_dir))
     train_glob = os.path.join(path_args.filesystem_prefix, path_args.train_dir, "*.tfrecord")
     validation_glob = os.path.join(path_args.filesystem_prefix, path_args.val_dir, "*.tfrecord")
-
+    print('lets see glob {}'.format(train_glob))
     train_filenames = glob.glob(train_glob)
     validation_filenames = glob.glob(validation_glob)
-
+    print('lets see file name {}'.format(train_filenames))
     train_dataset = get_dataset_from_tfrecords(
         model_type=model_args.model_type,
         filenames=train_filenames,
