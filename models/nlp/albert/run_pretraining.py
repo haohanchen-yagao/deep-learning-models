@@ -187,11 +187,14 @@ def allreduce(model, optimizer, gradient_accumulator, loss, mlm_loss, mlm_acc, s
         tf.math.reduce_sum([tf.norm(var, ord=2) ** 2 for var in model.trainable_variables])
     )
 
+    #grads = [
+    #    herring.allreduce(grad, param_index=idx, num_params=len(grads), use_fp16=True) if grad is not None else None
+    #    for idx, grad in enumerate(grads)
+    #]
     grads = [
-        herring.allreduce(grad, param_index=idx, num_params=len(grads), use_fp16=True) if grad is not None else None
+        herring.allreduce(grad, param_index=idx, num_params=len(grads)) if grad is not None else None
         for idx, grad in enumerate(grads)
     ]
-
     optimizer.apply_gradients(
         [
             (tf.cast(grad, var.dtype), var)
