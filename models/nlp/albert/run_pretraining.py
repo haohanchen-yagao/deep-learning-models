@@ -391,6 +391,7 @@ def main():
 
     # Horovod init
     #hvd.init()
+    herring.init()
     gpus = tf.config.list_physical_devices("GPU")
     '''for gpu in gpus:
         tf.config.experimental.set_memory_growth(gpu, True)'''
