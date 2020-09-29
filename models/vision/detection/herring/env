@@ -88,7 +88,7 @@ pip install mpi4py
 cd $WORK_DIR
 tar -xzf $HERRING_HOME/herring.tar.gz -C .
 cd /shared/herring
-HERRING_TF=1 python setup.py install
+HERRING_TF=1 python setup.py clean install
 
 rm -rf $WORK_DIR
 
