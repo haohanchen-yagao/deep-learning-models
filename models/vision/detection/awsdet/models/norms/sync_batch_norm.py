@@ -35,7 +35,7 @@ class SyncBatchNormalization(layers.BatchNormalization):
 
   def _moments(self, inputs, reduction_axes, keep_dims):
     """Compute the mean and variance: it overrides the original _moments."""
-
+    print("we're here in sbn!")
     worker_mean, worker_variance = super(SyncBatchNormalization, self)._moments(
       inputs, reduction_axes, keep_dims=keep_dims)
 

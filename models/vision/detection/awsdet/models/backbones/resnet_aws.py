@@ -625,8 +625,10 @@ def build_resnet(model_name,
     bn_axis = 3 if image_data_format == 'channels_last' else 1
     norm_fn = None
     if not sync_bn:
+        print("we're not sbn")
         norm_fn = functools.partial(layers.BatchNormalization, axis=bn_axis, epsilon=BN_EPS, momentum=BN_MOMENTUM)
     else:
+        print("we're sbn")
         norm_fn = functools.partial(SyncBatchNormalization, axis=bn_axis, epsilon=BN_EPS, momentum=BN_MOMENTUM)
 
     if model_name == 'ResNet50V1_b':
