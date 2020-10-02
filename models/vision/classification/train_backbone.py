@@ -70,14 +70,17 @@ def add_cli_args():
 
 
 def main():
-    hvd.init()
+    #hvd.init()
+    herring.init()
     gpus = tf.config.experimental.list_physical_devices('GPU')
     for gpu in gpus:
         tf.config.experimental.set_memory_growth(gpu, True)
     if gpus:
-        tf.config.experimental.set_visible_devices(gpus[hvd.local_rank()], 'GPU')
+        #tf.config.experimental.set_visible_devices(gpus[hvd.local_rank()], 'GPU')
+        tf.config.experimental.set_visible_devices(gpus[herring.local_rank()], 'GPU')
     tf.config.threading.intra_op_parallelism_threads = 1 # Avoid pool of Eigen threads
-    tf.config.threading.inter_op_parallelism_threads = max(2, 40//hvd.size()-2)
+    #tf.config.threading.inter_op_parallelism_threads = max(2, 40//hvd.size()-2)
+    tf.config.threading.inter_op_parallelism_threads = max(2, 40//herring.size()-2)
     os.environ['TF_CUDNN_DETERMINISTIC'] = '1'
 
     cmdline = add_cli_args()
@@ -117,8 +120,11 @@ def main():
 
     # scale learning rate linearly, base learning rate for batch size of 256 is specified through args
     BASE_LR = FLAGS.learning_rate
-    learning_rate = (BASE_LR * hvd.size() * FLAGS.batch_size)/256 
-    steps_per_epoch = int((FLAGS.train_dataset_size / (FLAGS.batch_size * hvd.size())))
+    #learning_rate = (BASE_LR * hvd.size() * FLAGS.batch_size)/256 
+    #steps_per_epoch = int((FLAGS.train_dataset_size / (FLAGS.batch_size * hvd.size())))
+    learning_rate = (FLAGS.learning_rate * herring.size() * FLAGS.batch_size)/256
+    steps_per_epoch = int((FLAGS.train_dataset_size / (FLAGS.batch_size * herring.size())))
+
 
     # 5 epochs are for warmup
     if FLAGS.schedule == 'piecewise_short':
@@ -136,7 +142,8 @@ def main():
         print('No schedule specified')
 
 
-    scheduler = WarmupScheduler(optimizer=scheduler, initial_learning_rate=learning_rate / hvd.size(), warmup_steps=steps_per_epoch * 5)
+    #scheduler = WarmupScheduler(optimizer=scheduler, initial_learning_rate=learning_rate / hvd.size(), warmup_steps=steps_per_epoch * 5)
+    scheduler = WarmupScheduler(optimizer=scheduler, initial_learning_rate=learning_rate / herring.size(), warmup_steps=steps_per_epoch * 5)
 
     #TODO support optimizers choice via config
     # opt = tf.keras.optimizers.SGD(learning_rate=scheduler, momentum=FLAGS.momentum, nesterov=True) # needs momentum correction term
@@ -165,7 +172,8 @@ def main():
         logger.info('Training options: %s', FLAGS)
     
     # barrier
-    hvd.allreduce(tf.constant(0))
+    #hvd.allreduce(tf.constant(0))
+    herring.oob_allreduce(tf.constant(0))
  
     start_time = time()
     curr_step = tf.Variable(initial_value=0, dtype=tf.int32)
@@ -193,7 +201,8 @@ def main():
         training_accuracy = training_score / (FLAGS.batch_size * (batch + 1))
         average_training_accuracy = hvd.allreduce(tf.constant(training_accuracy))
         average_training_loss = hvd.allreduce(tf.constant(loss))
-        if hvd.rank() == 0:
+        #if hvd.rank() == 0:
+        if herring.rank() == 0:
             print('Starting validation Epoch %d/%d' % (epoch, FLAGS.num_epochs))
         validation_score = 0
         counter = 0
@@ -202,10 +211,13 @@ def main():
             validation_score += score.numpy()
             counter += 1
         validation_accuracy = validation_score / (FLAGS.batch_size * counter)
-        average_validation_accuracy = hvd.allreduce(tf.constant(validation_accuracy))
-        average_validation_loss = hvd.allreduce(tf.constant(loss))
+        #average_validation_accuracy = hvd.allreduce(tf.constant(validation_accuracy))
+        #average_validation_loss = hvd.allreduce(tf.constant(loss))
+        average_training_accuracy = herring.allreduce(tf.constant(training_accuracy))
+        average_training_loss = herring.allreduce(tf.constant(loss))
 
-        if hvd.rank() == 0:
+        #if hvd.rank() == 0:
+        if herring.rank() == 0:
             info_str = 'Epoch: %d, Train Accuracy: %f, Train Loss: %f, Validation Accuracy: %f, Validation Loss: %f LR:%f' % (
                     epoch, average_training_accuracy, average_training_loss, average_validation_accuracy, average_validation_loss, scheduler(curr_step))
             print(info_str)
@@ -214,7 +226,8 @@ def main():
                 logger.info("Found new best accuracy, saving checkpoint ...")
                 best_validation_accuracy = average_validation_accuracy
                 model.save('{}/{}'.format(FLAGS.model_dir, FLAGS.model))
-    if hvd.rank() == 0:
+    #if hvd.rank() == 0:
+    if herring.rank() == 0:
         logger.info('Total Training Time: %f' % (time() - start_time))
 
 if __name__ == '__main__':
