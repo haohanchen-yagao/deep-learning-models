@@ -1,4 +1,5 @@
-import horovod.tensorflow as hvd
+#import horovod.tensorflow as hvd
+import herring.tensorflow as herring
 import os
 import tensorflow as tf
 from preprocessing import resnet_preprocessing, imagenet_preprocessing, darknet_preprocessing
@@ -6,7 +7,8 @@ import functools
 
 def create_dataset(data_dir, batch_size, preprocessing='resnet', validation=False):
     filenames = [os.path.join(data_dir, i) for i in os.listdir(data_dir)]
-    data = tf.data.TFRecordDataset(filenames).shard(hvd.size(), hvd.rank())
+    #data = tf.data.TFRecordDataset(filenames).shard(hvd.size(), hvd.rank())
+    data = tf.data.TFRecordDataset(filenames).shard(herring.size(), herring.rank())
     if not validation:
         parse_fn = functools.partial(parse_train, preprocessing=preprocessing)
         data = data.shuffle(buffer_size=1000)
