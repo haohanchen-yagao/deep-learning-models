@@ -36,7 +36,7 @@ def broadcast_weights(runner):
     print('Variable broadcast done.')
 
 def get_distributed_tape(tape):
-    return herring.DistributedGradientTape(tape)
+    return herring.DistributedGradientTape(tape, device_dense='/gpu:0')
     '''return herring.DistributedGradientTape(tape,
                 device_dense='/gpu:0',
                 device_sparse='',
