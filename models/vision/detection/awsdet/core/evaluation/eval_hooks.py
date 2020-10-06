@@ -103,7 +103,7 @@ class DistEvalHook(Hook):
                 results[i*8+runner.local_rank] = result
                 if result is None:
                     print("we got a none here! idx is: {}".format(i*runner.local_size+runner.local_rank))
-                print("placed idx is: {}".format(i*runner.local_size+runner.local_rank))
+                print("placed idx is: {}".format(i*8+runner.local_rank))
             if runner.rank == 0:
                 prog_bar.update()
         # write to a file
