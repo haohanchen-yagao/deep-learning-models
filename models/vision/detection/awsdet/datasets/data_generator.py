@@ -32,7 +32,7 @@ class DataGenerator:
             print('Starting new loop for GPU:', self.gpu_index)
             for img_idx in indices:
                 # overfit hack  DEBUG
-                img_idx = self.gpu_index * 100 + img_idx % 100 #DEBUG
+                #img_idx = self.gpu_index * 100 + img_idx % 100 #DEBUG
                 if self.dataset.train:
                     #print('Loading:', self.gpu_index, self.dataset.img_infos[img_idx]['file_name'])
                     if self.dataset.mask:
@@ -43,8 +43,7 @@ class DataGenerator:
                         #print(self.gpu_index, img_meta)
                         yield img, img_meta, bboxes, labels
                 else:
-                    #print('Loading for eval:', self.gpu_index, self.dataset.img_infos[img_idx]['file_name'])
-
+                    print('Loading for eval:', self.gpu_index, self.dataset.img_infos[img_idx]['file_name'])
                     img, img_meta = self.dataset[img_idx]
                     print(img_idx)
                     print(len(self.dataset))
