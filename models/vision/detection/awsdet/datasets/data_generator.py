@@ -43,5 +43,6 @@ class DataGenerator:
                         print(self.gpu_index, img_meta)
                         yield img, img_meta, bboxes, labels
                 else:
+                    print('Loading for eval:', self.gpu_index, self.dataset.img_infos[img_idx]['file_name'])
                     img, img_meta = self.dataset[img_idx]
                     yield img, img_meta
