@@ -67,7 +67,10 @@ class DistEvalHook(Hook):
             if i >= num_examples:
                 break
             _, img_meta = data_batch
+
+            print(data_batch)
             outputs = runner.model(data_batch, training=False)
+            print(outputs)
             assert isinstance(outputs, dict)
             bboxes = outputs['bboxes']
             # map boxes back to original scale
@@ -81,6 +84,8 @@ class DistEvalHook(Hook):
                 results[i*runner.local_size+runner.local_rank] = (result, mask)
             else:
                 results[i*runner.local_size+runner.local_rank] = result
+                if result is None:
+                    print("we got a none here!")
             if runner.rank == 0:
                 prog_bar.update()
         # write to a file
