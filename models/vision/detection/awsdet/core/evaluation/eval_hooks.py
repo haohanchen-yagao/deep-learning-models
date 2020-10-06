@@ -63,7 +63,6 @@ class DistEvalHook(Hook):
             masks = [None for _ in range(num_examples*runner.local_size)]
         if runner.rank == 0:
             prog_bar = ProgressBar(num_examples)
-        print(len(tf_dataset))
         for i, data_batch in enumerate(tf_dataset):
             if i >= num_examples:
                 break
