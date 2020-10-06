@@ -90,6 +90,7 @@ class DistEvalHook(Hook):
             if result is None:
                 print("Got a none before")
             #if runner.model.mask:
+            print("our local size is:".format(runner.local_size))
             if self.dataset.mask:
                 mask = mask2result(outputs['masks'], labels, img_meta[0])
                 results[i*runner.local_size+runner.local_rank] = (result, mask)
