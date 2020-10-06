@@ -34,6 +34,10 @@ class DistEvalHook(Hook):
     def _accumulate_results(self, runner, results, num_examples):
         # accumulate on the master
         print("let's start accu")
+        print(len(results))
+        for i in range(len(results)):
+            if results[i] is None:
+                print("none before final result!")
         for worker_idx in range(1, runner.local_size):
             worker_file = osp.join(runner.work_dir, 'temp_{}.pkl'.format(worker_idx))
             tmp_results = load(worker_file)
@@ -42,6 +46,10 @@ class DistEvalHook(Hook):
                 results[adjusted_idx] = tmp_results[adjusted_idx]
             print('cleaning up', worker_file)
             os.remove(worker_file) # cleanup
+        for i in range(len(results)):
+            if results[i] is None:
+                print("none in final result!")
+        print(len(results))
         print("let's go eval")
         self.evaluate(runner, results)
         runner.log_buffer.output['eval_time'] = '{:.3f}'.format(time.time() - self.start_time)
@@ -99,7 +107,7 @@ class DistEvalHook(Hook):
         print(len(results))
         for i in range(len(results)):
             if results[i] is None:
-                print("none in final result!")
+                print("none in medium result!")
         _ = get_barrier()
         self._accumulate_results(runner, results, num_examples)
         del tf_dataset
