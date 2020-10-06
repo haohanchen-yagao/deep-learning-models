@@ -68,9 +68,8 @@ class DistEvalHook(Hook):
                 break
             _, img_meta = data_batch
 
-            print(data_batch)
+            print("see:", i)
             outputs = runner.model(data_batch, training=False)
-            print(outputs)
             assert isinstance(outputs, dict)
             bboxes = outputs['bboxes']
             # map boxes back to original scale
@@ -78,6 +77,8 @@ class DistEvalHook(Hook):
             labels = outputs['labels']
             scores = outputs['scores']
             result = transforms.bbox2result(bboxes, labels, scores, num_classes=self.dataset.CLASSES+1) # add background class
+            if result is None:
+                print("Got a none before")
             #if runner.model.mask:
             if self.dataset.mask:
                 mask = mask2result(outputs['masks'], labels, img_meta[0])
@@ -96,6 +97,9 @@ class DistEvalHook(Hook):
         # MPI barrier through horovod
         print("let's go hook")
         print(len(results))
+        for i in range(len(results)):
+            if results[i] is None:
+                print("none in final result!")
         _ = get_barrier()
         self._accumulate_results(runner, results, num_examples)
         del tf_dataset
