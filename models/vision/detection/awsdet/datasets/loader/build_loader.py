@@ -37,7 +37,6 @@ def build_dataloader(dataset,
     batch_size = imgs_per_gpu
     if dist:
         rank, local_rank, size, local_size = get_dist_info()
-        local_size=8
         if dataset.train:
             generator = data_generator.DataGenerator(dataset, index=rank, num_gpus=size, shuffle=shuffle)
         else:

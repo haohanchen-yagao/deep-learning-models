@@ -35,13 +35,13 @@ class DistEvalHook(Hook):
         # accumulate on the master
         print("let's start accu")
         print(len(results))
-        #for worker_idx in range(1, runner.local_size):
-        for worker_idx in range(1, runner.local_size/2):
+        for worker_idx in range(1, runner.local_size):
+        #for worker_idx in range(1, runner.local_size/2):
             worker_file = osp.join(runner.work_dir, 'temp_{}.pkl'.format(worker_idx))
             tmp_results = load(worker_file)
             for idx in range(num_examples):
-                #adjusted_idx = idx*runner.local_size+worker_idx
-                adjusted_idx = idx*runner.local_size/2+worker_idx
+                adjusted_idx = idx*runner.local_size+worker_idx
+                #adjusted_idx = idx*runner.local_size/2+worker_idx
                 results[adjusted_idx] = tmp_results[adjusted_idx]
             print('cleaning up', worker_file)
             os.remove(worker_file) # cleanup
@@ -65,17 +65,17 @@ class DistEvalHook(Hook):
         self.start_time = time.time()
         # create a loader for this runner
         print("start dataset building!")
-        #tf_dataset, num_examples = build_dataloader(self.dataset, 1, 1, num_gpus=runner.local_size, dist=True)
-        tf_dataset, num_examples = build_dataloader(self.dataset, 1, 1, num_gpus=runner.local_size/2, dist=True)
+        tf_dataset, num_examples = build_dataloader(self.dataset, 1, 1, num_gpus=runner.local_size, dist=True)
+        #tf_dataset, num_examples = build_dataloader(self.dataset, 1, 1, num_gpus=runner.local_size/2, dist=True)
         # num_examples=8
         print("dataset built")
         print("num_example is {}".format(num_examples))
-        #results = [None for _ in range(num_examples*runner.local_size)] # REVISIT - may require a lot of memory
-        results = [None for _ in range(num_examples*runner.local_size/2)] # REVISIT - may require a lot of memory
+        results = [None for _ in range(num_examples*runner.local_size)] # REVISIT - may require a lot of memory
+        #results = [None for _ in range(num_examples*runner.local_size/2)] # REVISIT - may require a lot of memory
         #if runner.model.mask:
         if self.dataset.mask:
-            #masks = [None for _ in range(num_examples*runner.local_size)]
-            masks = [None for _ in range(num_examples*runner.local_size/2)]
+            masks = [None for _ in range(num_examples*runner.local_size)]
+            #masks = [None for _ in range(num_examples*runner.local_size/2)]
         if runner.rank == 0:
             prog_bar = ProgressBar(num_examples)
         for i, data_batch in enumerate(tf_dataset):
@@ -97,13 +97,13 @@ class DistEvalHook(Hook):
             #if runner.model.mask:
             if self.dataset.mask:
                 mask = mask2result(outputs['masks'], labels, img_meta[0])
-                #results[i*runner.local_size+runner.local_rank] = (result, mask)
-                results[i*runner.local_size/2+runner.local_rank] = (result, mask)
+                results[i*runner.local_size+runner.local_rank] = (result, mask)
+                #results[i*runner.local_size/2+runner.local_rank] = (result, mask)
                 #print("masked placed idx is: {}".format(i*runner.local_size+runner.local_rank))
                 
             else:
-                #results[i*runner.local_size+runner.local_rank] = result
-                results[i*runner.local_size/2+runner.local_rank] = result
+                results[i*runner.local_size+runner.local_rank] = result
+                #results[i*runner.local_size/2+runner.local_rank] = result
                 #print("placed idx is: {}".format(i*8+runner.local_rank))
             if runner.rank == 0:
                 prog_bar.update()
