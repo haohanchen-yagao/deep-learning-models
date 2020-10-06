@@ -46,10 +46,16 @@ class DistEvalHook(Hook):
                 results[adjusted_idx] = tmp_results[adjusted_idx]
             print('cleaning up', worker_file)
             os.remove(worker_file) # cleanup
+        x = 0
+        y = 0
         for i in range(len(results)):
             if results[i] is None:
                 print("none in final result!")
+                x += 1
+            else:
+                y += 1
         print(len(results))
+        print("none results is {}, not none is {}".format(x, y))
         print("let's go eval")
         self.evaluate(runner, results)
         runner.log_buffer.output['eval_time'] = '{:.3f}'.format(time.time() - self.start_time)
