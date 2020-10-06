@@ -47,18 +47,23 @@ class DistEvalHook(Hook):
         runner.log_buffer.output['eval_time'] = '{:.3f}'.format(time.time() - self.start_time)
 
     def after_train_epoch(self, runner):
+        print("start after train!")
         if not self.every_n_epochs(runner, self.interval):
             return
         self.start_time = time.time()
         # create a loader for this runner
+        print("start dataset building!")
         tf_dataset, num_examples = build_dataloader(self.dataset, 1, 1, num_gpus=runner.local_size, dist=True)
         # num_examples=8
+        print("dataset built")
+        print("num_example is {}".format(num_examples))
         results = [None for _ in range(num_examples*runner.local_size)] # REVISIT - may require a lot of memory
         #if runner.model.mask:
         if self.dataset.mask:
             masks = [None for _ in range(num_examples*runner.local_size)]
         if runner.rank == 0:
             prog_bar = ProgressBar(num_examples)
+        print(len(tf_dataset))
         for i, data_batch in enumerate(tf_dataset):
             if i >= num_examples:
                 break
