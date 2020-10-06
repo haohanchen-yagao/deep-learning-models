@@ -47,5 +47,5 @@ class DataGenerator:
                     img, img_meta = self.dataset[img_idx]
                     print(img_idx)
                     print(len(self.dataset))
-                    #print('Loading see eval:', self.gpu_index, img_idx, img, img_meta, )
+                    print('Loading see eval:', self.gpu_index, img_idx, img, img_meta, )
                     yield img, img_meta
