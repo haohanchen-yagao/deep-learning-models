@@ -99,7 +99,8 @@ class DistEvalHook(Hook):
                 print("masked placed idx is: {}".format(i*runner.local_size+runner.local_rank))
                 
             else:
-                results[i*runner.local_size+runner.local_rank] = result
+                #results[i*runner.local_size+runner.local_rank] = result
+                results[i*8+runner.local_rank] = result
                 if result is None:
                     print("we got a none here! idx is: {}".format(i*runner.local_size+runner.local_rank))
                 print("placed idx is: {}".format(i*runner.local_size+runner.local_rank))
