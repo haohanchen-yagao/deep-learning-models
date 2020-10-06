@@ -35,9 +35,6 @@ class DistEvalHook(Hook):
         # accumulate on the master
         print("let's start accu")
         print(len(results))
-        for i in range(len(results)):
-            if results[i] is None:
-                print("none before final result!")
         for worker_idx in range(1, runner.local_size):
             worker_file = osp.join(runner.work_dir, 'temp_{}.pkl'.format(worker_idx))
             tmp_results = load(worker_file)
@@ -50,7 +47,6 @@ class DistEvalHook(Hook):
         y = 0
         for i in range(len(results)):
             if results[i] is None:
-                print("none in final result!")
                 x += 1
             else:
                 y += 1
@@ -97,13 +93,24 @@ class DistEvalHook(Hook):
             if self.dataset.mask:
                 mask = mask2result(outputs['masks'], labels, img_meta[0])
                 results[i*runner.local_size+runner.local_rank] = (result, mask)
+                if result is None:
+                    print("we got a none here mask! idx is: {}".format(i*runner.local_size+runner.local_rank))
+                
             else:
                 results[i*runner.local_size+runner.local_rank] = result
                 if result is None:
-                    print("we got a none here!")
+                    print("we got a none here! idx is: {}".format(i*runner.local_size+runner.local_rank))
             if runner.rank == 0:
                 prog_bar.update()
         # write to a file
+        x = 0
+        y = 0
+        for i in range(len(results)):
+            if results[i] is None:
+                x += 1
+            else:
+                y += 1
+        print("in this case number of none is {}, not none is {}".format(x, y))
         tmp_file = osp.join(runner.work_dir, 'temp_{}.pkl'.format(runner.rank))
         if runner.rank != 0:
             dump(results, tmp_file)
@@ -111,9 +118,14 @@ class DistEvalHook(Hook):
         # MPI barrier through horovod
         print("let's go hook")
         print(len(results))
+        x = 0
+        y = 0
         for i in range(len(results)):
             if results[i] is None:
-                print("none in medium result!")
+                x += 1
+            else:
+                y += 1
+        print("in this case number of none is {}, not none is {}".format(x, y))
         _ = get_barrier()
         self._accumulate_results(runner, results, num_examples)
         del tf_dataset
