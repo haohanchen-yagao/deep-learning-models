@@ -82,8 +82,6 @@ class DistEvalHook(Hook):
             if i >= num_examples:
                 break
             _, img_meta = data_batch
-
-            print("see:", i)
             outputs = runner.model(data_batch, training=False)
             assert isinstance(outputs, dict)
             bboxes = outputs['bboxes']
