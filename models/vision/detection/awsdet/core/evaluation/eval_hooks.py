@@ -115,7 +115,7 @@ class DistEvalHook(Hook):
                 x += 1
             else:
                 y += 1
-        print("in this case number of none is {}, not none is {}".format(x, y))
+        #print("in this case number of none is {}, not none is {}".format(x, y))
         tmp_file = osp.join(runner.work_dir, 'temp_{}.pkl'.format(runner.rank))
         if runner.rank != 0:
             dump(results, tmp_file)
@@ -132,6 +132,7 @@ class DistEvalHook(Hook):
                 y += 1
         print("in this case number of none is {}, not none is {}".format(x, y))
         _ = get_barrier()
+        print("barrier got")
         self._accumulate_results(runner, results, num_examples)
         del tf_dataset
 

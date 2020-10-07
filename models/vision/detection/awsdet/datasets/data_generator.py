@@ -44,7 +44,7 @@ class DataGenerator:
                         yield img, img_meta, bboxes, labels
                 else:
                     img, img_meta = self.dataset[img_idx]
-                    print('See image name:', img_idx, self.gpu_index, self.dataset.img_infos[img_idx]['file_name'])
+                    #print('See image name:', img_idx, self.gpu_index, self.dataset.img_infos[img_idx]['file_name'])
 
                     '''print('See img content:', img)
                     print('See meta:', img_meta)'''
