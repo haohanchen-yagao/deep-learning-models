@@ -130,7 +130,7 @@ class DistEvalHook(Hook):
             else:
                 y += 1
         print("in this case number of none is {}, not none is {}".format(x, y))
-        _ = get_barrier()
+        #_ = get_barrier()
         print("barrier got")
         self._accumulate_results(runner, results, num_examples)
         del tf_dataset
