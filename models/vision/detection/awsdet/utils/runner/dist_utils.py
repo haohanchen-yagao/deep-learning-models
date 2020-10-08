@@ -49,4 +49,5 @@ def get_barrier():
     #return herring.allreduce(tf.constant(0, dtype=tf.float32))
     #return herring.allreduce(tf.constant(0, dtype=tf.float32), param_index=0, num_params=1)
     print("we're here for barrier")
-    return herring.oob_allreduce(tf.constant(0, dtype=tf.float32))
+    #return herring.oob_allreduce(tf.constant(0, dtype=tf.float32))
+    return herring.allreduce(tf.constant(0, dtype=tf.float32), param_index=0, num_params=len(tf.constant(0, dtype=tf.float32)))
