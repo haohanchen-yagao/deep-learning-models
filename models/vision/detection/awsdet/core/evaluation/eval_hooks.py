@@ -115,6 +115,7 @@ class DistEvalHook(Hook):
                 y += 1
         #print("in this case number of none is {}, not none is {}".format(x, y))
         tmp_file = osp.join(runner.work_dir, 'temp_{}.pkl'.format(runner.rank))
+        print("temo file is temp_{}.pkl".format(runner.rank))
         if runner.rank != 0:
             dump(results, tmp_file)
             # open(tmp_file+'.done', 'w').close()
