@@ -66,7 +66,7 @@ model = dict(
 optimizer = dict(
     _overwrite_=True,
     type='MomentumOptimizer',
-    learning_rate=3e-3,
+    learning_rate=5e-3,
     momentum=0.9,
     nesterov=False,
 )
@@ -77,7 +77,7 @@ lr_config = dict(
     _overwrite_=True,
     policy='step',
     warmup='linear',
-    warmup_iters=3000,
+    warmup_iters=1500,
     warmup_ratio=0.001,
     step=[8, 11]
 )
