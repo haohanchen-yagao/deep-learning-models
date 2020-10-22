@@ -338,7 +338,7 @@ class Runner(object):
         self.broadcast = True
         self.call_hook('before_train_epoch')
         print("let's start to try")
-        _ = get_barrier()
+        #_ = get_barrier()
         for i, data_batch in enumerate(tf_dataset[0]):
             self._inner_iter = i
             self.call_hook('before_train_iter')
@@ -361,7 +361,7 @@ class Runner(object):
             if i+1 >= self.num_examples: # for case where num_examples is deliberately made small to test
                 self._inner_iter = 0
                 break
-        #_ = get_barrier()
+        _ = get_barrier()
         self.call_hook('after_train_epoch')
         self._epoch += 1
 
