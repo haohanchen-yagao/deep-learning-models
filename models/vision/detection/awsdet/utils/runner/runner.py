@@ -337,6 +337,7 @@ class Runner(object):
         self._max_iters = self._max_epochs * self.num_examples
         self.broadcast = True
         self.call_hook('before_train_epoch')
+        print("let's start to try")
         for i, data_batch in enumerate(tf_dataset[0]):
             self._inner_iter = i
             self.call_hook('before_train_iter')
