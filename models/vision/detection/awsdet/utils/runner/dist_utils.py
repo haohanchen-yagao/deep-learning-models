@@ -46,6 +46,9 @@ def get_distributed_tape(tape):
                 sparse_as_dense=False)'''
 
 def get_barrier():
-    print("we're here for barrier")
+    #print("we're here for barrier")
     print("The rank is {}".format(herring.rank()))
-    return herring.oob_allreduce(tf.constant(0, dtype=tf.float32))
+    a = tf.constant(0, dtype=tf.float32)
+    sess = tf.Session(config=tf.ConfigProto(log_device_placement=True))
+    print(sess.run(a))
+    return herring.oob_allreduce(a)
