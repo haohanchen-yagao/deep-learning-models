@@ -60,7 +60,6 @@ class DistEvalHook(Hook):
 
     def after_train_epoch(self, runner):
         print("start after train!")
-        _ = get_barrier()
         if not self.every_n_epochs(runner, self.interval):
             return
         self.start_time = time.time()
