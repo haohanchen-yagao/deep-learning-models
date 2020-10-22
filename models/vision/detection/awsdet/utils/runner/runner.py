@@ -8,7 +8,7 @@ import os.path as osp
 import tensorflow as tf
 import numpy as np
 from . import hooks
-from .dist_utils import get_dist_info, get_distributed_tape, broadcast_weights
+from .dist_utils import get_dist_info, get_distributed_tape, broadcast_weights, get_barrier
 from .hooks import (CheckpointHook, Hook, IterTimerHook, LrUpdaterHook, 
                     lr_updater, WeightsMonitorHook)
 from .log_buffer import LogBuffer
@@ -338,6 +338,7 @@ class Runner(object):
         self.broadcast = True
         self.call_hook('before_train_epoch')
         print("let's start to try")
+        _ = get_barrier()
         for i, data_batch in enumerate(tf_dataset[0]):
             self._inner_iter = i
             self.call_hook('before_train_iter')
