@@ -60,7 +60,7 @@ class DistEvalHook(Hook):
 
     def after_train_epoch(self, runner):
         print("start after train!")
-        
+        _ = get_barrier()
         if not self.every_n_epochs(runner, self.interval):
             return
         self.start_time = time.time()
@@ -71,7 +71,7 @@ class DistEvalHook(Hook):
         # num_examples=8
         print("dataset built")
         print("num_example is {}".format(num_examples))
-        _ = get_barrier()
+        
         results = [None for _ in range(num_examples*runner.local_size)] # REVISIT - may require a lot of memory
         #results = [None for _ in range(num_examples*runner.local_size/2)] # REVISIT - may require a lot of memory
         #if runner.model.mask:
