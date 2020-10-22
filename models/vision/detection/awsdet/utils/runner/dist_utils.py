@@ -49,6 +49,6 @@ def get_barrier():
     #print("we're here for barrier")
     print("The rank is {}".format(herring.rank()))
     a = tf.constant(0, dtype=tf.float32)
-    sess = tf.compat.v1.Session(config=tf.ConfigProto(log_device_placement=True))
-    print(sess.run(a))
+    #sess = tf.compat.v1.Session(config=tf.ConfigProto(log_device_placement=True))
+    #print(sess.run(a))
     return herring.oob_allreduce(a)
