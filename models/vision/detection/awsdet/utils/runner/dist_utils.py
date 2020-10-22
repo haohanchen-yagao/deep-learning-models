@@ -47,4 +47,5 @@ def get_distributed_tape(tape):
 
 def get_barrier():
     print("we're here for barrier")
+    print("The rank is {}".format(herring.rank()))
     return herring.oob_allreduce(tf.constant(0, dtype=tf.float32))
