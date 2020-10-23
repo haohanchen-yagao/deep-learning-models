@@ -341,7 +341,7 @@ class Runner(object):
         #_ = get_barrier()
         for i, data_batch in enumerate(tf_dataset[0]):
             print("iter {} getting barrier".format(i) )
-            #_ = get_barrier()
+            _ = get_barrier()
             print("in iter barrier got")
             self._inner_iter = i
             self.call_hook('before_train_iter')
