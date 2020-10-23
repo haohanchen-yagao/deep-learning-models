@@ -291,9 +291,12 @@ class Runner(object):
                 loss = self.optimizer.get_scaled_loss(outputs['loss'])
             else:
                 loss = outputs['loss']
-        tape = herring.DistributedGradientTape(tape)
+        #tape = herring.DistributedGradientTape(tape)
         var_list = self.model.trainable_variables
-        #tape = get_distributed_tape(tape) if self.world_size > 1 else tape
+        tape = get_distributed_tape(tape) if self.world_size > 1 else tape
+        print("iter {} getting barrier".format(i) )
+            _ = get_barrier()
+            print("in iter barrier got")
         grads = tape.gradient(loss, var_list)
         if self._amp_enabled:
             grads = self.optimizer.get_unscaled_gradients(grads)
@@ -344,9 +347,6 @@ class Runner(object):
             self.call_hook('before_train_iter')
             
             outputs = self.run_train_step(data_batch)
-            print("iter {} getting barrier".format(i) )
-            _ = get_barrier()
-            print("in iter barrier got")
             if self.broadcast: # broadcast once
                 broadcast_weights(self)
                 self.broadcast = False
