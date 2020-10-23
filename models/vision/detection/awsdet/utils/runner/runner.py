@@ -294,7 +294,7 @@ class Runner(object):
         #tape = herring.DistributedGradientTape(tape)
         var_list = self.model.trainable_variables
         tape = get_distributed_tape(tape) if self.world_size > 1 else tape
-        grads = tape.gradient(loss, var_list))
+        grads = tape.gradient(loss, var_list)
         _ = get_barrier()
         print("in step barrier got")
         if self._amp_enabled:
