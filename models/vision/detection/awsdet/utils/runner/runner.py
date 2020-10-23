@@ -17,7 +17,6 @@ from .utils import get_host_info, get_time_str, obj_from_dict
 from awsdet.utils.misc import mkdir_or_exist
 import herring.tensorflow as herring
 
-
 class Runner(object):
     """A training helper.
 
