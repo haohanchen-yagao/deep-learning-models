@@ -340,7 +340,9 @@ class Runner(object):
         print("let's start to try")
         #_ = get_barrier()
         for i, data_batch in enumerate(tf_dataset[0]):
-            _ = get_barrier()
+            print("iter {} getting barrier".format(i) )
+            #_ = get_barrier()
+            print("in iter barrier got")
             self._inner_iter = i
             self.call_hook('before_train_iter')
             outputs = self.run_train_step(data_batch)
