@@ -338,7 +338,8 @@ class Runner(object):
         self.broadcast = True
         self.call_hook('before_train_epoch')
         print("let's start to try")
-        #_ = get_barrier()
+        _ = get_barrier()
+        print("before iter barrier got")
         for i, data_batch in enumerate(tf_dataset[0]):
             print("iter {} getting barrier".format(i) )
             _ = get_barrier()
