@@ -337,13 +337,8 @@ class Runner(object):
         self._max_iters = self._max_epochs * self.num_examples
         self.broadcast = True
         self.call_hook('before_train_epoch')
-        print("let's start to try")
-        _ = get_barrier()
-        print("before iter barrier got")
         for i, data_batch in enumerate(tf_dataset[0]):
-            print("iter {} getting barrier".format(i) )
-            _ = get_barrier()
-            print("in iter barrier got")
+            
             self._inner_iter = i
             self.call_hook('before_train_iter')
             outputs = self.run_train_step(data_batch)
@@ -365,6 +360,9 @@ class Runner(object):
             if i+1 >= self.num_examples: # for case where num_examples is deliberately made small to test
                 self._inner_iter = 0
                 break
+            print("iter {} getting barrier".format(i) )
+            _ = get_barrier()
+            print("in iter barrier got")
         #_ = get_barrier()
         self.call_hook('after_train_epoch')
         self._epoch += 1
