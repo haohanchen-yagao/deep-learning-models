@@ -351,6 +351,9 @@ class Runner(object):
                 self.log_buffer.update(outputs['log_vars'], outputs['num_samples'])
                 # add current learning rate for tensorboard as well
                 self.log_buffer.update({'learning_rate': self.current_lr()})
+            print("iter {} getting barrier".format(i) )
+            _ = get_barrier()
+            print("in iter barrier got")
             self.outputs = outputs
             self.call_hook('after_train_iter')
             self._iter += 1
@@ -360,9 +363,7 @@ class Runner(object):
             if i+1 >= self.num_examples: # for case where num_examples is deliberately made small to test
                 self._inner_iter = 0
                 break
-            print("iter {} getting barrier".format(i) )
-            _ = get_barrier()
-            print("in iter barrier got")
+
         #_ = get_barrier()
         self.call_hook('after_train_epoch')
         self._epoch += 1
