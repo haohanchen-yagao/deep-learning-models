@@ -356,12 +356,13 @@ class Runner(object):
             self.call_hook('after_train_iter')
             self._iter += 1
             debug_on_train_every_iter = 1000
-            '''if i > 0 and i % debug_on_train_every_iter == 0:
-                self.run_eval_step(data_batch)'''
+            if i > 0 and i % debug_on_train_every_iter == 0:
+                self.run_eval_step(data_batch)
             if i+1 >= self.num_examples: # for case where num_examples is deliberately made small to test
                 self._inner_iter = 0
                 break
-        _ = get_barrier()
+            _ = get_barrier()
+        #_ = get_barrier()
         self.call_hook('after_train_epoch')
         self._epoch += 1
 
