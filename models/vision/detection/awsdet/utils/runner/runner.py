@@ -342,6 +342,9 @@ class Runner(object):
             self._inner_iter = i
             self.call_hook('before_train_iter')
             outputs = self.run_train_step(data_batch)
+            print("iter {} getting barrier".format(i) )
+            _ = get_barrier()
+            print("in iter barrier got")
             if self.broadcast: # broadcast once
                 broadcast_weights(self)
                 self.broadcast = False
@@ -351,9 +354,6 @@ class Runner(object):
                 self.log_buffer.update(outputs['log_vars'], outputs['num_samples'])
                 # add current learning rate for tensorboard as well
                 self.log_buffer.update({'learning_rate': self.current_lr()})
-            print("iter {} getting barrier".format(i) )
-            _ = get_barrier()
-            print("in iter barrier got")
             self.outputs = outputs
             self.call_hook('after_train_iter')
             self._iter += 1
