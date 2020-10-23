@@ -361,7 +361,8 @@ class Runner(object):
             if i+1 >= self.num_examples: # for case where num_examples is deliberately made small to test
                 self._inner_iter = 0
                 break
-            _ = get_barrier()
+            if i == 51:
+                _ = get_barrier()
         #_ = get_barrier()
         self.call_hook('after_train_epoch')
         self._epoch += 1
