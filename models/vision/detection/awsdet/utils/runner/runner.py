@@ -15,6 +15,7 @@ from .log_buffer import LogBuffer
 from .priority import get_priority
 from .utils import get_host_info, get_time_str, obj_from_dict
 from awsdet.utils.misc import mkdir_or_exist
+import herring
 
 
 class Runner(object):
@@ -291,6 +292,7 @@ class Runner(object):
                 loss = self.optimizer.get_scaled_loss(outputs['loss'])
             else:
                 loss = outputs['loss']
+        tape = herring.DistributedGradientTape(tape)
         var_list = self.model.trainable_variables
         tape = get_distributed_tape(tape) if self.world_size > 1 else tape
         grads = tape.gradient(loss, var_list)
