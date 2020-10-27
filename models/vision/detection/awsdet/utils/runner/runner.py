@@ -294,7 +294,6 @@ class Runner(object):
                 print("not enabled!")
                 loss = outputs['loss']
         var_list = self.model.trainable_variables
-        #tape = herring.DistributedGradientTape(tape)
         tape = get_distributed_tape(tape) if self.world_size > 1 else tape
         grads = tape.gradient(loss, var_list)
         if self._amp_enabled:
@@ -345,7 +344,7 @@ class Runner(object):
             self._inner_iter = i
             self.call_hook('before_train_iter')
             print("run step for iter {}".format(i))
-            _ = get_barrier()
+            #_ = get_barrier()
             print("in step barrier got")
             outputs = self.run_train_step(data_batch)
             if self.broadcast: # broadcast once
