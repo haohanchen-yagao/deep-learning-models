@@ -288,10 +288,10 @@ class Runner(object):
         with tf.GradientTape() as tape:
             outputs = self.batch_processor(self.model, data_batch, train_mode=True)
             if self._amp_enabled:
-                print("amp_enabled!")
+                #print("amp_enabled!")
                 loss = self.optimizer.get_scaled_loss(outputs['loss'])
             else:
-                print("not enabled!")
+                #print("not enabled!")
                 loss = outputs['loss']
         var_list = self.model.trainable_variables
         tape = get_distributed_tape(tape) if self.world_size > 1 else tape
@@ -343,9 +343,9 @@ class Runner(object):
             
             self._inner_iter = i
             self.call_hook('before_train_iter')
-            print("run step for iter {}".format(i))
+            #print("run step for iter {}".format(i))
             #_ = get_barrier()
-            print("in step barrier got")
+            #print("in step barrier got")
             outputs = self.run_train_step(data_batch)
             if self.broadcast: # broadcast once
                 broadcast_weights(self)
